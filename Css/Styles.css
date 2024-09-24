@@ -7,7 +7,8 @@ body {
 }
 
 h1 {
-    text-align: center;
+    text-align: center;  
+    font-family: "Work Sans", sans-serif;
 }
 
 .list-group-item {
@@ -17,5 +18,11 @@ h1 {
 }
 
 .card {
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra sutil */
+    width: 60vh;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.btn-primary {
+    background-color: #FF5733;
+    border-color: #FF5733;
 }
