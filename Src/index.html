@@ -17,11 +17,12 @@
 <body>
 
     <!-- Cuadro de inicio de sesion -->
-    <!--
-    <div class="container mt-1 d-flex justify-content-center" id="Login">
-        <div class="card p-4">
+    <div class="container mt-0.2
+    
+    d-flex justify-content-center">
+        <div class="card p-4" id="containerLogin">
             <h1 class="card-title" style="color: #00304D;"><strong>¡Bienvenido!, inicia sesión para usar <span
-                    style="color: #39A900;">SeniCheck</span></strong>
+                        style="color: #39A900;">SeniCheck</span></strong>
             </h1>
             <form>
                 <div class="form-floating mb-3">
@@ -35,47 +36,40 @@
                     <label for="floatingSelectGrid"><strong>Selecciona tu tipo de rol</strong></label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="loginInput">
+                    <input type="email" class="form-control" id="emailInput">
                     <label for="floatingInput"><strong>Correo electrónico</strong></label>
                 </div>
                 <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="loginInput">
+                    <input type="password" class="form-control" id="passwordInput">
                     <label for="floatingPassword"><strong>Contraseña</strong></label>
-                </div> 
-                <button type="submit" class="btn btn-primary" id="btnLogin"><strong>Iniciar Sesión</strong></button>
+                </div>
+                <!-- Botón tipo submit que abrirá el modal -->
+                <button type="submit" class="btn btn-primary" id="btnLogin" data-bs-toggle="modal"
+                    data-bs-target="#noneDataModal">
+                    <strong>Iniciar Sesión</strong>
+                </button>
+
+                <!-- Modal  de falta de datos ingresados -->
+                <div class="modal fade" id="noneDataModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body text-center">
+                                <img src="../Resources/Img/errorIcon.png" alt="" class="mb-3">
+                                <h1><strong style="color: #00304D;">ERROR</strong></h1>
+                                <h1 id="modalMessageError"><strong style="color: #39A900;">Por favor, rellena todos los campos.</strong></h1>
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    id="btnCloseModal"><strong>Cerrar</strong></button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
             </form>
         </div>
     </div>
-    -->
-
-    <!-- Cuadro de inicio de sesion -->
-    <div class="container mt-1 d-flex justify-content-center" id="Login">
-        <div class="card p-4">
-            <h1 class="card-title" style="color: #00304D;"><strong>¡Bienvenido!, inicia sesión para usar <span
-                    style="color: #39A900;">SeniCheck</span></strong>
-            </h1>
-            <form>
-                <div class="form-floating mb-3">
-                    <select class="form-select" id="selectRol">
-                        <option disabled selected hidden>
-                        </option>
-                        <option value="1">Bienestar al aprendiz</option>
-                        <option value="2">Coordinador</option>
-                        <option value="3">Instructor</option>
-                    </select>
-                    <label for="floatingSelectGrid"><strong>Selecciona tu tipo de rol</strong></label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="loginInput">
-                    <label for="floatingInput"><strong>Correo electrónico</strong></label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="loginInput">
-                    <label for="floatingPassword"><strong>Contraseña</strong></label>
-                </div>
-                <button type="submit" class="btn btn-primary" id="btnLogin"><strong>Iniciar Sesión</strong></button>
-            </form>
-        </div>
 
     <script src="app.js"></script>
     <script src="Model/Model.js"></script>
