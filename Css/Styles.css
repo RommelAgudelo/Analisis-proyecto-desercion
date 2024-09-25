@@ -1,6 +1,6 @@
 body {
     height: 100vh;
-    background-image: url('../Resources/Img/Backgrounds.png');
+    background-image: url('../Resources/Img/BackgroundsNormal.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -17,12 +17,29 @@ h1 {
     align-items: center;
 }
 
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
 .card {
-    width: 60vh;
+    width: 400px;
+    border-radius: 10%;
+    text-align: center;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-.btn-primary {
-    background-color: #FF5733;
-    border-color: #FF5733;
+#loginInput, #selectRol{
+    font-family: "Work Sans", sans-serif;
+    margin: 1vh 0;
+}
+
+#btnLogin {
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.5rem;
+    width: 60vh;
+    background-color: #00304D;
+    border-color: #ff583300;
 }
