@@ -1,5 +1,5 @@
 document.getElementById('btnLogin').addEventListener('click', function(event) {
-    event.preventDefault(); //Esto hace que el formulario no recargue la página
+    event.preventDefault(); // Evita el envío del formulario
 
     const selectRol = document.getElementById('selectRol').value;
     const emailInput = document.getElementById('emailInput').value;
@@ -8,15 +8,21 @@ document.getElementById('btnLogin').addEventListener('click', function(event) {
     let modalMessageError = '';
 
     if (!selectRol && !emailInput && !passwordInput){
-
+        modalMessageError = 'Por favor, rellena todos los campos.';
     } else if (!selectRol){
         modalMessageError = 'Por favor, seleccione su tipo rol';
     } else if(!emailInput){
         modalMessageError = 'Por favor, ingrese su correo electrónico';
-    } else if(!passwordInputInput){
+    } else if(!passwordInput){
         modalMessageError = 'Por favor, ingrese su contraseña';
     }
 
-    document.getElementById('modalMessageError').innerHTML = `<strong style="color: #39A900;">${modalMessage}</strong>`;
+    if (modalMessageError) {
+        document.getElementById('modalMessageError').innerHTML = `<strong style="color: #39A900;">${modalMessage}</strong>`;
+
+        var modal = new bootstrap.Modal(document.getElementById('noneDataModal'));
+        modal.show();
+    }
+
 });
 
