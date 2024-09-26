@@ -1,12 +1,13 @@
+// Funcionamiento del formulario de inicio de sesión
 document.getElementById('btnLogin').addEventListener('click', function(event) { 
-    event.preventDefault(); // Evita el envío del formulario
+    event.preventDefault();
 
-    // Se declaran las variablr para obtener los valores de los campos
+    // Se declaran las variables para obtener los valores de los campos
     const selectRol = document.getElementById('selectRol').value;
     const emailInput = document.getElementById('emailInput').value;
     const passwordInput = document.getElementById('passwordInput').value;
 
-    // Se declara la variable para mostrar el mensaje de error
+    // Se declara la variable que muestra el mensaje de error
     let modalMessageError = '';
 
     // Validación de los campos

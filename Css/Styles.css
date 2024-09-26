@@ -1,13 +1,13 @@
 body {
     height: 100vh;
-    background-image: url('../Resources/Img/Backgrounds.png');
+    background-image: url('../Resources/Img/Backgrounds2.png');
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
 }
 
 h1 {
-    text-align: center;  
+    text-align: center;
     font-family: "Work Sans", sans-serif;
 }
 
@@ -31,11 +31,13 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
-#containerLogin{
+#containerLogin {
     border-radius: 20px;
 }
 
-#emailInput, #passwordInput, #selectRol{
+#emailInput,
+#passwordInput,
+#selectRol {
     margin: 1vh 0;
     border-radius: 20px;
     font-family: "Work Sans", sans-serif;
@@ -59,10 +61,58 @@ h1 {
 /* Estilos del modal de login */
 
 #btnCloseModal {
-    width: 80%;
+    width: 90%;
     font-family: "Work Sans", sans-serif;
     font-size: 1.5rem;
     background-color: #00304D;
     border-color: #ff583300;
     border-radius: 20px;
 }
+
+/* Estilos de la pantalla de principal */
+#containerPrincipal{
+    width: 100%;
+    border-radius: 20px;
+}
+
+/* Estilos de botones de navegación */
+#btnCheckCourse, #btnCheckNotifications, #btnCheckUserManual{
+    width: 80%;
+    margin-top: 5vh;
+    margin-bottom: 5vh;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.5rem;
+    background-color: #00304D;
+    border-color: #ff583300;
+    border-radius: 20px;
+}
+
+#btnCheckCourse:hover, #btnCheckNotifications:hover, #btnCheckUserManual:hover {
+    background-color: #39A900; /* Color al pasar el ratón */
+}
+
+/* Estilos de barra de busqueda */
+.search-container {
+    position: relative;
+    display: inline-block;
+    width: 80%;
+
+}
+
+#searchBar {
+    width: 100%;
+    padding: 10px 40px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 30px;
+}
+
+svg {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #888;
+}
+

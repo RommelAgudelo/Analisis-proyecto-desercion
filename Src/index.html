@@ -15,60 +15,96 @@
 </head>
 
 <body>
+    <template> <!-- Cuadro de inicio de sesion -->
+        <div class="container mt-0.2 d-flex justify-content-center">
+            <div class="card p-4" id="containerLogin">
+                <h1 class="card-title" style="color: #00304D;"><strong>¡Bienvenido!, inicia sesión para usar <span
+                            style="color: #39A900;">SeniCheck</span></strong>
+                </h1>
 
-    <!-- Cuadro de inicio de sesion -->
-    <div class="container mt-0.2
-    
-    d-flex justify-content-center">
-        <div class="card p-4" id="containerLogin">
-            <h1 class="card-title" style="color: #00304D;"><strong>¡Bienvenido!, inicia sesión para usar <span
-                        style="color: #39A900;">SeniCheck</span></strong>
-            </h1>
-            <form>
-                <div class="form-floating mb-3">
-                    <select class="form-select" id="selectRol">
-                        <option disabled selected hidden>
-                        </option>
-                        <option value="1">Bienestar al aprendiz</option>
-                        <option value="2">Coordinador</option>
-                        <option value="3">Instructor</option>
-                    </select>
-                    <label for="floatingSelectGrid"><strong>Selecciona tu tipo de rol</strong></label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="email" class="form-control" id="emailInput">
-                    <label for="floatingInput"><strong>Correo electrónico</strong></label>
-                </div>
-                <div class="form-floating mb-3">
-                    <input type="password" class="form-control" id="passwordInput">
-                    <label for="floatingPassword"><strong>Contraseña</strong></label>
-                </div>
-                <!-- Botón tipo submit que abrirá el modal -->
-                <button type="submit" class="btn btn-primary" id="btnLogin" data-bs-toggle="modal"
-                    data-bs-target="#noneDataModal">
-                    <strong>Iniciar Sesión</strong>
-                </button>
+                <form>
 
-                <!-- Modal  de falta de datos ingresados -->
-                <div class="modal fade" id="noneDataModal" data-bs-backdrop="static" data-bs-keyboard="false"
-                    tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                        <div class="modal-content">
-                            <div class="modal-body text-center">
-                                <img src="../Resources/Img/errorIcon.png" alt="" class="mb-3">
-                                <h1><strong style="color: #00304D;">ERROR</strong></h1>
-                                <h1 id="modalMessageError"><strong style="color: #39A900;">Por favor, rellena todos los campos.</strong></h1>
-                            </div>
-                            <div class="modal-footer justify-content-center">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                    id="btnCloseModal"><strong>Cerrar</strong></button>
+                    <div class="form-floating mb-3">
+                        <select class="form-select" id="selectRol">
+                            <option disabled selected hidden>
+                            </option>
+                            <option value="1">Bienestar al aprendiz</option>
+                            <option value="2">Coordinador</option>
+                            <option value="3">Instructor</option>
+                        </select>
+                        <label for="floatingSelectGrid"><strong>Selecciona tu tipo de rol</strong></label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="email" class="form-control" id="emailInput">
+                        <label for="floatingInput"><strong>Correo electrónico</strong></label>
+                    </div>
+                    <div class="form-floating mb-3">
+                        <input type="password" class="form-control" id="passwordInput">
+                        <label for="floatingPassword"><strong>Contraseña</strong></label>
+                    </div>
+                    <!-- Botón tipo submit que abrirá el modal -->
+                    <button type="submit" class="btn btn-primary" id="btnLogin" data-bs-toggle="modal"
+                        data-bs-target="#noneDataModal">
+                        <strong>Iniciar Sesión</strong>
+                    </button>
+
+                    <!-- Modal  de falta de datos ingresados -->
+                    <div class="modal fade" id="noneDataModal" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                        <div class="modal-dialog">
+                            <div class="modal-content">
+                                <div class="modal-body text-center">
+                                    <img src="../Resources/Img/errorIcon.png" alt="" class="mb-3">
+                                    <h1><strong style="color: #00304D;">ERROR</strong></h1>
+                                    <h1 id="modalMessageError"><strong style="color: #39A900;">Por favor, rellena todos
+                                            los campos.</strong></h1>
+                                </div>
+                                <div class="modal-footer justify-content-center">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                        id="btnCloseModal"><strong>Cerrar</strong></button>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
 
-            </form>
+                </form>
+
+            </div>
+
         </div>
+    </template>
+
+    <!-- Cuadro de pantalla de inicio Instructor -->
+    <div class="container mt-0.2 d-flex justify-content-center">
+        <div class="card p-4" id="containerPrincipal">
+            <!-- Encabezado de pagina principal -->
+            <h1 class="card-title" style="color: #00304D;"><strong>Bienvenido de nuevo, <span
+                        style="color: #39A900;">Nombre de usuario</span> ¿Qué deseas realizar el dia de hoy?</strong>
+            </h1>
+
+            <!-- Barra de navegacion -->
+            <form>
+                <div class="search-container">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
+                    <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="searchBar">
+                </div>
+            </form>
+
+            <!-- Botones de navegacion -->
+            <div class="d-grid gap-2 d-md-flex justify-content-center" id="btnNavegation">
+                <button class="btn btn-primary" type="button" id="btnCheckCourse"><strong>Vizualizar mis fichas</strong></button>
+                <button class="btn btn-primary" type="button" id="btnCheckNotifications"><strong>Ver mis notificaciones</strong></button>
+                <button class="btn btn-primary" type="button" id="btnCheckUserManual"><strong>¿Necesitas ayuda?</strong></button>
+            </div>
+            <!-- Pie de pagina -->
+             <h5><strong style="color: #c7c7c7;">2024 - Servicio Nacional de Aprendizaje SENA</strong></h5>
+
+        </div>
+
     </div>
 
     <script src="app.js"></script>
