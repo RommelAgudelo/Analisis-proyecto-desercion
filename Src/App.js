@@ -30,3 +30,16 @@ document.getElementById('btnLogin').addEventListener('click', function(event) {
         modal.show();
     }
 });
+
+// Funcionamiento de redirección de los botones de pagina principal
+document.getElementById('btnCheckCourse').addEventListener('click', function() {
+    window.location.href = 'ruta/a/tu/template.html';
+});
+document.getElementById('btnCheckNotifications').addEventListener('click', function() {
+    window.location.href = 'ruta/a/tu/template.html';
+});
+
+// Funcionamiento de redirección del boton de "btnCheckUserManual", (MANUAL DE USUARIO)
+document.getElementById('btnCheckUserManual').addEventListener('click', function() {
+    window.location.href = 'ruta/a/tu/template.html';
+});

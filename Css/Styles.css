@@ -31,10 +31,12 @@ h1 {
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+/* Estilos de contenedor login */
 #containerLogin {
     border-radius: 20px;
 }
 
+/* Estilos de inputs login */
 #emailInput,
 #passwordInput,
 #selectRol {
@@ -43,10 +45,11 @@ h1 {
     font-family: "Work Sans", sans-serif;
 }
 
+/* Estilos de boton login */
 #btnLogin {
     width: 80%;
     font-family: "Work Sans", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background-color: #00304D;
     border-color: #ff583300;
     border-radius: 20px;
@@ -59,11 +62,10 @@ h1 {
 }
 
 /* Estilos del modal de login */
-
 #btnCloseModal {
     width: 90%;
     font-family: "Work Sans", sans-serif;
-    font-size: 1.5rem;
+    font-size: 1rem;
     background-color: #00304D;
     border-color: #ff583300;
     border-radius: 20px;
@@ -71,40 +73,44 @@ h1 {
 
 /* Estilos de la pantalla de principal */
 #containerPrincipal{
-    width: 100%;
+    width: 100vw;
     border-radius: 20px;
 }
 
-/* Estilos de botones de navegación */
-#btnCheckCourse, #btnCheckNotifications, #btnCheckUserManual{
-    width: 80%;
-    margin-top: 5vh;
-    margin-bottom: 5vh;
+/* Estilos del encabezado */
+.card-title {
     font-family: "Work Sans", sans-serif;
-    font-size: 1.5rem;
-    background-color: #00304D;
-    border-color: #ff583300;
-    border-radius: 20px;
+    font-size: 2rem;
 }
 
-#btnCheckCourse:hover, #btnCheckNotifications:hover, #btnCheckUserManual:hover {
-    background-color: #39A900; /* Color al pasar el ratón */
+/* Estilos de subencabezado */
+.line {
+    height: 2px;
+    width: 90%;
+    background-color: #00304D;
 }
 
 /* Estilos de barra de busqueda */
 .search-container {
+    width: 80%;
+    margin: 2%;
     position: relative;
     display: inline-block;
-    width: 80%;
+    font-family: "Work Sans", sans-serif;
+    color: #CCCCCC;
+}
 
+#searchBar::placeholder {
+    color: #CCCCCC;
 }
 
 #searchBar {
-    width: 100%;
     padding: 10px 40px;
     font-size: 16px;
     border: 1px solid #ccc;
     border-radius: 30px;
+    font-weight: bold;
+    color: #ccc;
 }
 
 svg {
@@ -113,6 +119,112 @@ svg {
     top: 50%;
     transform: translateY(-50%);
     pointer-events: none;
-    color: #888;
+    color: #CCCCCC;
 }
 
+/* Estilos de botones de navegación */
+#btnNavegation{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#btnCheckCourse, #btnCheckNotifications, #btnCheckUserManual{
+    width: 80%;
+    margin: 1vh;
+    font-family: "Work Sans", sans-serif;
+    background-color: #00304D;
+    border-color: #ff583300;
+    border-radius: 20px;
+}
+
+#btnCheckCourse:hover, #btnCheckNotifications:hover, #btnCheckUserManual:hover {
+    background-color: #39A900;
+}
+
+#btnNavegationMenu{
+    margin-top: 15vw;
+}
+
+/* Estilos del pie de pagina */
+#footer{
+    margin: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c7c7c7;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1rem;
+}
+
+/* Estilos del menú de navegación */
+
+#optionMenu{
+    width: 30%;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1rem;
+    background-color: #ffffff;
+    border-color: #CCCCCC;
+    border-radius: 20px;
+    margin: 5vh;
+}
+
+#SenaLogo{
+    width: 50%;
+    margin: 1vh;
+}
+
+/* Estilos de la area de trabajo */
+#workArea{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Estilos de carta de ficha interactiva */
+#containerInteractiveCourseCard{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1vh;
+    width: 100%;
+}
+
+#interactiveCourseCard{
+    display: flex;
+    align-items: center; 
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    background-color: #ffffff; 
+    border-radius: 30px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 2vh;
+}
+
+#folderIcon{
+    width: 10%;
+    margin-right: 3vh;
+}
+
+#nameCourse{
+    font-family: "Work Sans", sans-serif;
+    font-size: 1rem;
+}
+
+#viewMoreOptionBtn{
+    width: 50%;
+    font-family: "Work Sans", sans-serif;
+    font-size: 1rem;
+    background-color: #00304D;
+    border-color: #ff583300;
+    border-radius: 50px;
+}
+
+#viewMoreOptionBtn:hover{
+    background-color: #39A900;
+}
