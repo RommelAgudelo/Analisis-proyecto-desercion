@@ -144,9 +144,6 @@ svg {
     background-color: #39A900;
 }
 
-#btnNavegationMenu{
-    margin-top: 15vw;
-}
 
 /* Estilos del pie de pagina */
 #footer{
@@ -163,6 +160,7 @@ svg {
 
 #optionMenu{
     width: 30%;
+    height: 80%;
     font-family: "Work Sans", sans-serif;
     font-size: 1rem;
     background-color: #ffffff;
@@ -176,55 +174,74 @@ svg {
     margin: 1vh;
 }
 
+
+
 /* Estilos de la area de trabajo */
 #workArea{
     width: 100%;
+    height: 100%;
+    border-radius: 20px;
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-/* Estilos de carta de ficha interactiva */
-#containerInteractiveCourseCard{
+/* Estilos del cuadro de trabajo */
+#squareWork{
+    height: 80%;
+    width: 100%;
+    border-radius: 20px;
     display: flex;
     justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 1vh;
-    width: 100%;
+    gap: 10px;
 }
 
-#interactiveCourseCard{
-    display: flex;
-    align-items: center; 
+/* Estilos de subencabezado */
+#subHeading{
+    font-family: "Work Sans", sans-serif;
+    font-size: 1.2rem;
+    text-align: start;
+    margin-left: 5vh;
+    margin-bottom: 0%;
+}
+
+.linea-horizontal {
+    border: none;
+    height: 2px;
+    background-color: #00304D;
+    width: 92%;
+    margin: 0 auto 20px;
     justify-content: center;
-    flex-wrap: nowrap;
-    width: 100%;
-    background-color: #ffffff; 
-    border-radius: 30px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 2vh;
+}
+
+/* Estilos de la ficha interactiva */
+#courseCard {
+    width: 90%;
+    text-align: center;
+    border-radius: 20px;
+}
+
+.card-body {
+    padding: 5%;
+    margin-bottom: 5%;
 }
 
 #folderIcon{
-    width: 10%;
-    margin-right: 3vh;
+    width: 60%;
+    display: block;
+    margin: 0 auto;
+    margin-top: 5%;
 }
 
-#nameCourse{
+#moreOptionBtn{
+    width: 80%;
     font-family: "Work Sans", sans-serif;
-    font-size: 1rem;
-}
-
-#viewMoreOptionBtn{
-    width: 50%;
-    font-family: "Work Sans", sans-serif;
-    font-size: 1rem;
+    font-size: 0.9rem;
     background-color: #00304D;
     border-color: #ff583300;
-    border-radius: 50px;
+    border-radius: 20px;
 }
 
-#viewMoreOptionBtn:hover{
+#moreOptionBtn:hover{
     background-color: #39A900;
 }

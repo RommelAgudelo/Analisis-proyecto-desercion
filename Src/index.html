@@ -74,8 +74,7 @@
         </div>
     </template>
 
-    <template>
-        <!-- Cuadro de pantalla de inicio Instructor -->
+    <template><!-- Cuadro de pantalla de inicio Instructor -->
         <div class="container mt-0.2 d-flex justify-content-center">
             <div class="card p-4" id="containerPrincipal">
                 <!-- Encabezado de pagina principal -->
@@ -118,6 +117,7 @@
         </div>
     </template>
 
+    <!-- Area de trabajo  -->
     <div class="container d-flex justify-content-evenly" id="workArea">
         <!-- Menú navegación -->
         <div class="card p-2" id="optionMenu">
@@ -157,40 +157,56 @@
         </div>
 
         <!-- Area de trabajo -->
-        <div class="card p-2 w-100" id="containerPrincipal">
+        <div class="card p-2 w-100" id="squareWork">
             <!-- Encabezado de pagina principal -->
             <h1 class="card-title" style="color: #00304D;"><strong>Te encuentras visualizando tu listado de <span
                         style="color: #39A900;">fichas</span>:</strong>
             </h1>
 
-            <!-- Subencabezado
-            <div class="container d-flex flex-nowrap">
-                <p class="card-title" style="color: #00304D; font-size:larger;"><strong>Porfavor, selecciona una ficha:</strong>
-                </p>
-            </div>
-            <div class="line"></div> -->
 
             <!-- Barra de navegacion -->
             <form>
+                <!-- Subencabezado -->
+                <p class="card-title" style="color: #00304D;" id="subHeading"><strong>Selecciona la ficha que deseas
+                        visualizar:</strong></p>
+                <div class="linea-horizontal"></div>
                 <div class="search-container">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
                         class="bi bi-search" viewBox="0 0 16 16">
                         <path
                             d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
                     </svg>
-                    <input class="form-control me-2" type="search" placeholder="Realizar busqueda" aria-label="Search"
+                    <input class="form-control me-2" type="search" placeholder="Buscar ficha" aria-label="Search"
                         id="searchBar">
                 </div>
             </form>
 
-            <!-- Tabla de fichas -->
-            <div class="container" id="containerInteractiveCourseCard">  
-                <div class="d-flex justify-content-between align-items-center" id="interactiveCourseCard">
-                    <div class="d-flex align-items-center">
-                        <img src="../Resources/Img/FolderIcon.png" alt="..." id="folderIcon" class="mr-2">
-                        <h4 style="color: #00304D;"><strong>Ficha 2823217</strong></h4>
+            <!-- Tarjetas de fichas -->
+
+            <div class="card" style="width: 12rem;" id="courseCard">
+                <img src="../Resources/Img/FolderIcon.png" class="card-img" alt="..." id="folderIcon">
+                <div class="card-body">
+                    <h5 class="card-title"><strong>Ficha 2823217</strong></h5>
+                    <a href="#" class="btn btn-primary" id="moreOptionBtn"><strong>Ver opciones</strong></a>
+                </div>
+            </div>
+
+            <!-- Modal  de falta de datos ingresados -->
+            <div class="modal fade" id="moreOptionModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body text-center">
+                            <img src="../Resources/Img/errorIcon.png" alt="" class="mb-3">
+                            <h1><strong style="color: #00304D;">ERROR</strong></h1>
+                            <h1 id="modalMessageError"><strong style="color: #39A900;">Por favor, rellena todos
+                                    los campos.</strong></h1>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                id="btnCloseModal"><strong>Cerrar</strong></button>
+                        </div>
                     </div>
-                    <button type="button" class="btn btn-primary" id="viewMoreOptionBtn"><strong>Ver opciones</strong></button>
                 </div>
             </div>
 
