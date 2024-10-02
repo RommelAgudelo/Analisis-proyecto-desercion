@@ -61,14 +61,18 @@ h1 {
     align-items: center;
 }
 
-/* Estilos del modal de login */
-#btnCloseModal {
+/* Estilos de boones de modal*/
+#btnCloseModal, #btnreplyMessage, #btnSendMessage {
     width: 90%;
     font-family: "Work Sans", sans-serif;
     font-size: 1rem;
     background-color: #00304D;
     border-color: #ff583300;
     border-radius: 20px;
+}
+
+#btnCloseModal:hover, #btnreplyMessage:hover, #btnSendMessage:hover {
+    background-color: #39A900;
 }
 
 /* Estilos de la pantalla de principal */
@@ -131,7 +135,7 @@ svg {
     gap: 10px;
 }
 
-#btnCheckCourse, #btnCheckNotifications, #btnCheckUserManual{
+#btnCheckCourse, #btnCheckNotifications, #btnCheckUserManual {
     width: 80%;
     margin: 1vh;
     font-family: "Work Sans", sans-serif;
@@ -143,6 +147,7 @@ svg {
 #btnCheckCourse:hover, #btnCheckNotifications:hover, #btnCheckUserManual:hover {
     background-color: #39A900;
 }
+
 
 
 /* Estilos del pie de pagina */
@@ -173,8 +178,6 @@ svg {
     width: 50%;
     margin: 1vh;
 }
-
-
 
 /* Estilos de la area de trabajo */
 #workArea{
@@ -233,10 +236,11 @@ svg {
     margin-top: 5%;
 }
 
+/* Estilos de boton de mas opciones */
 #moreOptionBtn{
     width: 80%;
     font-family: "Work Sans", sans-serif;
-    font-size: 0.9rem;
+    font-size: 1rem;
     background-color: #00304D;
     border-color: #ff583300;
     border-radius: 20px;
