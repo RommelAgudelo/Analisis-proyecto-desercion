@@ -6,11 +6,6 @@ body {
     background-position: center;
 }
 
-h1 {
-    text-align: center;
-    font-family: "Work Sans", sans-serif;
-}
-
 /* Estilos de la página de login*/
 .container {
     display: flex;
@@ -36,23 +31,14 @@ h1 {
     border-radius: 20px;
 }
 
-/* Estilos de inputs login */
+/* Estilos de inputs */
 #emailInput,
 #passwordInput,
 #selectRol {
     margin: 1vh 0;
     border-radius: 20px;
     font-family: "Work Sans", sans-serif;
-}
-
-/* Estilos de boton login */
-#btnLogin {
-    width: 80%;
-    font-family: "Work Sans", sans-serif;
-    font-size: 15px;
-    background-color: #00304D;
-    border-color: #ff583300;
-    border-radius: 20px;
+    font-size: 20px;
 }
 
 .list-group-item {
@@ -61,21 +47,31 @@ h1 {
     align-items: center;
 }
 
-/* Estilos de boones de modal*/
+/* Estilos de botones*/
+#btnLogin,
 #btnCloseModal,
 #btnreplyMessage,
-#btnSendMessage {
-    width: 90%;
+#btnSendMessage,
+#btnCheckCourse,
+#btnCheckNotifications,
+#moreOptionBtn,
+#btnCheckUserManual {
+    width: 100%;
     font-family: "Work Sans", sans-serif;
-    font-size: 15px;
+    font-size: 25px;
     background-color: #00304D;
     border-color: #ff583300;
     border-radius: 20px;
 }
 
+#btnLogin:hover,
 #btnCloseModal:hover,
 #btnreplyMessage:hover,
-#btnSendMessage:hover {
+#btnSendMessage:hover,
+#btnCheckCourse:hover,
+#btnCheckNotifications:hover,
+#moreOptionBtn:hover,
+#btnCheckUserManual:hover {
     background-color: #39A900;
 }
 
@@ -86,9 +82,14 @@ h1 {
 }
 
 /* Estilos del encabezado */
-.card-title {
+#heading {
+    height: 10vh;
+    top: 0;
+    display: flex;
+    align-items: center;
     font-family: "Work Sans", sans-serif;
-    font-size: 15px;
+    font-size: 12px;
+    background-color: #4d0000;
 }
 
 /* Estilos de subencabezado */
@@ -100,7 +101,7 @@ h1 {
 
 /* Estilos de barra de busqueda */
 .search-container {
-    width: 80%;
+    width: 90%;
     margin: 2%;
     position: relative;
     display: inline-block;
@@ -143,10 +144,10 @@ svg {
 #btnCheckNotifications,
 #moreOptionBtn,
 #btnCheckUserManual {
-    width: 80%;
-    margin: 1vh;
+    width: 90%;
+    margin: 0.5vh;
     font-family: "Work Sans", sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     background-color: #00304D;
     border-color: #ff583300;
     border-radius: 20px;
@@ -161,7 +162,7 @@ svg {
 
 /* Estilos de la area de trabajo */
 #workArea {
-    width: 100%;
+    width: 80%;
     height: 100%;
     border-radius: 20px;
     display: flex;
@@ -169,35 +170,12 @@ svg {
     align-items: center;
 }
 
-/* Estilos del menú de navegación */
-
-#optionMenu {
-    width: 250px;
-    height: 80vh;
-    font-family: "Work Sans", sans-serif;
-    background-color: #ffffff;
-    border-color: #CCCCCC;
-    border-radius: 20px;
-    align-items: center;
-    overflow-y: auto;
-    background-color: #fff;
-}
-
-#SenaLogo {
-    width: 50%;
-    margin: 1vh;
-}
-
-#btnNavegationMenu{
-    margin-top: 80%;
-}
-
-/* Estilos del cuadro de trabajo */
+/* Estilos del espacio de trabajo */
 #spaceWork {
     gap: 10px;
-    height: 80%;
-    width: 900px;
+    width: 150vh;
     height: 80vh;
+    margin: 2%;
     padding: 20px;
     display: flex;
     overflow-y: auto;
@@ -205,12 +183,35 @@ svg {
     justify-content: center;
 }
 
+/* Estilos del menú de navegación */
+
+#optionMenu {
+    margin: 1%;
+    width: 40vh;
+    height: 80vh;
+    font-family: "Work Sans", sans-serif;
+    background-color: #ffffff;
+    border-color: #CCCCCC;
+    border-radius: 20px;
+    align-items: center;
+    overflow-y: auto;
+}
+
+#SenaLogo {
+    width: 50%;
+    margin-top: 2vh;
+    margin-bottom: 2vh;
+}
+
+#btnNavegationMenu{
+    margin-top: 30vh;
+}
+
 /* Estilos de subencabezado */
 #subHeading {
     font-family: "Work Sans", sans-serif;
-    font-size: 15px;
+    font-size: 20px;
     text-align: start;
-    margin-left: 5vh;
     margin-bottom: 0%;
 }
 
@@ -218,25 +219,20 @@ svg {
     border: none;
     height: 2px;
     background-color: #00304D;
-    width: 92%;
+    width: 100%;
     margin: 0 auto 20px;
     justify-content: center;
 }
 
 /* Estilos de la ficha interactiva */
-#courseCard {
+#contentCard {
     width: 90%;
     text-align: center;
     border-radius: 20px;
 }
 
-.card-body {
-    padding: 5%;
-    margin-bottom: 5%;
-}
-
-#folderIcon {
-    width: 60%;
+#imgcon {
+    width: 70%;
     display: block;
     margin: 0 auto;
     margin-top: 5%;
@@ -244,7 +240,7 @@ svg {
 
 /* Estilos del pie de pagina */
 #footer {
-    margin: 1vh;
+    margin-top: 2vh;
     display: flex;
     justify-content: center;
     align-items: center;
