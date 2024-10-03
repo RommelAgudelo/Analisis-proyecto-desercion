@@ -31,15 +31,28 @@ document.getElementById('btnLogin').addEventListener('click', function(event) {
     }
 });
 
-// Funcionamiento de redirección de los botones de pagina principal
-document.getElementById('btnCheckCourse').addEventListener('click', function() {
-    window.location.href = 'ruta/a/tu/template.html';
-});
-document.getElementById('btnCheckNotifications').addEventListener('click', function() {
-    window.location.href = 'ruta/a/tu/template.html';
-});
 
-// Funcionamiento de redirección del boton de "btnCheckUserManual", (MANUAL DE USUARIO)
-document.getElementById('btnCheckUserManual').addEventListener('click', function() {
-    window.location.href = 'ruta/a/tu/template.html';
+// Funcionamiento de campo de respuesta de notificación
+document.getElementById('btnSendMessage').addEventListener('click', function(event) { 
+    event.preventDefault();
+
+    // Se declaran las variables para obtener los valores de los campos
+    const answerInput = document.getElementById('answerInput').value;
+
+    // Se declara la variable que muestra el mensaje de error
+    let modalMessageError = '';
+
+       // Validación de los campos
+       if (!answerInput && !emailInput && !passwordInput) {
+        modalMessageError = 'Por favor, llena el campo de respuesta.';
+    }
+
+    // Mostrar el mensaje de error si hay uno
+    if (modalMessageError) {
+        document.getElementById('modalMessageError').innerHTML = `<strong style="color: #39A900;">${modalMessageError}</strong>`;
+
+        // Crear una instancia del modal y mostrarlo
+        var modal = new bootstrap.Modal(document.getElementById('noneDataModal'));
+        modal.show();
+    }
 });

@@ -49,7 +49,7 @@ h1 {
 #btnLogin {
     width: 80%;
     font-family: "Work Sans", sans-serif;
-    font-size: 1rem;
+    font-size: 15px;
     background-color: #00304D;
     border-color: #ff583300;
     border-radius: 20px;
@@ -62,21 +62,25 @@ h1 {
 }
 
 /* Estilos de boones de modal*/
-#btnCloseModal, #btnreplyMessage, #btnSendMessage {
+#btnCloseModal,
+#btnreplyMessage,
+#btnSendMessage {
     width: 90%;
     font-family: "Work Sans", sans-serif;
-    font-size: 1rem;
+    font-size: 15px;
     background-color: #00304D;
     border-color: #ff583300;
     border-radius: 20px;
 }
 
-#btnCloseModal:hover, #btnreplyMessage:hover, #btnSendMessage:hover {
+#btnCloseModal:hover,
+#btnreplyMessage:hover,
+#btnSendMessage:hover {
     background-color: #39A900;
 }
 
 /* Estilos de la pantalla de principal */
-#containerPrincipal{
+#containerPrincipal {
     width: 100vw;
     border-radius: 20px;
 }
@@ -84,7 +88,7 @@ h1 {
 /* Estilos del encabezado */
 .card-title {
     font-family: "Work Sans", sans-serif;
-    font-size: 2rem;
+    font-size: 15px;
 }
 
 /* Estilos de subencabezado */
@@ -110,7 +114,7 @@ h1 {
 
 #searchBar {
     padding: 10px 40px;
-    font-size: 16px;
+    font-size: 15px;
     border: 1px solid #ccc;
     border-radius: 30px;
     font-weight: bold;
@@ -127,7 +131,7 @@ svg {
 }
 
 /* Estilos de botones de navegación */
-#btnNavegation{
+#btnNavegation {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -135,52 +139,28 @@ svg {
     gap: 10px;
 }
 
-#btnCheckCourse, #btnCheckNotifications, #btnCheckUserManual {
+#btnCheckCourse,
+#btnCheckNotifications,
+#moreOptionBtn,
+#btnCheckUserManual {
     width: 80%;
     margin: 1vh;
     font-family: "Work Sans", sans-serif;
+    font-size: 15px;
     background-color: #00304D;
     border-color: #ff583300;
     border-radius: 20px;
 }
 
-#btnCheckCourse:hover, #btnCheckNotifications:hover, #btnCheckUserManual:hover {
+#btnCheckCourse:hover,
+#btnCheckNotifications:hover,
+#moreOptionBtn:hover,
+#btnCheckUserManual:hover {
     background-color: #39A900;
 }
 
-
-
-/* Estilos del pie de pagina */
-#footer{
-    margin: 1vh;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #c7c7c7;
-    font-family: "Work Sans", sans-serif;
-    font-size: 1rem;
-}
-
-/* Estilos del menú de navegación */
-
-#optionMenu{
-    width: 30%;
-    height: 80%;
-    font-family: "Work Sans", sans-serif;
-    font-size: 1rem;
-    background-color: #ffffff;
-    border-color: #CCCCCC;
-    border-radius: 20px;
-    margin: 5vh;
-}
-
-#SenaLogo{
-    width: 50%;
-    margin: 1vh;
-}
-
 /* Estilos de la area de trabajo */
-#workArea{
+#workArea {
     width: 100%;
     height: 100%;
     border-radius: 20px;
@@ -189,20 +169,46 @@ svg {
     align-items: center;
 }
 
-/* Estilos del cuadro de trabajo */
-#squareWork{
-    height: 80%;
-    width: 100%;
+/* Estilos del menú de navegación */
+
+#optionMenu {
+    width: 250px;
+    height: 80vh;
+    font-family: "Work Sans", sans-serif;
+    background-color: #ffffff;
+    border-color: #CCCCCC;
     border-radius: 20px;
-    display: flex;
-    justify-content: center;
+    align-items: center;
+    overflow-y: auto;
+    background-color: #fff;
+}
+
+#SenaLogo {
+    width: 50%;
+    margin: 1vh;
+}
+
+#btnNavegationMenu{
+    margin-top: 80%;
+}
+
+/* Estilos del cuadro de trabajo */
+#spaceWork {
     gap: 10px;
+    height: 80%;
+    width: 900px;
+    height: 80vh;
+    padding: 20px;
+    display: flex;
+    overflow-y: auto;
+    border-radius: 20px;
+    justify-content: center;
 }
 
 /* Estilos de subencabezado */
-#subHeading{
+#subHeading {
     font-family: "Work Sans", sans-serif;
-    font-size: 1.2rem;
+    font-size: 15px;
     text-align: start;
     margin-left: 5vh;
     margin-bottom: 0%;
@@ -229,23 +235,27 @@ svg {
     margin-bottom: 5%;
 }
 
-#folderIcon{
+#folderIcon {
     width: 60%;
     display: block;
     margin: 0 auto;
     margin-top: 5%;
 }
 
-/* Estilos de boton de mas opciones */
-#moreOptionBtn{
-    width: 80%;
+/* Estilos del pie de pagina */
+#footer {
+    margin: 1vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #c7c7c7;
     font-family: "Work Sans", sans-serif;
-    font-size: 1rem;
-    background-color: #00304D;
-    border-color: #ff583300;
-    border-radius: 20px;
+    font-size: 15px;
 }
 
-#moreOptionBtn:hover{
-    background-color: #39A900;
+/* Estilos del modal de notificaciones */
+#messageInput {
+    margin: 1vh 0;
+    border-radius: 20px;
+    font-family: "Work Sans", sans-serif;
 }
