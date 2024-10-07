@@ -1,13 +1,11 @@
 // Funcionamiento del formulario de inicio de sesión
-document.getElementById('btnLogin').addEventListener('click', function(event) { 
-    event.preventDefault();
+document.getElementById('loginForm').addEventListener('submit', function (event) {
+    event.preventDefault(); // Evitar el envío del formulario
 
-    // Se declaran las variables para obtener los valores de los campos
     const selectRol = document.getElementById('selectRol').value;
     const emailInput = document.getElementById('emailInput').value;
     const passwordInput = document.getElementById('passwordInput').value;
 
-    // Se declara la variable que muestra el mensaje de error
     let modalMessageError = '';
 
     // Validación de los campos
@@ -19,32 +17,6 @@ document.getElementById('btnLogin').addEventListener('click', function(event) {
         modalMessageError = 'Por favor, ingrese su correo electrónico';
     } else if (!passwordInput) {
         modalMessageError = 'Por favor, ingrese su contraseña';
-    }
-
-    // Mostrar el mensaje de error si hay uno
-    if (modalMessageError) {
-        document.getElementById('modalMessageError').innerHTML = `<strong style="color: #39A900;">${modalMessageError}</strong>`;
-
-        // Crear una instancia del modal y mostrarlo
-        var modal = new bootstrap.Modal(document.getElementById('noneDataModal'));
-        modal.show();
-    }
-});
-
-
-// Funcionamiento de campo de respuesta de notificación
-document.getElementById('btnSendMessage').addEventListener('click', function(event) { 
-    event.preventDefault();
-
-    // Se declaran las variables para obtener los valores de los campos
-    const answerInput = document.getElementById('answerInput').value;
-
-    // Se declara la variable que muestra el mensaje de error
-    let modalMessageError = '';
-
-       // Validación de los campos
-       if (!answerInput && !emailInput && !passwordInput) {
-        modalMessageError = 'Por favor, llena el campo de respuesta.';
     }
 
     // Mostrar el mensaje de error si hay uno
