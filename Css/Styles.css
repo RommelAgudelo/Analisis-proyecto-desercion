@@ -185,7 +185,7 @@ svg {
 #dynamicContentContainer {
     width: 100%;
     height: 100%;
-    padding: 10px;
+    padding: 5px;
     display: flex;
     flex-wrap: wrap;
     overflow-y: auto;
@@ -195,6 +195,10 @@ svg {
     align-items: center;
     background-color: #ffffff;
     border: 1px solid #c7c7c7;
+}
+
+.text-left {
+    text-align: left;
 }
 
 /* Estilos para la barra de desplazamiento */

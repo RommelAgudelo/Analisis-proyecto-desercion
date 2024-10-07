@@ -153,6 +153,7 @@
                 </div>
             </div>
         </div>
+
         <!-- Espacio de trabajo de trabajo -->
         <div class="card d-flex justify-content-center" id="spaceWork">
 
@@ -184,19 +185,35 @@
             <!-- Contenido modificable -->
             <div class="container d-flex flex-column mb-3" id="dynamicContentContainer" style="flex-wrap: wrap;">
 
-                <!-- Tarjeta dinámica -->
+                <!-- Tarjeta dinámica de selección de ficha
                 <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
-
                     <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
                     <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha 2823217</strong>
                     <div class="flex-grow-1">
                     </div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#optionModal" id="moreOptionBtn">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#optionModal"
+                        id="moreOptionBtn">
                         <strong>Ver opciones</strong>
                     </button>
-                </div>
+                </div> -->
 
+                <!-- Tarjeta dinámica de notificación -->
+                <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
+                    <img src="../Resources/Img/NotificationIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+                    <div class="text-left">
+                        <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Aprendiz en estado de
+                            riesgo</strong>
+                        <p class="card-text"><small class="text-body-secondary"
+                                style="font-size: 20px; margin-left: 2vh;"><strong>Enviada 7 de octubre del 2024,
+                                    13:00</strong></small></p>
+                    </div>
+                    <div class="flex-grow-1">
+                    </div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#notificationModal" id="moreOptionBtn">
+                        <strong>Ver notificación</strong>
+                    </button>
+                </div>
             </div>
 
             <!-- Modal de opciones -->
@@ -228,159 +245,139 @@
                 </div>
             </div>
 
+            <!-- Modal  de falta de datos ingresados -->
+            <div class="modal fade" id="noneDataModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+                aria-labelledby="staticBackdropLabel" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-body text-center">
+                            <img src="../Resources/Img/errorIcon.png" alt="" class="mb-3">
+                            <h1><strong style="color: #00304D;">ERROR</strong></h1>
+                            <h1 id="modalMessageError"><strong style="color: #39A900;">Por favor, rellena el campo de respuesta</strong></h1>
+                        </div>
+                        <div class="modal-footer justify-content-center">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                id="btnCloseModal"><strong>Cerrar</strong></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
             <!-- Pie de pagina -->
             <p class="pie-de-pagina" style="color:#989898; font-size: 20px; margin: 1vh;">
                 <strong>2024 - Servicio Nacional de Aprendizaje Sena</strong>
             </p>
         </div>
 
-        <template>
-
-
-            <!-- Modal de opciones -->
-            <div class="modal fade" id="optionModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="card-title" style="color: #00304D;">
-                                <strong>Por favor, selecciona una <span style="color: #39A900;">opción</span>:</strong>
-                            </h1>
-                        </div>
-                        <div class="modal-body">
-                            <div class="d-flex flex-column align-items-stretch" id="btnNavegation">
-                                <button class="btn btn-primary mb-2" type="button" id="btnCheckCourse"><strong>Registrar
-                                        asistencia</strong></button>
-                                <button class="btn btn-primary mb-2" type="button"
-                                    id="btnCheckNotifications"><strong>Historial de
-                                        asistencia</strong></button>
-                                <button class="btn btn-primary" type="button" id="btnCheckUserManual"><strong>¿Necesitas
-                                        ayuda?</strong></button>
-                            </div>
-                        </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                id="btnCloseModal"><strong>Cerrar</strong></button>
+        <!-- Modal de opciones -->
+        <div class="modal fade" id="optionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="card-title" style="color: #00304D;">
+                            <strong>Por favor, selecciona una <span style="color: #39A900;">opción</span>:</strong>
+                        </h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class="d-flex flex-column align-items-stretch" id="btnNavegation">
+                            <button class="btn btn-primary mb-2" type="button" id="btnCheckCourse"><strong>Registrar
+                                    asistencia</strong></button>
+                            <button class="btn btn-primary mb-2" type="button"
+                                id="btnCheckNotifications"><strong>Historial de
+                                    asistencia</strong></button>
+                            <button class="btn btn-primary" type="button" id="btnCheckUserManual"><strong>¿Necesitas
+                                    ayuda?</strong></button>
                         </div>
                     </div>
-                </div>
-            </div>
-    </div>
-    </template>
-
-    <template><!-- Pantalla de vizualización de notificaciones -->
-        <div class="container">
-            <!-- Encabezado de página principal -->
-            <h1 class="card-title" style="color: #00304D;">
-                <strong>Te encuentras visualizando tu listado de <span style="color: #39A900;">fichas</span>:</strong>
-            </h1>
-
-            <!-- Barra de navegación -->
-            <form>
-                <!-- Subencabezado -->
-                <p class="card-title" style="color: #00304D;" id="subHeading">
-                    <strong>Selecciona la ficha que deseas visualizar:</strong>
-                </p>
-                <div class="linea-horizontal"></div>
-                <div class="search-container">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                            d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg>
-                    <input class="form-control me-2" type="search" placeholder="Buscar ficha" aria-label="Search"
-                        id="searchBar">
-                </div>
-            </form>
-
-            <!-- Tarjetas de notificaciones -->
-            <div class="card" style="width: 15rem;" id="courseCard">
-                <img src="../Resources/Img/NotificationIcon.png" class="card-img" alt="..." id="folderIcon">
-                <div class="card-body">
-                    <h5 class="card-title"><strong>Estudiante en riesgo</strong></h5>
-                    <p class="card-text"><small class="text-body-secondary">Martes 25 de febrero, 01:48
-                            pm</small>
-                    </p>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#notificationModal" id="moreOptionBtn">
-                        <strong>Ver notificación</strong>
-                    </button>
-                </div>
-            </div>
-
-            <!-- Modal de ver notificación -->
-            <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="card-title" style="color: #00304D;">
-                                <strong>Estudiante en <span style="color: #39A900;">riesgo</span>:</strong>
-                            </h1>
-                        </div>
-                        <div class="modal-body">
-                            <strong style="color: #00304D;">Nombre de usuario (Bienestar al aprendiz)</strong>
-                            <p>This is some placeholder content to show the scrolling behavior for modals.
-                                Instead
-                                of
-                                repeating the text in the modal, we use an inline style to set a minimum height,
-                                thereby
-                                extending the length of the overall modal and demonstrating the overflow
-                                scrolling.
-                                When
-                                content becomes longer than the height of the viewport, scrolling will move the
-                                modal as
-                                needed.</p>
-                        </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                                data-bs-target="#sendMessageModal" id="btnreplyMessage">
-                                <strong>Responder notificación</strong>
-                            </button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCloseModal">
-                                <strong>Cerrar</strong>
-                            </button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Modal de responder mensaje -->
-            <div class="modal fade" id="sendMessageModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="card-title" style="color: #00304D;">
-                                <strong>Por favor, escribe tu <span style="color: #39A900;">respuesta</span></strong>
-                            </h1>
-                        </div>
-                        <div class="modal-body">
-                            <div class="mb-3">
-                                <textarea class="form-control" id="answerInput" rows="3"
-                                    placeholder="Escribe tu respuesta aquí..."></textarea>
-                            </div>
-                        </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-primary" id="btnSendMessage"><strong>Enviar
-                                    respuesta</strong></button>
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                id="btnCloseModal"><strong>Cerrar</strong></button>
-                        </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="btnCloseModal"><strong>Cerrar</strong></button>
                     </div>
                 </div>
             </div>
         </div>
-    </template>
-    </div>
-    </div>
+
+        <!-- Modal de ver notificación -->
+        <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="card-title" style="color: #00304D;">
+                            <strong>Estudiante en <span style="color: #39A900;">riesgo</span>:</strong>
+                        </h1>
+                    </div>
+                    <div class="modal-body">
+
+                        <div style="text-align: start; margin: 1vh; font-size: 20px;">
+                            <strong style="color: #00304D;">Bienestar al aprendiz:</strong>
+                            <p class="card-text">
+                                <small class="text-body-secondary" style="font-size: 15px;"><strong>Enviada 7 de octubre
+                                        del 2024, 13:00</strong></small>
+                            </p>
+                        </div>
+
+                        <p style="margin: 1vh;">This is some placeholder content to show the scrolling behavior for
+                            modals.
+                            Instead
+                            of
+                            repeating the text in the modal, we use an inline style to set a minimum height,
+                            thereby
+                            extending the length of the overall modal and demonstrating the overflow
+                            scrolling.
+                            When
+                            content becomes longer than the height of the viewport, scrolling will move the
+                            modal as
+                            needed.</p>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#sendMessageModal" id="btnreplyMessage">
+                            <strong>Responder notificación</strong>
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCloseModal">
+                            <strong>Cerrar</strong>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de responder mensaje -->
+        <div class="modal fade" id="sendMessageModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="card-title" style="color: #00304D;">
+                            <strong>Por favor, escribe tu <span style="color: #39A900;">respuesta</span></strong>
+                        </h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class="mb-3">
+                            <textarea class="form-control" id="answerInput" rows="3"
+                                placeholder="Escribe tu respuesta aquí..."></textarea>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-primary" id="btnSendMessage"><strong>Enviar
+                                respuesta</strong></button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="btnCloseModal"><strong>Cerrar</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
+
+    <!-- Scripts -->
     <script src="app.js"></script>
     <script src="Model/Model.js"></script>
     <script src="View/View.js"></script>
     <script src="Controller/Controler.js"></script>
 
+    <!-- Scripts de base Boootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
         integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous">
         </script>
