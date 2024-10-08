@@ -225,7 +225,7 @@ svg {
 /* Estilos del menú de navegación */
 #optionMenu {
     margin: 1%;
-    width: 40vh;
+    width: 45vh;
     height: 80vh;
     font-family: "Work Sans", sans-serif;
     background-color: #ffffff;
@@ -242,7 +242,7 @@ svg {
 }
 
 #btnNavegationMenu{
-    margin-top: 30vh;
+    margin-top: 24vh;
 }
 
 /* Estilos de la card interactiva */
@@ -267,4 +267,27 @@ svg {
     margin: 1vh 0;
     border-radius: 20px;
     font-family: "Work Sans", sans-serif;
+}
+
+/* Estilos de contenedor de filtrado */
+#filtrerContainer {
+    width: 90%;
+    height: 11vh;
+
+    background-border: #CCCCCC;
+    border-radius: 20px;
+    display: flex;
+    flex-direction: center; 
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#btnFiltrerCourse{
+    width: 20%;
+    font-family: "Work Sans", sans-serif;
+    font-size: 20px;
+    background-color: #00304D;
+    border-color: #ff583300;
+    border-radius: 20px;
 }

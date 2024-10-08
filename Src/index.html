@@ -197,7 +197,7 @@
                     </button>
                 </div> -->
 
-                <!-- Tarjeta dinámica de notificación -->
+                <!-- Tarjeta dinámica de notificación
                 <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
                     <img src="../Resources/Img/NotificationIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
                     <div class="text-left">
@@ -213,53 +213,18 @@
                         data-bs-target="#notificationModal" id="moreOptionBtn">
                         <strong>Ver notificación</strong>
                     </button>
-                </div>
-            </div>
+                </div> -->
 
-            <!-- Modal de opciones -->
-            <div class="modal fade" id="optionModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-                aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-header">
-                            <h1 class="card-title" style="color: #00304D;">
-                                <strong>Por favor, selecciona una <span style="color: #39A900;">opción</span>:</strong>
-                            </h1>
-                        </div>
-                        <div class="modal-body">
-                            <div class="d-flex" id="btnNavegation">
-                                <button class="btn btn-primary mb-2" type="button" id="btnCheckCourse"><strong>Registrar
-                                        asistencia</strong></button>
-                                <button class="btn btn-primary mb-2" type="button"
-                                    id="btnCheckNotifications"><strong>Historial de
-                                        asistencia</strong></button>
-                                <button class="btn btn-primary" type="button" id="btnCheckUserManual"><strong>¿Necesitas
-                                        ayuda?</strong></button>
-                            </div>
-                        </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                id="btnCloseModal"><strong>Cerrar</strong></button>
-                        </div>
+                <!-- Tarjeta dinámica de nombre de aprendiz -->
+                <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
+                    <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+                    <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Jean Carlos Centeno</strong>
+                    <div class="flex-grow-1">
                     </div>
-                </div>
-            </div>
-
-            <!-- Modal  de falta de datos ingresados -->
-            <div class="modal fade" id="noneDataModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-                aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                <div class="modal-dialog">
-                    <div class="modal-content">
-                        <div class="modal-body text-center">
-                            <img src="../Resources/Img/errorIcon.png" alt="" class="mb-3">
-                            <h1><strong style="color: #00304D;">ERROR</strong></h1>
-                            <h1 id="modalMessageError"><strong style="color: #39A900;">Por favor, rellena el campo de respuesta</strong></h1>
-                        </div>
-                        <div class="modal-footer justify-content-center">
-                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                id="btnCloseModal"><strong>Cerrar</strong></button>
-                        </div>
-                    </div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#asistModal"
+                        id="moreOptionBtn">
+                        <strong>Ver historial</strong>
+                    </button>
                 </div>
             </div>
 
@@ -272,14 +237,14 @@
         <!-- Modal de opciones -->
         <div class="modal fade" id="optionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
-                <div class="modal-content">
+                <div class="modal-content align-items-center">
                     <div class="modal-header">
-                        <h1 class="card-title" style="color: #00304D;">
+                        <h1 class="card-title" style="color: #00304D; ">
                             <strong>Por favor, selecciona una <span style="color: #39A900;">opción</span>:</strong>
                         </h1>
                     </div>
                     <div class="modal-body">
-                        <div class="d-flex flex-column align-items-stretch" id="btnNavegation">
+                        <div class="d-flex" id="btnNavegation">
                             <button class="btn btn-primary mb-2" type="button" id="btnCheckCourse"><strong>Registrar
                                     asistencia</strong></button>
                             <button class="btn btn-primary mb-2" type="button"
@@ -297,77 +262,176 @@
             </div>
         </div>
 
-        <!-- Modal de ver notificación -->
-        <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
+        <!-- Modal  de falta de datos ingresados -->
+        <div class="modal fade" id="noneDataModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+            aria-labelledby="staticBackdropLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="card-title" style="color: #00304D;">
-                            <strong>Estudiante en <span style="color: #39A900;">riesgo</span>:</strong>
-                        </h1>
-                    </div>
-                    <div class="modal-body">
-
-                        <div style="text-align: start; margin: 1vh; font-size: 20px;">
-                            <strong style="color: #00304D;">Bienestar al aprendiz:</strong>
-                            <p class="card-text">
-                                <small class="text-body-secondary" style="font-size: 15px;"><strong>Enviada 7 de octubre
-                                        del 2024, 13:00</strong></small>
-                            </p>
-                        </div>
-
-                        <p style="margin: 1vh;">This is some placeholder content to show the scrolling behavior for
-                            modals.
-                            Instead
-                            of
-                            repeating the text in the modal, we use an inline style to set a minimum height,
-                            thereby
-                            extending the length of the overall modal and demonstrating the overflow
-                            scrolling.
-                            When
-                            content becomes longer than the height of the viewport, scrolling will move the
-                            modal as
-                            needed.</p>
+                    <div class="modal-body text-center">
+                        <img src="../Resources/Img/errorIcon.png" alt="" class="mb-3">
+                        <h1><strong style="color: #00304D;">ERROR</strong></h1>
+                        <h1 id="modalMessageError"><strong style="color: #39A900;">Por favor, rellena el campo de
+                                respuesta</strong></h1>
                     </div>
                     <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#sendMessageModal" id="btnreplyMessage">
-                            <strong>Responder notificación</strong>
-                        </button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCloseModal">
-                            <strong>Cerrar</strong>
-                        </button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal de responder mensaje -->
-        <div class="modal fade" id="sendMessageModal" tabindex="-1" aria-labelledby="exampleModalLabel"
-            aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="card-title" style="color: #00304D;">
-                            <strong>Por favor, escribe tu <span style="color: #39A900;">respuesta</span></strong>
-                        </h1>
-                    </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
-                            <textarea class="form-control" id="answerInput" rows="3"
-                                placeholder="Escribe tu respuesta aquí..."></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-primary" id="btnSendMessage"><strong>Enviar
-                                respuesta</strong></button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                             id="btnCloseModal"><strong>Cerrar</strong></button>
                     </div>
                 </div>
             </div>
         </div>
+
+        <!-- Modal de historial de asistencia -->
+        <div class="modal fade" id="asistModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content align-items-center">
+                    <div class="modal-header">
+                        <h1 class="card-title" style="color: #00304D; ">
+                            <strong>Estas vizualizando el <span style="color: #39A900;">historial
+                                    asistencia</span>:</strong>
+                        </h1>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container" id="filtrerContainer">
+                            <div class="form-floating mb-3" style="width: 200px;">
+                                <select class="form-select" id="selectRol">
+                                    <option disabled selected hidden></option>
+                                    <option value="1">Enero</option>
+                                    <option value="2">Febrero</option>
+                                    <option value="3">Marzo</option>
+                                    <option value="4">Abril</option>
+                                    <option value="5">Mayo</option>
+                                    <option value="6">Junio</option>
+                                    <option value="7">Julio</option>
+                                    <option value="8">Agosto</option>
+                                    <option value="9">Septiembre</option>
+                                    <option value="10">Octubre</option>
+                                    <option value="11">Noviembre</option>
+                                    <option value="12">Diciembre</option>
+                                </select>
+                                <label for="floatingSelectGrid"><strong>Seleccionar mes</strong></label>
+                            </div>
+                            <div class="form-floating mb-3" style="width: 200px;">
+                                <select class="form-select" id="selectRol">
+                                    <option disabled selected hidden></option>
+                                    <option value="1">Semana 1</option>
+                                    <option value="2">Semana 2</option>
+                                    <option value="3">Semana 3</option>
+                                    <option value="4">Semana 4</option>
+                                </select>
+                                <label for="floatingSelectGrid"><strong>Seleccionar semana</strong></label>
+                            </div>
+                            <button class="btn btn-primary" type="button"
+                                id="btnFiltrerCourse"><strong>Filtrar</strong></button>
+                        </div>
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="btnCloseModal"><strong>Cerrar</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- Modal de opciones -->
+    <div class="modal fade" id="optionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="card-title" style="color: #00304D;">
+                        <strong>Por favor, selecciona una <span style="color: #39A900;">opción</span>:</strong>
+                    </h1>
+                </div>
+                <div class="modal-body">
+                    <div class="d-flex flex-column align-items-stretch" id="btnNavegation">
+                        <button class="btn btn-primary mb-2" type="button" id="btnCheckCourse"><strong>Registrar
+                                asistencia</strong></button>
+                        <button class="btn btn-primary mb-2" type="button" id="btnCheckNotifications"><strong>Historial
+                                de
+                                asistencia</strong></button>
+                        <button class="btn btn-primary" type="button" id="btnCheckUserManual"><strong>¿Necesitas
+                                ayuda?</strong></button>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        id="btnCloseModal"><strong>Cerrar</strong></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de ver notificación -->
+    <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="card-title" style="color: #00304D;">
+                        <strong>Estudiante en <span style="color: #39A900;">riesgo</span>:</strong>
+                    </h1>
+                </div>
+                <div class="modal-body">
+
+                    <div style="text-align: start; margin: 1vh; font-size: 20px;">
+                        <strong style="color: #00304D;">Bienestar al aprendiz:</strong>
+                        <p class="card-text">
+                            <small class="text-body-secondary" style="font-size: 15px;"><strong>Enviada 7 de octubre
+                                    del 2024, 13:00</strong></small>
+                        </p>
+                    </div>
+
+                    <p style="margin: 1vh;">This is some placeholder content to show the scrolling behavior for
+                        modals.
+                        Instead
+                        of
+                        repeating the text in the modal, we use an inline style to set a minimum height,
+                        thereby
+                        extending the length of the overall modal and demonstrating the overflow
+                        scrolling.
+                        When
+                        content becomes longer than the height of the viewport, scrolling will move the
+                        modal as
+                        needed.</p>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                        data-bs-target="#sendMessageModal" id="btnreplyMessage">
+                        <strong>Responder notificación</strong>
+                    </button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCloseModal">
+                        <strong>Cerrar</strong>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de responder mensaje -->
+    <div class="modal fade" id="sendMessageModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h1 class="card-title" style="color: #00304D;">
+                        <strong>Por favor, escribe tu <span style="color: #39A900;">respuesta</span></strong>
+                    </h1>
+                </div>
+                <div class="modal-body">
+                    <div class="mb-3">
+                        <textarea class="form-control" id="answerInput" rows="3"
+                            placeholder="Escribe tu respuesta aquí..."></textarea>
+                    </div>
+                </div>
+                <div class="modal-footer justify-content-center">
+                    <button type="button" class="btn btn-primary" id="btnSendMessage"><strong>Enviar
+                            respuesta</strong></button>
+                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                        id="btnCloseModal"><strong>Cerrar</strong></button>
+                </div>
+            </div>
+        </div>
+    </div>
     </div>
 
 
