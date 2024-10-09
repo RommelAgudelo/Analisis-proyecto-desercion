@@ -34,7 +34,7 @@ body {
 /* Estilos de inputs */
 #emailInput,
 #passwordInput,
-#selectRol {
+#selectRol, #selectMes, #selectSemana {
     margin: 1vh 0;
     border-radius: 20px;
     font-family: "Work Sans", sans-serif;
@@ -77,7 +77,7 @@ body {
 
 /* Estilos de la pantalla de principal */
 #containerPrincipal {
-    width: 100vw;
+    width: 50%;
     border-radius: 20px;
 }
 
@@ -132,7 +132,7 @@ svg {
 #btnCheckCourse,
 #btnCheckNotifications,
 #moreOptionBtn,
-#btnCheckUserManual {
+#btnCheckUserManual, #btnReport {
     width: 90%;
     margin: 0.5vh;
     font-family: "Work Sans", sans-serif;
@@ -145,7 +145,8 @@ svg {
 #btnCheckCourse:hover,
 #btnCheckNotifications:hover,
 #moreOptionBtn:hover,
-#btnCheckUserManual:hover {
+#btnCheckUserManual:hover,
+#btnFiltrerCourse:hover, #btnReport:hover {
     background-color: #39A900;
 }
 
@@ -201,27 +202,6 @@ svg {
     text-align: left;
 }
 
-/* Estilos para la barra de desplazamiento */
-#dynamicContentContainer::-webkit-scrollbar {
-    height: 10px;
-    width: 5px;
-    border-radius: 10px;
-}
-
-#dynamicContentContainer::-webkit-scrollbar-track {
-    background: #f1f1f100;
-    border-radius: 10px;
-}
-
-#dynamicContentContainer::-webkit-scrollbar-thumb {
-    background: #00304D;
-    border-radius: 10px;
-}
-
-#dynamicContentContainer::-webkit-scrollbar-thumb:hover {
-    background: #39A900;
-}
-
 /* Estilos del menú de navegación */
 #optionMenu {
     margin: 1%;
@@ -242,7 +222,7 @@ svg {
 }
 
 #btnNavegationMenu{
-    margin-top: 24vh;
+    margin-top: 30vh;
 }
 
 /* Estilos de la card interactiva */
@@ -252,6 +232,37 @@ svg {
     border: 1px solid #c7c7c7;  
     padding: 10px;
     margin-top: 1vh;
+}
+
+#asistContainer {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    overflow-y: auto;
+}
+
+
+#dayContentCard {
+    width: 100%;
+    max-width: 1100px;
+    border-radius: 20px;
+    border: 1px solid #c7c7c7;
+    padding: 10px;
+    margin-top: 1vh;
+    height: auto; 
+}
+
+#btnAsist {
+    width: 35%;
+    margin-right: 0.5vh;
+    font-family: "Work Sans", sans-serif;
+    font-size: 20px;
+    align-items: center;
+    background-color: #39a900;
+    border-color: #ff583300;
+    border-radius: 20px;
 }
 
 #iconImg {
@@ -269,24 +280,28 @@ svg {
     font-family: "Work Sans", sans-serif;
 }
 
-/* Estilos de contenedor de filtrado */
-#filtrerContainer {
+/* Estilos de contenedor de filtrado y */
+#filtrerContainer, #asistContainer{
     width: 90%;
-    height: 11vh;
-
-    background-border: #CCCCCC;
+    padding: 10px;
+    height: 8vh;
+    min-height: 5vh;
+    margin-bottom: 0;
     border-radius: 20px;
-    display: flex;
-    flex-direction: center; 
-    align-items: center;
-    justify-content: center;
+    border: 2px solid #dee2e6; /* Agrega un borde de 2px de grosor y color azul */
+    background-color: transparent; /* Elimina el fondo */
     gap: 10px;
 }
 
-#btnFiltrerCourse{
+#asistContainer{
+    margin-top: 1vh;
+}
+
+#btnFiltrerCourse {
     width: 20%;
     font-family: "Work Sans", sans-serif;
     font-size: 20px;
+    align-items: center;
     background-color: #00304D;
     border-color: #ff583300;
     border-radius: 20px;
