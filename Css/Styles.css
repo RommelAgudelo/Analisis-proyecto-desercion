@@ -34,7 +34,9 @@ body {
 /* Estilos de inputs */
 #emailInput,
 #passwordInput,
-#selectRol, #selectMes, #selectSemana {
+#selectRol,
+#selectMes,
+#selectSemana {
     margin: 1vh 0;
     border-radius: 20px;
     font-family: "Work Sans", sans-serif;
@@ -54,11 +56,47 @@ body {
 #btnSendMessage,
 #btnCheckCourse,
 #btnCheckNotifications,
-#moreOptionBtn,
-#btnCheckUserManual {
+#btnCheckUserManual,
+#btnDownload {
     width: 100%;
+    color: #ffffff;
     font-family: "Work Sans", sans-serif;
     font-size: 25px;
+    background-color: #00304D;
+    border-color: #ff583300;
+    border-radius: 20px;
+}
+
+/* Estilos de botones de navegación */
+#btnNavegation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+#btnCheckCourse,
+#btnCheckNotifications,
+#btnFollowUpPlan,
+#moreOptionBtn,
+#btnCheckUserManual,
+#btnReport {
+    width: 90%;
+    color: #ffffff;
+    margin: 0.5vh;
+    font-family: "Work Sans", sans-serif;
+    font-size: 20px;
+    background-color: #00304D;
+    border-color: #ff583300;
+    border-radius: 20px;
+}
+
+#btnUploadFile {
+    width: 25vh;
+    margin: 5vh;
+    font-family: "Work Sans", sans-serif;
+    font-size: 20px;
     background-color: #00304D;
     border-color: #ff583300;
     border-radius: 20px;
@@ -70,8 +108,15 @@ body {
 #btnSendMessage:hover,
 #btnCheckCourse:hover,
 #btnCheckNotifications:hover,
+#btnCheckUserManual:hover,#btnCheckCourse:hover,
+#btnCheckNotifications:hover,
 #moreOptionBtn:hover,
-#btnCheckUserManual:hover {
+#btnFollowUpPlan:hover,
+#btnCheckUserManual:hover,
+#btnFiltrerCourse:hover,
+#btnReport:hover,
+#btnUploadFile:hover,
+#btnDownload:hover {
     background-color: #39A900;
 }
 
@@ -118,36 +163,6 @@ svg {
     transform: translateY(-50%);
     pointer-events: none;
     color: #CCCCCC;
-}
-
-/* Estilos de botones de navegación */
-#btnNavegation {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 10px;
-}
-
-#btnCheckCourse,
-#btnCheckNotifications,
-#moreOptionBtn,
-#btnCheckUserManual, #btnReport {
-    width: 90%;
-    margin: 0.5vh;
-    font-family: "Work Sans", sans-serif;
-    font-size: 20px;
-    background-color: #00304D;
-    border-color: #ff583300;
-    border-radius: 20px;
-}
-
-#btnCheckCourse:hover,
-#btnCheckNotifications:hover,
-#moreOptionBtn:hover,
-#btnCheckUserManual:hover,
-#btnFiltrerCourse:hover, #btnReport:hover {
-    background-color: #39A900;
 }
 
 /* Estilos de la area de trabajo */
@@ -221,15 +236,15 @@ svg {
     margin-bottom: 2vh;
 }
 
-#btnNavegationMenu{
+#btnNavegationMenu {
     margin-top: 30vh;
 }
 
 /* Estilos de la card interactiva */
-#contentCard{
+#contentCard {
     width: 150vh;
     border-radius: 50px;
-    border: 1px solid #c7c7c7;  
+    border: 1px solid #c7c7c7;
     padding: 10px;
     margin-top: 1vh;
 }
@@ -251,7 +266,7 @@ svg {
     border: 1px solid #c7c7c7;
     padding: 10px;
     margin-top: 1vh;
-    height: auto; 
+    height: auto;
 }
 
 #btnAsist {
@@ -269,7 +284,8 @@ svg {
     margin-left: 1vh;
 }
 
-#moreOptionBtn{
+#moreOptionBtn,
+#btnDownload {
     width: 20%;
 }
 
@@ -281,19 +297,20 @@ svg {
 }
 
 /* Estilos de contenedor de filtrado y */
-#filtrerContainer, #asistContainer{
+#filtrerContainer,
+#asistContainer {
     width: 90%;
     padding: 10px;
     height: 8vh;
     min-height: 5vh;
     margin-bottom: 0;
     border-radius: 20px;
-    border: 2px solid #dee2e6; /* Agrega un borde de 2px de grosor y color azul */
-    background-color: transparent; /* Elimina el fondo */
+    border: 2px solid #dee2e6;
+    background-color: transparent;
     gap: 10px;
 }
 
-#asistContainer{
+#asistContainer {
     margin-top: 1vh;
 }
 
