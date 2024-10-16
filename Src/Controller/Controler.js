@@ -1,20 +1,20 @@
-// class Controlador {
-//     constructor(modelo, vista) {
-//         this.modelo = modelo;
-//         this.vista = vista;
+// controlador.js
+document.addEventListener('DOMContentLoaded', function() {
+    const modelo = new Modelo();
+    const vista = new Vista();
+    const btnCheckCourse = document.getElementById('btnCheckCourse');
+    const btnNotifications = document.getElementById('btnNotifications');
+    const btnFollowUpPlan = document.getElementById('btnReport');
+    const btnReport = document.getElementById('btnReport');
 
-//         this.init();
-//     }
+    btnNotifications.addEventListener('click', function() {
+        document.querySelector('.card-title').innerHTML = '<strong>Te encuentras visualizando tus <span style="color: #39A900;">notificaciones</span>:</strong>';
+        const notificaciones = modelo.obtenerNotificaciones();
+        vista.renderizarNotificaciones(notificaciones);
+    });
 
-//     init() {
-//         this.modelo.agregarDato('Dato 1');
-//         this.modelo.agregarDato('Dato 2');
-//         this.modelo.agregarDato('Dato 3');
-
-//         this.vista.mostrarDatos(this.modelo.obtenerDatos());
-//     }
-// }
-
-// const modelo = new Modelo();
-// const vista = new Vista();
-// const controlador = new Controlador(modelo, vista);
+    btnReport.addEventListener('click', function() {
+        document.querySelector('.card-title').innerHTML = '<strong>Te encuentras visualizando tu listado de <span style="color: #39A900;">fichas</span>:</strong>';
+        // Aquí puedes agregar la lógica para mostrar el reporte o las fichas originales
+    });
+});

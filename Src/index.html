@@ -143,13 +143,13 @@
             <!-- Botones de navegacion -->
             <div class="d-flex align-content-stretch flex-wrap" id="btnNavegation">
                 <div id="btnNavegationMenu">
-                    <button class="menu-button" type="button" data-content="" id="btnCheckCourse"><strong>Vizualizar
+                    <button class="btn btn-primary" type="button" id="btnCheckCourse"><strong>Vizualizar
                             fichas</strong></button>
-                    <button class="menu-button" type="button" data-content="" id="btnCheckNotifications"><strong>Ver
+                    <button class="btn btn-primary" type="button" id="btnCheckNotifications"><strong>Ver
                             notificaciones</strong></button>
-                    <button class="menu-button" type="button" data-content="" id="btnFollowUpPlan"><strong>Plan
+                    <button class="btn btn-primary" type="button" id="btnFollowUpPlan"><strong>Plan
                             seguimiento</strong></button>
-                    <button class="menu-button" type="button" data-content="" id="btnCheckUserManual"><strong>¿Necesitas
+                    <button class="btn btn-primary" type="button" id="btnCheckUserManual"><strong>¿Necesitas
                             ayuda?</strong></button>
                 </div>
             </div>
@@ -165,80 +165,99 @@
                             style="color: #39A900;">fichas</span>:</strong>
                 </h1>
                 <div style="width: 90%; margin: 0 auto;">
-                    <strong class="d-flex justify-content-start p-2"
-                        style="color:#00304D; font-size: 20px; margin: 0.5vh;">Selecciona la ficha que deseas
-                        visualizar:</strong>
-                    <div class="linea-horizontal mb-3"></div>
-                    <form class="w-100 d-flex align-items-center mb-3 justify-content-center">
-                        <div class="search-container d-flex align-items-center mb-3 justify-content-center">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                                class="bi bi-search" viewBox="0 0 16 16">
-                                <path
-                                    d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                            </svg>
-                            <input class="form-control me-2" type="search" placeholder="Buscar ficha"
-                                aria-label="Search" id="searchBar">
+                    <div style="width: 90%; margin: 0 auto;">
+                        <div class="d-flex flex-column align-items-center" style="width: 100%;">
+                            <div class="d-flex justify-content-center align-items-center"
+                                style="color:#00304D; font-size: 19.5px; margin-left: 2px;">
+                                <strong>Selecciona la ficha que deseas visualizar:</strong>
+                                <button class="btn btn-primary" type="button" id="btnReport"
+                                    style="width: 20vh; margin-left: 30vh; font-size: 18px;">
+                                    <strong>Generar reporte</strong>
+                                </button>
+                            </div>
+                            <div class="linea-horizontal"
+                                style="width: 100%; height: 2px; background-color: #00304D; margin-top: 10px;"></div>
                         </div>
-                    </form>
+                    </div>
                 </div>
+                <form class="w-100 d-flex align-items-center mb-3 justify-content-center">
+                    <div class="search-container d-flex align-items-center mb-3 justify-content-center">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                            class="bi bi-search" viewBox="0 0 16 16">
+                            <path
+                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                        </svg>
+                        <input class="form-control me-2" type="search" placeholder="Realizar busqueda"
+                            aria-label="Search" id="searchBar">
+                    </div>
+                </form>
             </div>
 
             <!-- Contenido modificable -->
-            <div class="container d-flex flex-column mb-3" id="dynamicContentContainer" style="flex-wrap: wrap;">
+            <div class="container d-flex flex-column mb-3" id="dynamicContentContainer">
 
-                <!-- Tarjeta dinámica de selección de ficha -->
-                <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
-                    <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-                    <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha 2823217</strong>
-                    <div class="flex-grow-1">
+                <template id="dinamicCardCourse"><!-- Tarjeta dinámica de selección de ficha -->
+                    <div class="d-flex align-items-center mb-2" id="contentCard"
+                        style="width: 100%; max-width: 1100px;">
+                        <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+                        <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha 2823217</strong>
+                        <div class="flex-grow-1">
+                        </div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#optionModal" id="moreOptionBtn">
+                            <strong>Ver opciones</strong>
+                        </button>
                     </div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#optionModal"
-                        id="moreOptionBtn">
-                        <strong>Ver opciones</strong>
-                    </button>
-                </div>
+                </template>
 
-                <!-- Tarjeta dinámica de notificación  -->
-                <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
-                    <img src="../Resources/Img/NotificationIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-                    <div class="text-left">
-                        <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Aprendiz en estado de
-                            riesgo</strong>
-                        <p class="card-text"><small class="text-body-secondary"
-                                style="font-size: 20px; margin-left: 2vh;"><strong>Enviada 7 de octubre del 2024,
-                                    13:00</strong></small></p>
-                    </div>
-                    <div class="flex-grow-1">
-                    </div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                        data-bs-target="#notificationModal" id="moreOptionBtn">
-                        <strong>Ver notificación</strong>
-                    </button>
-                </div>
 
-                <!-- Tarjeta dinámica de nombre de aprendiz -->
-                <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
-                    <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-                    <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Jean Carlos Centeno</strong>
-                    <div class="flex-grow-1">
+                <template id="dinamicCardNotification"><!-- Tarjeta dinámica de notificación  -->
+                    <div class="d-flex align-items-center mb-2" id="contentCard"
+                        style="width: 100%; max-width: 1100px;">
+                        <img src="../Resources/Img/NotificationIcon.png" alt="Imagen 1" class="imagen-sub-div"
+                            id="iconImg">
+                        <div class="text-left">
+                            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Aprendiz en estado de
+                                riesgo</strong>
+                            <p class="card-text"><small class="text-body-secondary"
+                                    style="font-size: 20px; margin-left: 2vh;"><strong>Enviada 7 de octubre del 2024,
+                                        13:00</strong></small></p>
+                        </div>
+                        <div class="flex-grow-1">
+                        </div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#notificationModal" id="moreOptionBtn">
+                            <strong>Ver notificación</strong>
+                        </button>
                     </div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#asistModal"
-                        id="moreOptionBtn">
-                        <strong>Ver historial</strong>
-                    </button>
-                </div>
+                </template>
 
-                <!-- Tarjeta dinámica de nombre de aprendiz -->
+                <template id="dinamicStudent"><!-- Tarjeta dinámica de nombre de aprendiz -->
+                    <div class="d-flex align-items-center mb-2" id="contentCard"
+                        style="width: 100%; max-width: 1100px;">
+                        <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+                        <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Jean Carlos Centeno</strong>
+                        <div class="flex-grow-1">
+                        </div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#asistModal" id="moreOptionBtn">
+                            <strong>Ver historial</strong>
+                        </button>
+                    </div>
+                </template>
+
+                <template id="dinamicCardCourse"><!-- Tarjeta dinámica de descarga de manual -->
                 <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
                     <img src="../Resources/Img/QuestionIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
                     <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">¿Cómo funciona la
                         plataforma?</strong>
                     <div class="flex-grow-1">
                     </div>
-                    <button type="button" class="btn btn-primary" id="btnUploadFile">
-                        <strong>Ver manual</strong>
+                    <button type="button" class="btn btn-primary" id="moreOptionBtn">
+                        <strong>Descarga manual</strong>
                     </button>
                 </div>
+                </template>
 
             </div>
 
@@ -282,44 +301,18 @@
                             <button class="btn btn-primary mb-2" type="button" id="btnCheckCourse"><strong>Registrar
                                     asistencia</strong></button>
                             <button class="btn btn-primary mb-2" type="button"
-                                id="btnCheckNotifications"><strong>Historial de
-                                    asistencia</strong></button>
-                            <button class="btn btn-primary mb-2" type="button"
-                                id="btnCheckNotifications"><strong>Generar reporte</strong></button>
-                            <button class="btn btn-primary" type="button" id="btnCheckUserManual"><strong>¿Necesitas
-                                    ayuda?</strong></button>
-                        </div>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                            id="btnCloseModal"><strong>Cerrar</strong></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-
-        <!-- Modal de opciones -->
-        <div class="modal fade" id="optionModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h1 class="card-title" style="color: #00304D;">
-                            <strong>Por favor, selecciona una <span style="color: #39A900;">opción</span>:</strong>
-                        </h1>
-                    </div>
-                    <div class="modal-body">
-                        <div class="d-flex flex-column align-items-stretch" id="btnNavegation">
-                            <button class="btn btn-primary mb-2" type="button" id="btnCheckCourse"><strong>Registrar
-                                    asistencia</strong></button>
-                            <button class="btn btn-primary mb-2" type="button"
                                 id="btnCheckNotifications"><strong>Historial
                                     de
                                     asistencia</strong></button>
+                            <button class="btn btn-primary mb-2" type="button"
+                                id="btnCheckNotifications"><strong>Generar
+                                    reporte</strong></button>
                             <button class="btn btn-primary" type="button" id="btnCheckUserManual"><strong>¿Necesitas
                                     ayuda?</strong></button>
                         </div>
                     </div>
-                    <div class="modal-footer justify-content-center">
+                    <div class="modal-footer justify-content-center" style="width: 100%;">
+
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                             id="btnCloseModal"><strong>Cerrar</strong></button>
                     </div>
@@ -383,13 +376,23 @@
                             <strong>Por favor, escribe tu <span style="color: #39A900;">respuesta</span></strong>
                         </h1>
                     </div>
-                    <div class="modal-body">
-                        <div class="mb-3">
+                    <div class="modal-body d-flex flex-column align-items-center justify-content-center"
+                        style="width: 100%; height: 100%;">
+                        <div class="mb-3" style="width: 100%;">
                             <textarea class="form-control" id="answerInput" rows="3"
                                 placeholder="Escribe tu respuesta aquí..."></textarea>
                         </div>
+
+                        <form class="d-flex flex-column align-items-center justify-content-center">
+                            <label for="fileUpload"
+                                class="btn btn-primary d-flex align-items-center justify-content-center"
+                                id="btnUploadFile">
+                                <strong>Subir documento</strong>
+                            </label>
+                            <input type="file" id="fileUpload" style="display: none;">
+                        </form>
                     </div>
-                    <div class="modal-footer justify-content-center">
+                    <div class="modal-footer justify-content-center" style="width: 100%;">
                         <button type="button" class="btn btn-primary" id="btnSendMessage"><strong>Enviar
                                 respuesta</strong></button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
@@ -399,7 +402,181 @@
             </div>
         </div>
 
-        <!-- Modal de historial de asistencia -->
+        <!-- Modal de marcar asistencia
+        <div class="modal fade" id="asistModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content align-items-center">
+                    <div class="modal-header">
+                        <h1 class="card-title" style="color: #00304D; ">
+                            <strong>Estas vizualizando el <span style="color: #39A900;">historial
+                                    asistencia</span>:</strong>
+                        </h1>
+                    </div>
+
+                    <div class="modal-body">
+                        <div class="container d-flex align-items-center justify-content-center" id="filtrerContainer">
+                            <div class="d-flex align-items-center gap-3" style="width: 100%;">
+                                <div class="form-floating" style="width: 200px;">
+                                    <select class="form-select" id="selectMes">
+                                        <option disabled selected hidden></option>
+                                        <option value="1">Enero</option>
+                                        <option value="2">Febrero</option>
+                                        <option value="3">Marzo</option>
+                                        <option value="4">Abril</option>
+                                        <option value="5">Mayo</option>
+                                        <option value="6">Junio</option>
+                                        <option value="7">Julio</option>
+                                        <option value="8">Agosto</option>
+                                        <option value="9">Septiembre</option>
+                                        <option value="10">Octubre</option>
+                                        <option value="11">Noviembre</option>
+                                        <option value="12">Diciembre</option>
+                                    </select>
+                                    <label for="selectMes" style="margin-top: 1vh;"><strong>Seleccionar
+                                            mes</strong></label>
+                                </div>
+                                <div class="form-floating" style="width: 200px;">
+                                    <select class="form-select" id="selectSemana">
+                                        <option disabled selected hidden></option>
+                                        <option value="1">Semana 1</option>
+                                        <option value="2">Semana 2</option>
+                                        <option value="3">Semana 3</option>
+                                        <option value="4">Semana 4</option>
+                                    </select>
+                                    <label for="selectSemana" style="margin-top: 1vh;"><strong>Seleccionar
+                                            semana</strong></label>
+                                </div>
+                                <button class="btn btn-primary" type="button"
+                                    id="btnFiltrerCourse"><strong>Filtrar</strong></button>
+                            </div>
+                        </div>
+
+                        <div class="container d-flex flex-column mb-3 align-items-center justify-content-center"
+                            id="asistContainer" style="height: auto;">
+
+                            <div class="d-flex align-items-center mb-2" id="dayContentCard"
+                                style="width: 100%; max-width: 1100px;">
+                                <img src="../Resources/Img/CalendarIcon.png" alt="Imagen 1" class="imagen-sub-div"
+                                    id="iconImg" style="width: 50px;">
+                                <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Lunes 12</strong>
+                                <div class="flex-grow-1">
+                                </div>
+                                <div class="form-floating" style="width: 200px;">
+                                    <select class="form-select" id="selectSemana">
+                                        <option disabled selected hidden></option>
+                                        <option value="1">Asistido</option>
+                                        <option value="2">No asistido</option>
+                                        <option value="3">Justificado</option>
+                                    </select>
+                                    <label for="selectSemana" style="margin-top: 1vh;"><strong>
+                                            Marcar asistencia</strong>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center mb-2" id="dayContentCard"
+                                style="width: 100%; max-width: 1100px;">
+                                <img src="../Resources/Img/CalendarIcon.png" alt="Imagen 1" class="imagen-sub-div"
+                                    id="iconImg" style="width: 50px;">
+                                <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Martes
+                                    13</strong>
+                                <div class="flex-grow-1">
+                                </div>
+                                <div class="form-floating" style="width: 200px;">
+                                    <select class="form-select" id="selectSemana">
+                                        <option disabled selected hidden></option>
+                                        <option value="1">Asistido</option>
+                                        <option value="2">No asistido</option>
+                                        <option value="3">Justificado</option>
+                                    </select>
+                                    <label for="selectSemana" style="margin-top: 1vh;"><strong>
+                                            Marcar asistencia</strong>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center mb-2" id="dayContentCard"
+                                style="width: 100%; max-width: 1100px;">
+                                <img src="../Resources/Img/CalendarIcon.png" alt="Imagen 1" class="imagen-sub-div"
+                                    id="iconImg" style="width: 50px;">
+                                <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Miercoles
+                                    14</strong>
+                                <div class="flex-grow-1">
+                                </div>
+                                <div class="form-floating" style="width: 200px;">
+                                    <select class="form-select" id="selectSemana">
+                                        <option disabled selected hidden></option>
+                                        <option value="1">Asistido</option>
+                                        <option value="2">No asistido</option>
+                                        <option value="3">Justificado</option>
+                                    </select>
+                                    <label for="selectSemana" style="margin-top: 1vh;"><strong>
+                                            Marcar asistencia</strong>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center mb-2" id="dayContentCard"
+                                style="width: 100%; max-width: 1100px;">
+                                <img src="../Resources/Img/CalendarIcon.png" alt="Imagen 1" class="imagen-sub-div"
+                                    id="iconImg" style="width: 50px;">
+                                <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Jueves
+                                    15</strong>
+                                <div class="flex-grow-1">
+                                </div>
+                                <div class="form-floating" style="width: 200px;">
+                                    <select class="form-select" id="selectSemana">
+                                        <option disabled selected hidden></option>
+                                        <option value="1">Asistido</option>
+                                        <option value="2">No asistido</option>
+                                        <option value="3">Justificado</option>
+                                    </select>
+                                    <label for="selectSemana" style="margin-top: 1vh;"><strong>
+                                            Marcar asistencia</strong>
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="d-flex align-items-center mb-2" id="dayContentCard"
+                                style="width: 100%; max-width: 1100px;">
+                                <img src="../Resources/Img/CalendarIcon.png" alt="Imagen 1" class="imagen-sub-div"
+                                    id="iconImg" style="width: 50px;">
+                                <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Viernes
+                                    16</strong>
+                                <div class="flex-grow-1">
+                                </div>
+                                <div class="form-floating" style="width: 200px;">
+                                    <select class="form-select" id="selectSemana">
+                                        <option disabled selected hidden></option>
+                                        <option value="1">Asistido</option>
+                                        <option value="2">No asistido</option>
+                                        <option value="3">Justificado</option>
+                                    </select>
+                                    <label for="selectSemana" style="margin-top: 1vh;"><strong>
+                                            Marcar asistencia</strong>
+                                    </label>
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <div class="container d-flex flex-column mb-3 align-items-center justify-content-center"
+                            id="asistContainer" style="height: auto;">
+                            <button class="btn btn-primary" type="button" id="btnReport"><strong>Generar
+                                    reporte</strong></button>
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer justify-content-center" style="width: 100%;">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="btnCloseModal"><strong>Cerrar</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div> -->
+
+        <!-- Modal de historial de asistencia  -->
         <div class="modal fade" id="asistModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content align-items-center">
@@ -545,7 +722,7 @@
                         <div class="container d-flex flex-column mb-3 align-items-center justify-content-center"
                             id="asistContainer" style="height: auto;">
 
-                            <form>
+                            <form style="height: auto; margin: 8vh;">
                                 <label for="fileUpload"
                                     class="btn btn-primary align-items-center justify-content-center"
                                     id="btnUploadFile">
@@ -567,15 +744,10 @@
                 </div>
             </div>
         </div>
+
     </div>
 
-
-    </template>
-
-
     <!-- Scripts -->
-    <script src="../Resources/Documents/UserManual.pdf"></script>
-
     <script src="view.js"></script>
     <script src="Model/Model.js"></script>
     <script src="View/View.js"></script>

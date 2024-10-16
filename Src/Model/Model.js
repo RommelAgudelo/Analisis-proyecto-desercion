@@ -1,14 +1,13 @@
-// class Vista {
-//     constructor() {
-//         this.app = document.getElementById('app');
-//     }
+// modelo.js
+class Model {
+    constructor() {
+        this.notificaciones = [
+            { titulo: 'Aprendiz en estado de riesgo', fecha: '7 de octubre del 2024, 13:00' },
+            { titulo: 'Nuevo documento subido', fecha: '6 de octubre del 2024, 10:30' }
+        ];
+    }
 
-//     mostrarDatos(datos) {
-//         this.app.innerHTML = '';
-//         datos.forEach(dato => {
-//             const div = document.createElement('div');
-//             div.textContent = dato;
-//             this.app.appendChild(div);
-//         });
-//     }
-// }
+    obtenerNotificaciones() {
+        return this.notificaciones;
+    }
+}
