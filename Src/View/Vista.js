@@ -35,18 +35,38 @@ document.getElementById('loginForm').addEventListener('submit', function (event)
 // vista.js
 class Vista {
     constructor() {
+        this.heading = document.getElementById('heading');
+        this.subHeading = document.querySelector('#subHeading strong');
         this.dynamicContentContainer = document.getElementById('dynamicContentContainer');
     }
 
-    renderizarNotificaciones(notificaciones) {
+    actualizarContenido(titulo, subtitulo, contenido, templateId) {
+        // Actualizar título y subtítulo
+        this.heading.innerHTML = `<strong>Te encuentras visualizando tu listado de <span style="color: #39A900;">${titulo}</span>:</strong>`;
+        this.subHeading.textContent = subtitulo;
+
+        // Limpiar y actualizar el contenido dinámico
         this.dynamicContentContainer.innerHTML = '';
-        const template = document.getElementById('dinamicCardNotification');
+        const template = document.getElementById(templateId);
         
-        notificaciones.forEach(notificacion => {
-            const notificationElement = template.content.cloneNode(true);
-            notificationElement.querySelector('strong').textContent = notificacion.titulo;
-            notificationElement.querySelector('.text-body-secondary').textContent = `Enviada ${notificacion.fecha}`;
-            this.dynamicContentContainer.appendChild(notificationElement);
+        contenido.forEach(item => {
+            const elemento = template.content.cloneNode(true);
+            switch(templateId) {
+                case 'dinamicCardCourse':
+                    elemento.querySelector('strong').textContent = item.nombre;
+                    break;
+                case 'dinamicCardNotification':
+                    elemento.querySelector('strong').textContent = item.titulo;
+                    elemento.querySelector('.text-body-secondary strong').textContent = `Enviada ${item.fecha}`;
+                    break;
+                case 'dinamicCardCourse':
+                    elemento.querySelector('strong').textContent = item.nombre;
+                    break;
+                case 'dinamicCardManual':
+                    elemento.querySelector('strong').textContent = item.titulo;
+                    break;
+            }
+            this.dynamicContentContainer.appendChild(elemento);
         });
     }
 }

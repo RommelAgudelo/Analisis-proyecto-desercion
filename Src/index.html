@@ -143,13 +143,13 @@
             <!-- Botones de navegacion -->
             <div class="d-flex align-content-stretch flex-wrap" id="btnNavegation">
                 <div id="btnNavegationMenu">
-                    <button class="btn btn-primary" type="button" id="btnCheckCourse"><strong>Vizualizar
+                    <button class="btnNavegation" type="button" id="btnCheckCourse"><strong>Vizualizar
                             fichas</strong></button>
-                    <button class="btn btn-primary" type="button" id="btnCheckNotifications"><strong>Ver
+                    <button class="btnNavegation" type="button" id="btnCheckNotifications"><strong>Ver
                             notificaciones</strong></button>
-                    <button class="btn btn-primary" type="button" id="btnFollowUpPlan"><strong>Plan
+                    <button class="btnNavegation" type="button" id="btnFollowUpPlan"><strong>Plan
                             seguimiento</strong></button>
-                    <button class="btn btn-primary" type="button" id="btnCheckUserManual"><strong>¿Necesitas
+                    <button class="btnNavegation" type="button" id="btnCheckUserManual"><strong>¿Necesitas
                             ayuda?</strong></button>
                 </div>
             </div>
@@ -160,11 +160,11 @@
 
             <!-- Encabezado -->
             <div class="titulo">
-                <h1 class="card-title p-2" style="color: #00304D; height: auto;">
+                <h1 id="heading" class="card-title p-2" style="color: #00304D; height: auto;">
                     <strong>Te encuentras visualizando tu listado de <span
                             style="color: #39A900;">fichas</span>:</strong>
                 </h1>
-                <div style="width: 90%; margin: 0 auto;">
+                <div id="subHeading" style="width: 90%; margin: 0 auto;">
                     <div style="width: 90%; margin: 0 auto;">
                         <div class="d-flex flex-column align-items-center" style="width: 100%;">
                             <div class="d-flex justify-content-center align-items-center"
@@ -209,8 +209,7 @@
                         </button>
                     </div>
                 </template>
-
-
+            
                 <template id="dinamicCardNotification"><!-- Tarjeta dinámica de notificación  -->
                     <div class="d-flex align-items-center mb-2" id="contentCard"
                         style="width: 100%; max-width: 1100px;">
@@ -246,7 +245,7 @@
                     </div>
                 </template>
 
-                <template id="dinamicCardCourse"><!-- Tarjeta dinámica de descarga de manual -->
+                <template id="dinamicCardManual"><!-- Tarjeta dinámica de descarga de manual -->
                 <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
                     <img src="../Resources/Img/QuestionIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
                     <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">¿Cómo funciona la
@@ -748,10 +747,9 @@
     </div>
 
     <!-- Scripts -->
-    <script src="view.js"></script>
-    <script src="Model/Model.js"></script>
-    <script src="View/View.js"></script>
-    <script src="Controller/Controler.js"></script>
+    <script src="./View/Vista.js"></script>
+    <script src="./Model/Modelo.js"></script>
+    <script src="./Controller/Controlador.js"></script>
 
     <!-- Scripts de base Boootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
