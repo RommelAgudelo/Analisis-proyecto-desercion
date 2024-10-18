@@ -16,6 +16,7 @@
 </head>
 
 <body>
+
     <template> <!-- Cuadro de inicio de sesion -->
         <div class="container mt-0.2 d-flex justify-content-center">
             <div class="card p-4" id="containerLogin">
@@ -43,82 +44,71 @@
                         <input type="password" class="form-control" id="passwordInput">
                         <label for="floatingPassword"><strong>Contraseña</strong></label>
                     </div>
-                    <!-- Botón tipo submit que abrirá el modal -->
                     <button type="submit" class="btn btn-primary" id="btnLogin" data-bs-toggle="modal"
                         data-bs-target="#noneDataModal">
                         <strong>Iniciar Sesión</strong>
                     </button>
 
-                    <!-- Modal  de falta de datos ingresados -->
-                    <div class="modal fade" id="noneDataModal" data-bs-backdrop="static" data-bs-keyboard="false"
-                        tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                                <div class="modal-body text-center">
-                                    <img src="../Resources/Img/errorIcon.png" alt="" class="mb-3">
-                                    <h1><strong style="color: #00304D;">ERROR</strong></h1>
-                                    <h1 id="modalMessageError"><strong style="color: #39A900;">Por favor, rellena todos
-                                            los campos.</strong></h1>
-                                </div>
-                                <div class="modal-footer justify-content-center">
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                                        id="btnCloseModal"><strong>Cerrar</strong></button>
-                                </div>
+                </form>
+
+                <!-- Modal  de falta de datos ingresados -->
+                <div class="modal fade" id="noneDataModal" tabindex="-1" aria-labelledby="staticBackdropLabel"
+                    aria-hidden="true">
+                    <div class="modal-dialog">
+                        <div class="modal-content">
+                            <div class="modal-body text-center">
+                                <img src="../Resources/Img/errorIcon.png" alt="" class="mb-3">
+                                <h1><strong style="color: #00304D;">ERROR</strong></h1>
+                                <h1 id="modalMessageError"><strong style="color: #39A900;">Por favor, rellena el campo
+                                        de
+                                        respuesta</strong></h1>
+                            </div>
+                            <div class="modal-footer justify-content-center">
+                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                    id="btnCloseModal"><strong>Cerrar</strong></button>
                             </div>
                         </div>
                     </div>
-
-                </form>
+                </div>
 
             </div>
 
         </div>
+
+
     </template>
 
     <template><!-- Cuadro de pantalla de inicio Instructor -->
         <div class="container mt-0.2 d-flex justify-content-center">
             <div class="card p-4" id="containerPrincipal">
                 <!-- Encabezado de pagina principal -->
-                <h1 class="card-title" style="color: #00304D;"><strong>Bienvenido de nuevo, <span
-                            style="color: #39A900;">Nombre de usuario</span> ¿Qué deseas realizar el dia de
-                        hoy?</strong>
-                </h1>
-
-                <!-- Barra de navegacion -->
-                <form>
-                    <div class="search-container">
-                        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                            class="bi bi-search" viewBox="0 0 16 16">
-                            <path
-                                d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                        </svg>
-                        <input class="form-control me-2" type="search" placeholder="Realizar busqueda"
-                            aria-label="Search" id="searchBar">
-                    </div>
-                </form>
+                <div class="titulo">
+                    <h1 class="card-title" style="color: #00304D;"><strong>Bienvenido de nuevo, <span
+                                style="color: #39A900;">Nombre de usuario</span> ¿Qué deseas realizar el dia de
+                            hoy?</strong></h1>
+                </div>
 
                 <!-- Botones de navegacion -->
                 <div class="d-flex align-content-stretch flex-wrap" id="btnNavegation">
-                    <button class="btn btn-primary" type="button" id="btnCheckCourse"><strong>Vizualizar
+                    <button class="btnNavegation" type="button" a href="..." id="btnCheckCourse"><strong>Vizualizar
                             fichas</strong></button>
-                    <button class="btn btn-primary" type="button" id="btnCheckNotifications"><strong>Ver
+                    <button class="btnNavegation" type="button" a href="..." id="btnCheckNotifications"><strong>Ver
                             notificaciones</strong></button>
-                    <button class="btn btn-primary" type="button" id="btnCheckNotifications"><strong>Plan
+                    <button class="btnNavegation" type="button" a href="..." id="btnFollowUpPlan"><strong>Plan
                             seguimiento</strong></button>
-                    <button class="btn btn-primary" type="button" id="btnCheckUserManual"><strong>¿Necesitas
+                    <button class="btnNavegation" type="button" a href="..." id="btnCheckUserManual"><strong>¿Necesitas
                             ayuda?</strong></button>
                 </div>
 
                 <!-- Pie de pagina -->
-                <h6><strong style="color: #c7c7c7;" id="footer">2024 - Servicio Nacional de Aprendizaje SENA</strong>
-                </h6>
+                <p class="pie-de-pagina" style="color:#989898; font-size: 20px; margin: 1vh;">
+                    <strong>2024 - Servicio Nacional de Aprendizaje Sena</strong>
+                </p>
 
             </div>
         </div>
     </template>
 
-
-    <!-- Area de trabajo  -->
     <div class="container-fluid d-flex" id="workArea">
         <!-- Menú navegación -->
         <div class="card p-2" id="optionMenu">
@@ -143,13 +133,13 @@
             <!-- Botones de navegacion -->
             <div class="d-flex align-content-stretch flex-wrap" id="btnNavegation">
                 <div id="btnNavegationMenu">
-                    <button class="btnNavegation" type="button" id="btnCheckCourse"><strong>Vizualizar
+                    <button class="btnNavegation" type="button" a href="..." id="btnCheckCourse"><strong>Vizualizar
                             fichas</strong></button>
-                    <button class="btnNavegation" type="button" id="btnCheckNotifications"><strong>Ver
+                    <button class="btnNavegation" type="button" a href="..." id="btnCheckNotifications"><strong>Ver
                             notificaciones</strong></button>
-                    <button class="btnNavegation" type="button" id="btnFollowUpPlan"><strong>Plan
+                    <button class="btnNavegation" type="button" a href="..." id="btnFollowUpPlan"><strong>Plan
                             seguimiento</strong></button>
-                    <button class="btnNavegation" type="button" id="btnCheckUserManual"><strong>¿Necesitas
+                    <button class="btnNavegation" type="button" a href="..." id="btnCheckUserManual"><strong>¿Necesitas
                             ayuda?</strong></button>
                 </div>
             </div>
@@ -176,7 +166,8 @@
                                 </button>
                             </div>
                             <div class="linea-horizontal"
-                                style="width: 100%; height: 2px; background-color: #00304D; margin-top: 10px;"></div>
+                                style="width: 100%; height: 2px; background-color: #00304D; margin-top: 10px;">
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -197,29 +188,27 @@
             <div class="container d-flex flex-column mb-3" id="dynamicContentContainer">
 
                 <template id="dinamicCardCourse"><!-- Tarjeta dinámica de selección de ficha -->
-                    <div class="d-flex align-items-center mb-2" id="contentCard"
-                        style="width: 100%; max-width: 1100px;">
+                    <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
                         <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
                         <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha 2823217</strong>
                         <div class="flex-grow-1">
                         </div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#optionModal" id="moreOptionBtn">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#optionModal"
+                            id="moreOptionBtn">
                             <strong>Ver opciones</strong>
                         </button>
                     </div>
                 </template>
-            
+
                 <template id="dinamicCardNotification"><!-- Tarjeta dinámica de notificación  -->
-                    <div class="d-flex align-items-center mb-2" id="contentCard"
-                        style="width: 100%; max-width: 1100px;">
-                        <img src="../Resources/Img/NotificationIcon.png" alt="Imagen 1" class="imagen-sub-div"
-                            id="iconImg">
+                    <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
+                        <img src="../Resources/Img/NotificationIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
                         <div class="text-left">
                             <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Aprendiz en estado de
                                 riesgo</strong>
                             <p class="card-text"><small class="text-body-secondary"
-                                    style="font-size: 20px; margin-left: 2vh;"><strong>Enviada 7 de octubre del 2024,
+                                    style="font-size: 20px; margin-left: 2vh;"><strong>Enviada 7 de octubre del
+                                        2024,
                                         13:00</strong></small></p>
                         </div>
                         <div class="flex-grow-1">
@@ -232,30 +221,30 @@
                 </template>
 
                 <template id="dinamicStudent"><!-- Tarjeta dinámica de nombre de aprendiz -->
-                    <div class="d-flex align-items-center mb-2" id="contentCard"
-                        style="width: 100%; max-width: 1100px;">
+                    <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
                         <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-                        <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Jean Carlos Centeno</strong>
+                        <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Jean Carlos
+                            Centeno</strong>
                         <div class="flex-grow-1">
                         </div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#asistModal" id="moreOptionBtn">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#asistModal"
+                            id="moreOptionBtn">
                             <strong>Ver historial</strong>
                         </button>
                     </div>
                 </template>
 
                 <template id="dinamicCardManual"><!-- Tarjeta dinámica de descarga de manual -->
-                <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
-                    <img src="../Resources/Img/QuestionIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-                    <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">¿Cómo funciona la
-                        plataforma?</strong>
-                    <div class="flex-grow-1">
+                    <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
+                        <img src="../Resources/Img/QuestionIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+                        <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">¿Cómo funciona la
+                            plataforma?</strong>
+                        <div class="flex-grow-1">
+                        </div>
+                        <button type="button" class="btn btn-primary" id="moreOptionBtn">
+                            <strong>Descarga manual</strong>
+                        </button>
                     </div>
-                    <button type="button" class="btn btn-primary" id="moreOptionBtn">
-                        <strong>Descarga manual</strong>
-                    </button>
-                </div>
                 </template>
 
             </div>
@@ -265,25 +254,6 @@
                 <strong>2024 - Servicio Nacional de Aprendizaje Sena</strong>
             </p>
 
-        </div>
-
-        <!-- Modal  de falta de datos ingresados -->
-        <div class="modal fade" id="noneDataModal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
-            aria-labelledby="staticBackdropLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body text-center">
-                        <img src="../Resources/Img/errorIcon.png" alt="" class="mb-3">
-                        <h1><strong style="color: #00304D;">ERROR</strong></h1>
-                        <h1 id="modalMessageError"><strong style="color: #39A900;">Por favor, rellena el campo de
-                                respuesta</strong></h1>
-                    </div>
-                    <div class="modal-footer justify-content-center">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                            id="btnCloseModal"><strong>Cerrar</strong></button>
-                    </div>
-                </div>
-            </div>
         </div>
 
         <!-- Modal de opciones -->
@@ -334,7 +304,8 @@
                         <div style="text-align: start; margin: 1vh; font-size: 20px;">
                             <strong style="color: #00304D;">Bienestar al aprendiz:</strong>
                             <p class="card-text">
-                                <small class="text-body-secondary" style="font-size: 15px;"><strong>Enviada 7 de octubre
+                                <small class="text-body-secondary" style="font-size: 15px;"><strong>Enviada 7 de
+                                        octubre
                                         del 2024, 13:00</strong></small>
                             </p>
                         </div>
@@ -366,7 +337,7 @@
         </div>
 
         <!-- Modal de responder mensaje -->
-        <div class="modal fade" id="sendMessageModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="sendMessageModal" tabindex="-1" aria-labelledby="sendMessageModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content">
@@ -375,33 +346,28 @@
                             <strong>Por favor, escribe tu <span style="color: #39A900;">respuesta</span></strong>
                         </h1>
                     </div>
-                    <div class="modal-body d-flex flex-column align-items-center justify-content-center"
-                        style="width: 100%; height: 100%;">
-                        <div class="mb-3" style="width: 100%;">
-                            <textarea class="form-control" id="answerInput" rows="3"
-                                placeholder="Escribe tu respuesta aquí..."></textarea>
+                    <!-- Formulario dentro del modal -->
+                    <form id="responseForm">
+                        <div class="modal-body d-flex flex-column align-items-center justify-content-center"
+                            style="width: 100%; height: 100%;">
+                            <div class="mb-3" style="width: 100%;">
+                                <textarea class="form-control" id="answerInput" rows="3"
+                                    placeholder="Escribe tu respuesta aquí..." required></textarea>
+                            </div>
                         </div>
-
-                        <form class="d-flex flex-column align-items-center justify-content-center">
-                            <label for="fileUpload"
-                                class="btn btn-primary d-flex align-items-center justify-content-center"
-                                id="btnUploadFile">
-                                <strong>Subir documento</strong>
-                            </label>
-                            <input type="file" id="fileUpload" style="display: none;">
-                        </form>
-                    </div>
-                    <div class="modal-footer justify-content-center" style="width: 100%;">
-                        <button type="button" class="btn btn-primary" id="btnSendMessage"><strong>Enviar
-                                respuesta</strong></button>
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                            id="btnCloseModal"><strong>Cerrar</strong></button>
-                    </div>
+                        <div class="modal-footer justify-content-center" style="width: 100%;">
+                            <button type="submit" class="btn btn-primary" id="btnSendMessage"><strong>Enviar
+                                    respuesta</strong></button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                                id="btnCloseModal"><strong>Cerrar</strong></button>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
 
-        <!-- Modal de marcar asistencia
+
+        <!-- Modal de marcar asistencia -->
         <div class="modal fade" id="asistModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content align-items-center">
@@ -573,7 +539,7 @@
                     </div>
                 </div>
             </div>
-        </div> -->
+        </div>
 
         <!-- Modal de historial de asistencia  -->
         <div class="modal fade" id="asistModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -745,6 +711,8 @@
         </div>
 
     </div>
+    <template><!--  Cuadro de area de trabajo  -->
+    </template>
 
     <!-- Scripts -->
     <script src="./View/Vista.js"></script>

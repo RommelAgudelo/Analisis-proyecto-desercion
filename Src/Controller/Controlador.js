@@ -12,28 +12,29 @@ class Controlador {
     }
 
     cambiarContenido(tipo) {
-        let titulo, subtitulo, contenido, templateId;
+        let titulo, subtitulo, contenido, btnReporte, templateId;
         switch(tipo) {
             case 'fichas':
-                titulo = 'Se encuentra visualizando sus fichas';
-                subtitulo = 'Selecciona la ficha que deseas visualizar:';
+                titulo = 'Se encuentra visualizando sus <span style="color: #39A900;">fichas';
+                subtitulo = 'Seleccione la ficha que desea ver:';
                 contenido = this.modelo.obtenerFichas();
                 templateId = 'dinamicCardCourse';
                 break;
             case 'notificaciones':
-                titulo = 'Se encuentra visualizando sus notificaciones';
-                subtitulo = 'Últimas notificaciones recibidas:';
+                titulo = 'Se encuentra visualizando sus <span style="color: #39A900;">notificaciones';
+                subtitulo = 'Vea sus últimas notificaciones:';
                 contenido = this.modelo.obtenerNotificaciones();
                 templateId = 'dinamicCardNotification';
                 break;
             case 'seguimiento':
-                titulo = 'Se encuentra realizando un plan de seguimiento';
-                subtitulo = 'Seleccione una ficha para seguir con el plan de seguimiento:';
+                titulo = 'Se encuentra realizando un <span style="color: #39A900;">plan de seguimiento';
+                subtitulo = 'Seleccione la ficha para el plan de seguimiento:';
                 contenido = this.modelo.obtenerFichas();
+                btnReporte = 'btnReporte';
                 templateId = 'dinamicCardCourse';
                 break;
             case 'manual':
-                titulo = '¿Necesitas ayuda con la plataforma?';
+                titulo = '¿Necesitas ayuda con la <span style="color: #39A900;">plataforma<span style="color: #00304D;">?';
                 subtitulo = 'Seleccione el manual de usuario que deseas descargar:';
                 contenido = this.modelo.obtenerManual();
                 templateId = 'dinamicCardManual';

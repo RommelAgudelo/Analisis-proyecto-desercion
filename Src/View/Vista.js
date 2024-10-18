@@ -1,57 +1,64 @@
-// Ejecutar initializeEventListeners cuando el DOM esté cargado
-document.addEventListener('DOMContentLoaded', initializeEventListeners);
+// Funcionamiento de la pagina de inicio de sesion y los modales de error
+document.addEventListener("DOMContentLoaded", function () {
+    const btnLogin = document.getElementById('btnLogin');
+    const selectRol = document.getElementById('selectRol');
+    const emailInput = document.getElementById('emailInput');
+    const passwordInput = document.getElementById('passwordInput');
+    const modalMessageError = document.getElementById('modalMessageError');
+    const btnCloseModal = document.getElementById('btnCloseModal');
+    const modal = new bootstrap.Modal(document.getElementById('noneDataModal'));
 
-// Código existente para el formulario de inicio de sesión
-document.getElementById('loginForm').addEventListener('submit', function (event) {
-    event.preventDefault(); // Evitar el envío del formulario
+    btnLogin.addEventListener('click', function (event) {
+        event.preventDefault(); // Evitar el envío del formulario
 
-    const selectRol = document.getElementById('selectRol').value;
-    const emailInput = document.getElementById('emailInput').value;
-    const passwordInput = document.getElementById('passwordInput').value;
+        // Validación de los campos
+        if (selectRol.value === "") {
+            showModal("Por favor, selecciona tu rol.");
+        } else if (emailInput.value === "") {
+            showModal("Por favor, ingresa tu correo electrónico.");
+        } else if (passwordInput.value === "") {
+            showModal("Por favor, ingresa tu contraseña.");
+        } else {
+            console.log("Formulario válido. Procesando datos...");
+        }
+    });
 
-    let modalMessageError = '';
-
-    // Validación de los campos
-    if (!selectRol && !emailInput && !passwordInput) {
-        modalMessageError = 'Por favor, rellena todos los campos.';
-    } else if (!selectRol) {
-        modalMessageError = 'Por favor, seleccione su tipo rol';
-    } else if (!emailInput) {
-        modalMessageError = 'Por favor, ingrese su correo electrónico';
-    } else if (!passwordInput) {
-        modalMessageError = 'Por favor, ingrese su contraseña';
-    }
-
-    // Mostrar el mensaje de error si hay uno
-    if (modalMessageError) {
-        document.getElementById('modalMessageError').innerHTML = `<strong style="color: #39A900;">${modalMessageError}</strong>`;
-
-        // Crear una instancia del modal y mostrarlo
-        var modal = new bootstrap.Modal(document.getElementById('noneDataModal'));
+    // Función para mostrar el modal con el mensaje correspondiente
+    function showModal(message) {
+        modalMessageError.textContent = message;
+        modalMessageError.style.color = "#39A900";
         modal.show();
     }
+
+    // Al cerrar el modal, asegurarse de que el fondo vuelva a ser interactivo
+    btnCloseModal.addEventListener('click', function () {
+        modal.hide();
+        document.body.classList.remove('modal-open');
+        document.querySelector('.modal-backdrop').remove();
+    });
 });
 
-// vista.js
+// Logica de navegacion de la pagina
 class Vista {
     constructor() {
         this.heading = document.getElementById('heading');
         this.subHeading = document.querySelector('#subHeading strong');
+        this.btnReport = document.querySelector('btnReport')
         this.dynamicContentContainer = document.getElementById('dynamicContentContainer');
     }
 
     actualizarContenido(titulo, subtitulo, contenido, templateId) {
         // Actualizar título y subtítulo
-        this.heading.innerHTML = `<strong>Te encuentras visualizando tu listado de <span style="color: #39A900;">${titulo}</span>:</strong>`;
+        this.heading.innerHTML = `<strong>${titulo}</span></strong>`;
         this.subHeading.textContent = subtitulo;
 
         // Limpiar y actualizar el contenido dinámico
         this.dynamicContentContainer.innerHTML = '';
         const template = document.getElementById(templateId);
-        
+
         contenido.forEach(item => {
             const elemento = template.content.cloneNode(true);
-            switch(templateId) {
+            switch (templateId) {
                 case 'dinamicCardCourse':
                     elemento.querySelector('strong').textContent = item.nombre;
                     break;
