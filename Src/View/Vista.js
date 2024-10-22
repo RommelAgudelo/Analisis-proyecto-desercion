@@ -36,6 +36,7 @@ document.addEventListener("DOMContentLoaded", function () {
         document.body.classList.remove('modal-open');
         document.querySelector('.modal-backdrop').remove();
     });
+
 });
 
 // Logica de navegacion de la pagina
@@ -43,7 +44,7 @@ class Vista {
     constructor() {
         this.heading = document.getElementById('heading');
         this.subHeading = document.querySelector('#subHeading strong');
-        this.btnReport = document.querySelector('btnReport')
+        this.btnReport = document.querySelector('#btnReport')
         this.dynamicContentContainer = document.getElementById('dynamicContentContainer');
     }
 
@@ -56,23 +57,34 @@ class Vista {
         this.dynamicContentContainer.innerHTML = '';
         const template = document.getElementById(templateId);
 
+        if (!template) {
+            console.error(`Template con ID '${templateId}' no encontrado.`);
+            return;
+        }
+
         contenido.forEach(item => {
             const elemento = template.content.cloneNode(true);
+
+            // Actualizar contenido del template dinámico según el templateId
             switch (templateId) {
                 case 'dinamicCardCourse':
                     elemento.querySelector('strong').textContent = item.nombre;
+                    break;
+                case 'dinamicStudent':
+                    elemento.querySelector('strong').textContent = item.titulo;
                     break;
                 case 'dinamicCardNotification':
                     elemento.querySelector('strong').textContent = item.titulo;
                     elemento.querySelector('.text-body-secondary strong').textContent = `Enviada ${item.fecha}`;
                     break;
-                case 'dinamicCardCourse':
-                    elemento.querySelector('strong').textContent = item.nombre;
-                    break;
                 case 'dinamicCardManual':
                     elemento.querySelector('strong').textContent = item.titulo;
                     break;
             }
+
+            console.log({ titulo, subtitulo, contenido, templateId });
+
+            // Insertar el template clonado en el contenedor dinámico
             this.dynamicContentContainer.appendChild(elemento);
         });
     }

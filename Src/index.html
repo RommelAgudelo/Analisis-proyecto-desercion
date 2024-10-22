@@ -151,15 +151,15 @@
             <!-- Encabezado -->
             <div class="titulo">
                 <h1 id="heading" class="card-title p-2" style="color: #00304D; height: auto;">
-                    <strong>Te encuentras visualizando tu listado de <span
-                            style="color: #39A900;">fichas</span>:</strong>
+                    <strong>Bienvenido de nuevo,<span style="color: #39A900;"> ¿Qué deseas realizar el dia de
+                            hoy?</span></strong>
                 </h1>
                 <div id="subHeading" style="width: 90%; margin: 0 auto;">
                     <div style="width: 90%; margin: 0 auto;">
                         <div class="d-flex flex-column align-items-center" style="width: 100%;">
                             <div class="d-flex justify-content-center align-items-center"
                                 style="color:#00304D; font-size: 19.5px; margin-left: 2px;">
-                                <strong>Selecciona la ficha que deseas visualizar:</strong>
+                                <strong>Selecciona una opción en el menú lateral:</strong>
                                 <button class="btn btn-primary" type="button" id="btnReport"
                                     style="width: 20vh; margin-left: 30vh; font-size: 18px;">
                                     <strong>Generar reporte</strong>
@@ -187,22 +187,24 @@
             <!-- Contenido modificable -->
             <div class="container d-flex flex-column mb-3" id="dynamicContentContainer">
 
-                <template id="dinamicCardCourse"><!-- Tarjeta dinámica de selección de ficha -->
-                    <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
-                        <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-                        <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha 2823217</strong>
-                        <div class="flex-grow-1">
-                        </div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#optionModal"
-                            id="moreOptionBtn">
-                            <strong>Ver opciones</strong>
-                        </button>
+                <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
+                    <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+                    <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha 2823217</strong>
+                    <div class="flex-grow-1">
                     </div>
+                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#optionModal"
+                        id="moreOptionBtn">
+                        <strong>Ver opciones</strong>
+                    </button>
+                </div>
+                <template id="dinamicCardCourse"><!-- Tarjeta dinámica de selección de ficha -->
                 </template>
 
                 <template id="dinamicCardNotification"><!-- Tarjeta dinámica de notificación  -->
-                    <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
-                        <img src="../Resources/Img/NotificationIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+                    <div class="d-flex align-items-center mb-2" id="contentCard"
+                        style="width: 100%; max-width: 1100px;">
+                        <img src="../Resources/Img/NotificationIcon.png" alt="Imagen 1" class="imagen-sub-div"
+                            id="iconImg">
                         <div class="text-left">
                             <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Aprendiz en estado de
                                 riesgo</strong>
@@ -221,21 +223,23 @@
                 </template>
 
                 <template id="dinamicStudent"><!-- Tarjeta dinámica de nombre de aprendiz -->
-                    <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
+                    <div class="d-flex align-items-center mb-2" id="contentCard"
+                        style="width: 100%; max-width: 1100px;">
                         <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
                         <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Jean Carlos
                             Centeno</strong>
                         <div class="flex-grow-1">
                         </div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#asistModal"
-                            id="moreOptionBtn">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#asistModal" id="moreOptionBtn">
                             <strong>Ver historial</strong>
                         </button>
                     </div>
                 </template>
 
                 <template id="dinamicCardManual"><!-- Tarjeta dinámica de descarga de manual -->
-                    <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
+                    <div class="d-flex align-items-center mb-2" id="contentCard"
+                        style="width: 100%; max-width: 1100px;">
                         <img src="../Resources/Img/QuestionIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
                         <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">¿Cómo funciona la
                             plataforma?</strong>
@@ -267,16 +271,14 @@
                     </div>
                     <div class="modal-body">
                         <div class="d-flex" id="btnNavegation">
-                            <button class="btn btn-primary mb-2" type="button" id="btnCheckCourse"><strong>Registrar
+                            <button class="btn btn-primary mb-2" type="button" a href="..." id="btnMakeAssistance"><strong>Registrar
                                     asistencia</strong></button>
-                            <button class="btn btn-primary mb-2" type="button"
-                                id="btnCheckNotifications"><strong>Historial
+                            <button class="btn btn-primary mb-2" type="button" a href="..." id="btnCheckHistory"><strong>Historial
                                     de
                                     asistencia</strong></button>
-                            <button class="btn btn-primary mb-2" type="button"
-                                id="btnCheckNotifications"><strong>Generar
+                            <button class="btn btn-primary mb-2" type="button" a href="..." id="btnMakeReport"><strong>Generar
                                     reporte</strong></button>
-                            <button class="btn btn-primary" type="button" id="btnCheckUserManual"><strong>¿Necesitas
+                            <button class="btn btn-primary" type="button" a href="..." id="btnCheckUserManual"><strong>¿Necesitas
                                     ayuda?</strong></button>
                         </div>
                     </div>
@@ -711,6 +713,7 @@
         </div>
 
     </div>
+
     <template><!--  Cuadro de area de trabajo  -->
     </template>
 

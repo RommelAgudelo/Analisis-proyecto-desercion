@@ -81,7 +81,10 @@ body {
 #btnFollowUpPlan,
 #moreOptionBtn,
 #btnCheckUserManual,
-#btnReport {
+#btnReport,
+#btnMakeAssistance,
+#btnCheckHistory,
+#btnMakeReport {
     width: 90%;
     color: #ffffff;
     margin: 0.5vh;
@@ -115,8 +118,15 @@ body {
 #btnFiltrerCourse:hover,
 #btnReport:hover,
 #btnUploadFile:hover,
-#btnDownload:hover {
+#btnDownload:hover,
+#btnMakeAssistance:hover,
+#btnCheckHistory:hover,
+#btnMakeReport:hover {
     background-color: #39A900;
+}
+
+#btnReport {
+    display: none; 
 }
 
 /* Estilos de la pantalla de principal */
