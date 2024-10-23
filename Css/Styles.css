@@ -249,7 +249,7 @@ svg {
 }
 
 /* Estilos de la card interactiva */
-#contentCard {
+#contentCard, #contentCardCourse {
     width: 150vh;
     border-radius: 50px;
     border: 1px solid #c7c7c7;

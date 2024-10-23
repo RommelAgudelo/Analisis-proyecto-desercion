@@ -19,6 +19,10 @@ class Modelo {
     }
 
     obtenerFichas() {
+        this.fichas = [
+            { id: 1, nombre: 'Ficha 2823217' },
+            { id: 2, nombre: 'Ficha 2823218' }
+        ];
         return this.fichas;
     }
 
