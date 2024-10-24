@@ -106,14 +106,14 @@
     </template>
 
     <div class="container-fluid d-flex" id="workArea">
-        <!-- Menú navegación -->
+        <!-- Menú de opciones -->
         <div class="card p-2" id="optionMenu">
-            <!-- Encabezado de menú lateral -->
+            <!-- Parte superior del menú lateral -->
             <div class="d-flex justify-content-center">
                 <img src="../Resources/Img/SenaLogo.png" alt="" id="SenaLogo">
             </div>
 
-            <!-- Barra de busqueda -->
+            <!-- Barra de busqueda del menú lateral -->
             <form>
                 <div class="search-container">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -126,7 +126,7 @@
                 </div>
             </form>
 
-            <!-- Botones de navegacion -->
+            <!-- Botones de navegacion del menú lateral -->
             <div class="d-flex align-content-stretch flex-wrap" id="btnNavegation">
                 <div id="btnNavegationMenu">
                     <button class="btnNavegation" type="button" a href="..." id="btnCheckCourse"><strong>Vizualizar
@@ -141,16 +141,16 @@
             </div>
         </div>
 
-        <!-- Espacio de trabajo -->
+        <!-- Espacio o Area de trabajo -->
         <div class="card d-flex justify-content-center" id="spaceWork">
 
             <!-- Encabezado -->
             <div class="titulo">
-                <h1 id="heading" class="card-title p-2" style="color: #00304D; height: auto;">
+                <h1 id="title" class="card-title p-2" style="color: #00304D; height: auto;">
                     <strong>Bienvenido de nuevo, ¿<span style="color: #39A900;">Qué deseas realizar el dia de
                             hoy</span>?</strong>
                 </h1>
-                <div id="subHeading" style="width: 90%; margin: 0 auto;">
+                <div id="subTitle" style="width: 90%; margin: 0 auto;">
                     <div style="width: 90%; margin: 0 auto;">
                         <div class="d-flex flex-column align-items-center" style="width: 100%;">
                             <div class="d-flex justify-content-center align-items-center"
@@ -182,23 +182,22 @@
 
             <!-- Contenido modificable -->
             <div class="container d-flex flex-column mb-3" id="dynamicContentContainer">
-
-                <div class="d-flex align-items-center mb-2" id="contentCardCourse" style="width: 100%; max-width: 1100px;">
-                    <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-                    <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha 2823217</strong>
-                    <div class="flex-grow-1">
-                    </div>
-                    <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#optionModal"
-                        id="moreOptionBtn">
-                        <strong>Ver opciones</strong>
-                    </button>
-                </div>
-                
+ 
                 <template id="dinamicCardCourse"><!-- Tarjeta dinámica de selección de ficha -->
+                    <div class="d-flex align-items-center mb-2" id="contentCardCourse" style="width: 100%; max-width: 1100px;">
+                        <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+                        <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha 2823217</strong>
+                        <div class="flex-grow-1">
+                        </div>
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#optionModal"
+                            id="moreOptionBtn">
+                            <strong>Ver opciones</strong>
+                        </button>
+                    </div>
                 </template>
 
                 <template id="dinamicCardNotification"><!-- Tarjeta dinámica de notificación  -->
-                    <div class="d-flex align-items-center mb-2" id="contentCard"
+                    <div class="d-flex align-items-center mb-2" id="contentCardNotificatión"
                         style="width: 100%; max-width: 1100px;">
                         <img src="../Resources/Img/NotificationIcon.png" alt="Imagen 1" class="imagen-sub-div"
                             id="iconImg">
@@ -220,7 +219,7 @@
                 </template>
 
                 <template id="dinamicStudent"><!-- Tarjeta dinámica de nombre de aprendiz -->
-                    <div class="d-flex align-items-center mb-2" id="contentCard" style="width: 100%; max-width: 1100px;">
+                    <div class="d-flex align-items-center mb-2" id="contentCardStudent" style="width: 100%; max-width: 1100px;">
                         <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
                         <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Jean Carlos
                             Centeno</strong>
@@ -234,7 +233,7 @@
                 </template>
 
                 <template id="dinamicCardManual"><!-- Tarjeta dinámica de descarga de manual -->
-                    <div class="d-flex align-items-center mb-2" id="contentCard"
+                    <div class="d-flex align-items-center mb-2" id="contentCardManual"
                         style="width: 100%; max-width: 1100px;">
                         <img src="../Resources/Img/QuestionIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
                         <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">¿Cómo funciona la
