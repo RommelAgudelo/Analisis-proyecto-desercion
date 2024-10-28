@@ -110,10 +110,12 @@
         <div class="card p-2" id="optionMenu">
             <!-- Parte superior del menú lateral -->
             <div class="d-flex justify-content-center">
-                <img src="../Resources/Img/SenaLogo.png" alt="" id="SenaLogo">
+                <a href="#" onclick="location.reload();">
+                    <img src="../Resources/Img/SenaLogo.png" alt="" id="SenaLogo">
+                </a>
             </div>
 
-            <!-- Barra de busqueda del menú lateral -->
+            <!-- Barra de busqueda del menú lateral-->
             <form>
                 <div class="search-container">
                     <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
@@ -124,7 +126,7 @@
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"
                         id="searchBar">
                 </div>
-            </form>
+            </form> 
 
             <!-- Botones de navegacion del menú lateral -->
             <div class="d-flex align-content-stretch flex-wrap" id="btnNavegation">
@@ -154,7 +156,7 @@
                     <div style="width: 90%; margin: 0 auto;">
                         <div class="d-flex flex-column align-items-center" style="width: 100%;">
                             <div class="d-flex justify-content-center align-items-center"
-                                style="color:#00304D; font-size: 14.5px;">
+                                style="color:#00304D; ">
                                 <strong>Selecciona una opción en el menú lateral:</strong>
                                 <button class="btn btn-primary" type="button" id="btnReport"
                                     style="width: 20vh; margin-left: 30vh; font-size: 18px;">
@@ -182,69 +184,8 @@
 
             <!-- Contenido modificable -->
             <div class="container d-flex flex-column mb-3" id="dynamicContentContainer">
- 
-                <template id="dinamicCardCourse"><!-- Tarjeta dinámica de selección de ficha -->
-                    <div class="d-flex align-items-center mb-2" id="contentCardCourse" style="width: 100%; max-width: 1100px;">
-                        <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-                        <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha 2823217</strong>
-                        <div class="flex-grow-1">
-                        </div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#optionModal"
-                            id="moreOptionBtn">
-                            <strong>Ver opciones</strong>
-                        </button>
-                    </div>
-                </template>
 
-                <template id="dinamicCardNotification"><!-- Tarjeta dinámica de notificación  -->
-                    <div class="d-flex align-items-center mb-2" id="contentCardNotificatión"
-                        style="width: 100%; max-width: 1100px;">
-                        <img src="../Resources/Img/NotificationIcon.png" alt="Imagen 1" class="imagen-sub-div"
-                            id="iconImg">
-                        <div class="text-left">
-                            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Aprendiz en estado de
-                                riesgo</strong>
-                            <p class="card-text"><small class="text-body-secondary"
-                                    style="font-size: 20px; margin-left: 2vh;"><strong>Enviada 7 de octubre del
-                                        2024,
-                                        13:00</strong></small></p>
-                        </div>
-                        <div class="flex-grow-1">
-                        </div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
-                            data-bs-target="#notificationModal" id="moreOptionBtn">
-                            <strong>Ver notificación</strong>
-                        </button>
-                    </div>
-                </template>
 
-                <template id="dinamicStudent"><!-- Tarjeta dinámica de nombre de aprendiz -->
-                    <div class="d-flex align-items-center mb-2" id="contentCardStudent" style="width: 100%; max-width: 1100px;">
-                        <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-                        <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Jean Carlos
-                            Centeno</strong>
-                        <div class="flex-grow-1">
-                        </div>
-                        <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#asistModal"
-                            id="moreOptionBtn">
-                            <strong>Ver historial</strong>
-                        </button>
-                    </div>
-                </template>
-
-                <template id="dinamicCardManual"><!-- Tarjeta dinámica de descarga de manual -->
-                    <div class="d-flex align-items-center mb-2" id="contentCardManual"
-                        style="width: 100%; max-width: 1100px;">
-                        <img src="../Resources/Img/QuestionIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-                        <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">¿Cómo funciona la
-                            plataforma?</strong>
-                        <div class="flex-grow-1">
-                        </div>
-                        <button type="button" class="btn btn-primary" id="moreOptionBtn">
-                            <strong>Descarga manual</strong>
-                        </button>
-                    </div>
-                </template>
 
             </div>
 
@@ -720,6 +661,16 @@
     <script src="./View/Vista.js"></script>
     <script src="./Model/Modelo.js"></script>
     <script src="./Controller/Controlador.js"></script>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Iniciando aplicación...');
+            const modelo = new Modelo();
+            const vista = new Vista();
+            const app = new Controlador(modelo, vista);
+        });
+    </script>
 
     <!-- Scripts de base Boootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
