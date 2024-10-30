@@ -126,11 +126,13 @@
                     <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search"
                         id="searchBar">
                 </div>
-            </form> 
+            </form>
 
             <!-- Botones de navegacion del menú lateral -->
             <div class="d-flex align-content-stretch flex-wrap" id="btnNavegation">
                 <div id="btnNavegationMenu">
+                    <button class="btnNavegation" type="button" a href="..." id="btnMakeAssistance"><strong>Registrar
+                            asistencia</strong></button>
                     <button class="btnNavegation" type="button" a href="..." id="btnCheckCourse"><strong>Vizualizar
                             fichas</strong></button>
                     <button class="btnNavegation" type="button" a href="..." id="btnCheckNotifications"><strong>Ver
@@ -155,8 +157,7 @@
                 <div id="subTitle" style="width: 90%; margin: 0 auto;">
                     <div style="width: 90%; margin: 0 auto;">
                         <div class="d-flex flex-column align-items-center" style="width: 100%;">
-                            <div class="d-flex justify-content-center align-items-center"
-                                style="color:#00304D; ">
+                            <div class="d-flex justify-content-center align-items-center" style="color:#00304D; ">
                                 <strong>Selecciona una opción en el menú lateral:</strong>
                                 <button class="btn btn-primary" type="button" id="btnReport"
                                     style="width: 20vh; margin-left: 30vh; font-size: 18px;">
@@ -184,9 +185,7 @@
 
             <!-- Contenido modificable -->
             <div class="container d-flex flex-column mb-3" id="dynamicContentContainer">
-
-
-
+                <!-- Aca se mostrara el contenido dinamico desde la vista -->
             </div>
 
             <!-- Pie de pagina -->
@@ -207,17 +206,17 @@
                     </div>
                     <div class="modal-body">
                         <div class="d-flex" id="btnNavegation">
-                            <button class="btn btn-primary mb-2" type="button" a href="..."
+                            <button class="btnNavegation" type="button" a href="..."
                                 id="btnMakeAssistance"><strong>Registrar
                                     asistencia</strong></button>
-                            <button class="btn btn-primary mb-2" type="button" a href="..."
+                            <button class="btnNavegation" type="button" a href="..."
                                 id="btnCheckHistory"><strong>Historial
                                     de
                                     asistencia</strong></button>
-                            <button class="btn btn-primary mb-2" type="button" a href="..."
+                            <button class="btnNavegation" type="button" a href="..."
                                 id="btnMakeReport"><strong>Generar
                                     reporte</strong></button>
-                            <button class="btn btn-primary" type="button" a href="..."
+                            <button class="btnNavegation" type="button" a href="..."
                                 id="btnCheckUserManual"><strong>¿Necesitas
                                     ayuda?</strong></button>
                         </div>
@@ -664,7 +663,7 @@
 
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
+        document.addEventListener('DOMContentLoaded', function () {
             console.log('Iniciando aplicación...');
             const modelo = new Modelo();
             const vista = new Vista();

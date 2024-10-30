@@ -54,9 +54,6 @@ body {
 #btnCloseModal,
 #btnreplyMessage,
 #btnSendMessage,
-#btnCheckCourse,
-#btnCheckNotifications,
-#btnCheckUserManual,
 #btnDownload {
     width: 100%;
     color: #ffffff;
@@ -79,12 +76,12 @@ body {
 #btnCheckCourse,
 #btnCheckNotifications,
 #btnFollowUpPlan,
-#moreOptionBtn,
 #btnCheckUserManual,
-#btnReport,
+#moreOptionBtn,
 #btnMakeAssistance,
 #btnCheckHistory,
-#btnMakeReport {
+#btnMakeReport,
+#btnReport {
     width: 90%;
     color: #ffffff;
     margin: 0.5vh;
@@ -108,10 +105,8 @@ body {
 #btnCloseModal:hover,
 #btnreplyMessage:hover,
 #btnSendMessage:hover,
-#btnCheckCourse:hover,
 #btnCheckNotifications:hover,
 #btnCheckUserManual:hover,#btnCheckCourse:hover,
-#btnCheckNotifications:hover,
 #moreOptionBtn:hover,
 #btnFollowUpPlan:hover,
 #btnCheckUserManual:hover,

@@ -20,6 +20,15 @@ class Modelo {
                     { titulo: "Aprendiz en estado de riesgo", fecha: "7 de octubre del 2024, 13:00" }
                 ]
             },
+            asistencia: {
+                titulo: 'Centro de <span style="color: #39A900;">Asistencia</span>',
+                subtitulo: '<style= font-size:14.5px;>Seleccione una ficha a registrar asistencia:</strong>',
+                template: "dinamicCardCourse",
+                datos: [
+                    { numero: "2823217" },
+                    { numero: "2823218" }
+                ]
+            },
             seguimiento: {
                 titulo: 'Plan de <span style="color: #39A900;">Seguimiento</span>',
                 subtitulo: '<style= font-size:14.5px;>Lista de aprendices en seguimiento:</strong>',

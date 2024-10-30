@@ -4,9 +4,66 @@
 
 class Vista {
     constructor() {
+        this.optionMenu = document.getElementById('optionMenu');
         this.title = document.getElementById('title');
         this.subTitle = document.getElementById('subTitle');
         this.dynamicContentContainer = document.getElementById('dynamicContentContainer');
+    }
+
+    renderizarMenuLateral() {
+        this.optionMenu.innerHTML = `
+          <div class="card p-2" id="optionMenu">
+            <div class="d-flex justify-content-center">
+              <a href="#" onclick="location.reload();">
+                <img src="../Resources/Img/SenaLogo.png" alt="" id="SenaLogo">
+              </a>
+            </div>
+            <form>
+              <div class="search-container">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
+                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                </svg>
+                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="searchBar">
+              </div>
+            </form>
+            <div class="d-flex align-content-stretch flex-wrap" id="btnNavegation">
+              <div id="btnNavegationMenu">
+                <button class="btnNavegation" type="button" a href="..." id="btnCheckCourse"><strong>Vizualizar fichas</strong></button>
+                <button class="btnNavegation" type="button" a href="..." id="btnCheckNotifications"><strong>Ver notificaciones</strong></button>
+                <button class="btnNavegation" type="button" a href="..." id="btnFollowUpPlan"><strong>Plan seguimiento</strong></button>
+                <button class="btnNavegation" type="button" a href="..." id="btnCheckUserManual"><strong>¿Necesitas ayuda?</strong></button>
+              </div>
+            </div>
+          </div>
+        `;
+    }
+
+    renderizarMenuLateralAlternativo() {
+        this.optionMenu.innerHTML = `
+          <div class="card p-2" id="optionMenu">
+            <div class="d-flex justify-content-center">
+              <a href="#" onclick="location.reload();">
+                <img src="../Resources/Img/SenaLogo.png" alt="" id="SenaLogo">
+              </a>
+            </div>
+            <div class="d-flex align-content-stretch flex-wrap" id="btnNavegation">
+              <div id="btnNavegationMenu">
+                <button class="btn btn-primary mb-2" type="button" a href="..." id="btnMakeAssistance">
+                  <strong>Registrar asistencia</strong>
+                </button>
+                <button class="btn btn-primary mb-2" type="button" a href="..." id="btnCheckHistory">
+                  <strong>Historial de asistencia</strong>
+                </button>
+                <button class="btn btn-primary mb-2" type="button" a href="..." id="btnMakeReport">
+                  <strong>Generar reporte</strong>
+                </button>
+                <button class="btn btn-primary" type="button" a href="..." id="btnCheckUserManual">
+                  <strong>¿Necesitas ayuda?</strong>
+                </button>
+              </div>
+            </div>
+          </div>
+        `;
     }
 
     actualizarTitulo(texto) {
@@ -29,6 +86,18 @@ class Vista {
     }
 
     renderizarFicha(dato) {
+        return `
+        <div class="d-flex align-items-center mb-2" id="contentCardCourse" style="width: 100%; max-width: 1100px;">
+            <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha ${dato.numero}</strong>
+            <div class="flex-grow-1"></div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#optionModal" id="moreOptionBtn">
+                <strong>Ver opciones</strong>
+            </button>
+        </div>`;
+    }
+
+    renderizarFichaAsistencia(dato) {
         return `
         <div class="d-flex align-items-center mb-2" id="contentCardCourse" style="width: 100%; max-width: 1100px;">
             <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
@@ -80,14 +149,16 @@ class Vista {
     }
 
     cargarTemplate(templateId, datos) {
+
         // Limpiamos el contenedor
+
         this.dynamicContentContainer.innerHTML = '';
-        
+
         let contenidoHTML = '';
-        
+
         // Dependiendo del template, usamos el renderizador correspondiente
         datos.forEach(dato => {
-            switch(templateId) {
+            switch (templateId) {
                 case 'dinamicCardCourse':
                     contenidoHTML += this.renderizarFicha(dato);
                     break;
@@ -102,7 +173,7 @@ class Vista {
                     break;
             }
         });
-        
+
         // Insertamos todo el contenido de una vez
         this.dynamicContentContainer.innerHTML = contenidoHTML;
     }
