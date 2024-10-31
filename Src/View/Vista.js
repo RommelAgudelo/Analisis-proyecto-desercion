@@ -97,14 +97,39 @@ class Vista {
         </div>`;
     }
 
-    renderizarFichaAsistencia(dato) {
+    renderizarmarcarAsistenciaFicha(dato) {
         return `
         <div class="d-flex align-items-center mb-2" id="contentCardCourse" style="width: 100%; max-width: 1100px;">
             <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
             <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha ${dato.numero}</strong>
             <div class="flex-grow-1"></div>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#optionModal" id="moreOptionBtn">
-                <strong>Ver opciones</strong>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#asistModal" id="moreOptionBtn">
+                <strong>Registrar asistencia</strong>
+            </button>
+        </div>`;
+    }
+
+    renderizarhistorialFicha(dato) {
+        console.log('Renderizando historial ficha:', dato);
+        return `
+            <div class="d-flex align-items-center mb-2" id="contentCardCourseHistory" style="width: 100%; max-width: 1100px;">
+                <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+                <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha ${dato.numero}</strong>
+                <div class="flex-grow-1"></div>
+                <button type="button" class="btn btn-primary" id="btnSelectHistory">
+                    <strong>Seleccionar</strong>
+                </button>
+            </div>`;
+    }
+
+    renderizarhistorialAprendiz(dato) {
+        return `
+        <div class="d-flex align-items-center mb-2" id="contentCardStudent" style="width: 100%; max-width: 1100px;">
+            <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">${dato.nombre}</strong>
+            <div class="flex-grow-1"></div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#historyAsistModal" id="moreOptionBtn">
+                <strong>Ver historial</strong>
             </button>
         </div>`;
     }
@@ -136,6 +161,18 @@ class Vista {
         </div>`;
     }
 
+    renderizarReporte(dato) {
+        return `
+        <div class="d-flex align-items-center mb-2" id="contentCardCourse" style="width: 100%; max-width: 1100px;">
+            <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha ${dato.numero}</strong>
+            <div class="flex-grow-1"></div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#optionModal" id="moreOptionBtn">
+                <strong>Generar reporte</strong>
+            </button>
+        </div>`;
+    }
+
     renderizarManual(dato) {
         return `
         <div class="d-flex align-items-center mb-2" id="contentCardManual" style="width: 100%; max-width: 1100px;">
@@ -150,13 +187,13 @@ class Vista {
 
     cargarTemplate(templateId, datos) {
 
-        // Limpiamos el contenedor
+        // Limpiar el contenedor
 
         this.dynamicContentContainer.innerHTML = '';
 
         let contenidoHTML = '';
 
-        // Dependiendo del template, usamos el renderizador correspondiente
+        // Casos para cada template
         datos.forEach(dato => {
             switch (templateId) {
                 case 'dinamicCardCourse':
@@ -171,6 +208,18 @@ class Vista {
                 case 'dinamicCardManual':
                     contenidoHTML += this.renderizarManual(dato);
                     break;
+                case 'dinamicCardCourseAssistance':
+                    contenidoHTML += this.renderizarmarcarAsistenciaFicha(dato);
+                    break;
+                case 'dinamicCardCourseHistory':
+                    contenidoHTML += this.renderizarhistorialFicha(dato);
+                    break;
+                case 'dinamicCardStudentHistory':
+                    contenidoHTML += this.renderizarhistorialFicha(dato);
+                    break;
+                default:
+                    console.log('Template no encontrado:', templateId);
+                    break;
             }
         });
 
@@ -179,7 +228,7 @@ class Vista {
     }
 }
 
-// Funcionamiento de la pagina de inicio de sesion y los modales de error
+// Espera a que el DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", function () {
     const btnLogin = document.getElementById('btnLogin');
     const selectRol = document.getElementById('selectRol');
@@ -187,7 +236,10 @@ document.addEventListener("DOMContentLoaded", function () {
     const passwordInput = document.getElementById('passwordInput');
     const modalMessageError = document.getElementById('modalMessageError');
     const btnCloseModal = document.getElementById('btnCloseModal');
-    const modal = new bootstrap.Modal(document.getElementById('noneDataModal'));
+    const modalElement = document.getElementById('noneDataModal');
+
+    // Instancia del modal de Bootstrap
+    const modal = new bootstrap.Modal(modalElement);
 
     btnLogin.addEventListener('click', function (event) {
         event.preventDefault(); // Evitar el envío del formulario
@@ -208,14 +260,11 @@ document.addEventListener("DOMContentLoaded", function () {
     function showModal(message) {
         modalMessageError.textContent = message;
         modalMessageError.style.color = "#39A900";
-        modal.show();
+        modal.show(); // Muestra el modal
     }
 
-    // Al cerrar el modal, asegurarse de que el fondo vuelva a ser interactivo
+    // Cerrar el modal al hacer clic en el botón de cierre
     btnCloseModal.addEventListener('click', function () {
-        modal.hide();
-        document.body.classList.remove('modal-open');
-        document.querySelector('.modal-backdrop').remove();
+        modal.hide(); // Oculta el modal
     });
-
 });

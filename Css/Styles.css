@@ -81,7 +81,7 @@ body {
 #btnMakeAssistance,
 #btnCheckHistory,
 #btnMakeReport,
-#btnReport {
+#btnReport, #btnSelectHistory {
     width: 90%;
     color: #ffffff;
     margin: 0.5vh;
@@ -116,7 +116,7 @@ body {
 #btnDownload:hover,
 #btnMakeAssistance:hover,
 #btnCheckHistory:hover,
-#btnMakeReport:hover {
+#btnMakeReport:hover, #btnSelectHistory:hover {
     background-color: #39A900;
 }
 
@@ -244,7 +244,7 @@ svg {
 }
 
 /* Estilos de la card interactiva */
-#contentCard, #contentCardCourse, #contentCardNotificatión, #contentCardStudent, #contentCardManual{
+#contentCard, #contentCardCourse, #contentCardNotificatión, #contentCardStudent, #contentCardManual, #contentCardCourseHistory{
     width: 150vh;
     border-radius: 50px;
     border: 1px solid #c7c7c7;
@@ -288,7 +288,8 @@ svg {
 }
 
 #moreOptionBtn,
-#btnDownload {
+#btnDownload,
+#btnSelectHistory {
     width: 20%;
 }
 
