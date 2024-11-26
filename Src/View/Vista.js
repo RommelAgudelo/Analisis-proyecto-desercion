@@ -1,4 +1,4 @@
-// vista.js
+//Vista.js
 
 // Logica de navegacion de la pagina
 
@@ -8,62 +8,7 @@ class Vista {
         this.title = document.getElementById('title');
         this.subTitle = document.getElementById('subTitle');
         this.dynamicContentContainer = document.getElementById('dynamicContentContainer');
-    }
-
-    renderizarMenuLateral() {
-        this.optionMenu.innerHTML = `
-          <div class="card p-2" id="optionMenu">
-            <div class="d-flex justify-content-center">
-              <a href="#" onclick="location.reload();">
-                <img src="../Resources/Img/SenaLogo.png" alt="" id="SenaLogo">
-              </a>
-            </div>
-            <form>
-              <div class="search-container">
-                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-search" viewBox="0 0 16 16">
-                  <path d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                </svg>
-                <input class="form-control me-2" type="search" placeholder="Buscar" aria-label="Search" id="searchBar">
-              </div>
-            </form>
-            <div class="d-flex align-content-stretch flex-wrap" id="btnNavegation">
-              <div id="btnNavegationMenu">
-                <button class="btnNavegation" type="button" a href="..." id="btnCheckCourse"><strong>Vizualizar fichas</strong></button>
-                <button class="btnNavegation" type="button" a href="..." id="btnCheckNotifications"><strong>Ver notificaciones</strong></button>
-                <button class="btnNavegation" type="button" a href="..." id="btnFollowUpPlan"><strong>Plan seguimiento</strong></button>
-                <button class="btnNavegation" type="button" a href="..." id="btnCheckUserManual"><strong>¿Necesitas ayuda?</strong></button>
-              </div>
-            </div>
-          </div>
-        `;
-    }
-
-    renderizarMenuLateralAlternativo() {
-        this.optionMenu.innerHTML = `
-          <div class="card p-2" id="optionMenu">
-            <div class="d-flex justify-content-center">
-              <a href="#" onclick="location.reload();">
-                <img src="../Resources/Img/SenaLogo.png" alt="" id="SenaLogo">
-              </a>
-            </div>
-            <div class="d-flex align-content-stretch flex-wrap" id="btnNavegation">
-              <div id="btnNavegationMenu">
-                <button class="btn btn-primary mb-2" type="button" a href="..." id="btnMakeAssistance">
-                  <strong>Registrar asistencia</strong>
-                </button>
-                <button class="btn btn-primary mb-2" type="button" a href="..." id="btnCheckHistory">
-                  <strong>Historial de asistencia</strong>
-                </button>
-                <button class="btn btn-primary mb-2" type="button" a href="..." id="btnMakeReport">
-                  <strong>Generar reporte</strong>
-                </button>
-                <button class="btn btn-primary" type="button" a href="..." id="btnCheckUserManual">
-                  <strong>¿Necesitas ayuda?</strong>
-                </button>
-              </div>
-            </div>
-          </div>
-        `;
+        this.ultimoTemplateUsado = null;
     }
 
     actualizarTitulo(texto) {
@@ -85,51 +30,98 @@ class Vista {
             </div>`;
     }
 
-    renderizarFicha(dato) {
-        return `
-        <div class="d-flex align-items-center mb-2" id="contentCardCourse" style="width: 100%; max-width: 1100px;">
-            <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha ${dato.numero}</strong>
-            <div class="flex-grow-1"></div>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#optionModal" id="moreOptionBtn">
-                <strong>Ver opciones</strong>
-            </button>
-        </div>`;
-    }
-
     renderizarmarcarAsistenciaFicha(dato) {
         return `
         <div class="d-flex align-items-center mb-2" id="contentCardCourse" style="width: 100%; max-width: 1100px;">
             <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
             <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha ${dato.numero}</strong>
             <div class="flex-grow-1"></div>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#asistModal" id="moreOptionBtn">
-                <strong>Registrar asistencia</strong>
+            <button type="button" class="btn btn-primary" id="btnSelectAttendance">
+                <strong>Seleccionar</strong>
             </button>
         </div>`;
     }
 
-    renderizarhistorialFicha(dato) {
-        console.log('Renderizando historial ficha:', dato);
-        return `
-            <div class="d-flex align-items-center mb-2" id="contentCardCourseHistory" style="width: 100%; max-width: 1100px;">
-                <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-                <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha ${dato.numero}</strong>
-                <div class="flex-grow-1"></div>
-                <button type="button" class="btn btn-primary" id="btnSelectHistory">
-                    <strong>Seleccionar</strong>
-                </button>
-            </div>`;
-    }
-
-    renderizarhistorialAprendiz(dato) {
+    renderizarmarcarAsistenciaEstudiante(dato) {
         return `
         <div class="d-flex align-items-center mb-2" id="contentCardStudent" style="width: 100%; max-width: 1100px;">
             <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
             <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">${dato.nombre}</strong>
             <div class="flex-grow-1"></div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#asistModal" id="btnMakeAttendance">
+                <strong>Registre asistencia</strong>
+            </button>
+        </div>`;
+    }
+
+    renderizarhistorialFicha(dato) {
+        return `
+        <div class="d-flex align-items-center mb-2" id="contentCardCourseHistory" style="width: 100%; max-width: 1100px;">
+            <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha ${dato.numero}</strong>
+            <div class="flex-grow-1"></div>
+            <button type="button" class="btn btn-primary" id="btnSelectHistory">
+                <strong>Seleccionar</strong>
+            </button>
+        </div>`;
+    }
+
+    renderizarhistorialAprendiz(dato) {
+        return `
+        <div class="d-flex align-items-center mb-2" id="contentCardStudentHistory" style="width: 100%; max-width: 1100px;">
+            <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">${dato.nombre}</strong>
+            <div class="flex-grow-1"></div>
             <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#historyAsistModal" id="moreOptionBtn">
                 <strong>Ver historial</strong>
+            </button>
+        </div>`;
+    }
+
+    renderizargenerareporte(dato) {
+        return `
+        <div class="d-flex align-items-center mb-2" id="contentCardGenerateReport" style="width: 100%; max-width: 1100px;">
+            <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha ${dato.numero}</strong>
+            <div class="flex-grow-1"></div>
+            <button type="button" class="btn btn-primary" id="btnSelectReport">
+                <strong>Seleccionar</strong>
+            </button>
+        </div>`;
+    }
+
+    renderizargenerareporteestudiante(dato) {
+        return `
+        <div class="d-flex align-items-center mb-2" id="contentCardGenerateReportStudent" style="width: 100%; max-width: 1100px;">
+            <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">${dato.nombre}</strong>
+            <div class="flex-grow-1"></div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reportModal" id="btnGenerateReport">
+                <strong>Generar reporte</strong>
+            </button>
+        </div>`;
+    }
+
+    renderizarseguimientoficha(dato) {
+        return `
+        <div class="d-flex align-items-center mb-2" id="contentCardCourseTracking" style="width: 100%; max-width: 1100px;">
+            <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha ${dato.numero}</strong>
+            <div class="flex-grow-1"></div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#seguimientoModal" id="btnSeguimientoFicha">
+                <strong>Ver plan de seguimiento</strong>
+            </button>
+        </div>`;
+    }
+
+    renderizarseguimientoEstudiante(dato) {
+        return `
+        <div class="d-flex align-items-center mb-2" id="contentCardStudentTracking" style="width: 100%; max-width: 1100px;">
+            <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">${dato.nombre}</strong>
+            <div class="flex-grow-1"></div>
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#seguimientoModal" id="btnSeguimientoEstudiante">
+                <strong>Ver plan de seguimiento</strong>
             </button>
         </div>`;
     }
@@ -143,7 +135,10 @@ class Vista {
                 <p class="card-text"><small class="text-body-secondary" style="font-size: 20px; margin-left: 2vh;"><strong>Enviada ${dato.fecha}</strong></small></p>
             </div>
             <div class="flex-grow-1"></div>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notificationModal" id="moreOptionBtn">
+            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#notificationModal" id="btnNotification" 
+                data-titulo="${dato.titulo}" 
+                data-fecha="${dato.fecha}" 
+                data-contenido="${dato.contenido}">
                 <strong>Ver notificación</strong>
             </button>
         </div>`;
@@ -179,7 +174,7 @@ class Vista {
             <img src="../Resources/Img/QuestionIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
             <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">${dato.titulo}</strong>
             <div class="flex-grow-1"></div>
-            <button type="button" class="btn btn-primary" id="moreOptionBtn">
+            <button type="button" class="btn btn-primary" id="btnManualDownload">
                 <strong>Descarga manual</strong>
             </button>
         </div>`;
@@ -187,9 +182,21 @@ class Vista {
 
     cargarTemplate(templateId, datos) {
 
+        // Guardar el último template usado
+        this.ultimoTemplateUsado = templateId;
+
         // Limpiar el contenedor
 
         this.dynamicContentContainer.innerHTML = '';
+
+        // Si no hay datos parecidos, mostrar mensaje
+        if (!datos || datos.length === 0) {
+            this.dynamicContentContainer.innerHTML = `
+                <div class="d-flex align-items-center mb-2" style="width: 100%; max-width: 1100px;">
+                    <strong style="color: #00304D; font-size: 20px;">No se encontraron resultados</strong>
+                </div>`;
+            return;
+        }
 
         let contenidoHTML = '';
 
@@ -202,8 +209,8 @@ class Vista {
                 case 'dinamicCardNotification':
                     contenidoHTML += this.renderizarNotificacion(dato);
                     break;
-                case 'dinamicStudent':
-                    contenidoHTML += this.renderizarEstudiante(dato);
+                case 'dinamicCardStudent':
+                    contenidoHTML += this.renderizarmarcarAsistenciaEstudiante(dato);
                     break;
                 case 'dinamicCardManual':
                     contenidoHTML += this.renderizarManual(dato);
@@ -214,8 +221,20 @@ class Vista {
                 case 'dinamicCardCourseHistory':
                     contenidoHTML += this.renderizarhistorialFicha(dato);
                     break;
+                case 'dinamicCardGenerateReport':
+                    contenidoHTML += this.renderizargenerareporte(dato);
+                    break;
                 case 'dinamicCardStudentHistory':
-                    contenidoHTML += this.renderizarhistorialFicha(dato);
+                    contenidoHTML += this.renderizarhistorialAprendiz(dato);
+                    break;
+                case 'dinamicCardGenerateReportStudent':
+                    contenidoHTML += this.renderizargenerareporteestudiante(dato);
+                    break;
+                case 'dinamicCardCourseTracking':
+                    contenidoHTML += this.renderizarseguimientoficha(dato);
+                    break;
+                case 'dinamicCardStudentTracking':
+                    contenidoHTML += this.renderizarseguimientoEstudiante(dato);
                     break;
                 default:
                     console.log('Template no encontrado:', templateId);
@@ -226,9 +245,10 @@ class Vista {
         // Insertamos todo el contenido de una vez
         this.dynamicContentContainer.innerHTML = contenidoHTML;
     }
+
 }
 
-// Espera a que el DOM esté completamente cargado
+// Hacer DOM esté completamente cargado
 document.addEventListener("DOMContentLoaded", function () {
     const btnLogin = document.getElementById('btnLogin');
     const selectRol = document.getElementById('selectRol');

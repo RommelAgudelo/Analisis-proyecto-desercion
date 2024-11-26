@@ -1,56 +1,222 @@
-// controlador.js
+// Controlador.js
 
 class Controlador {
     constructor(modelo, vista) {
         this.modelo = modelo;
         this.vista = vista;
+        this.vistaActual = null;
         this.inicializarEventos();
+        this.inicializarEventosDinamicos();
     }
 
     inicializarEventos() {
-        // Eventos de los botones
+        // Eventos de los botones estáticos
+        const botones = {
+            'btnCheckCourse': 'marcarAsistenciaFicha',
+            'btnCheckNotifications': 'notificaciones',
+            'btnFollowUpPlan': 'seguimientoficha',
+            'btnCheckUserManual': 'ayuda',
+            'btnMakeReport': 'generareporte',
+            'btnCheckHistory': 'historialFicha'
+        };
 
-        // Pagina de fichas
-        document.getElementById('btnCheckCourse').addEventListener('click', () => 
-            this.cambiarVista('fichas'));
-        
-        // Pagina de notificaciones
-        document.getElementById('btnCheckNotifications').addEventListener('click', () => 
-            this.cambiarVista('notificaciones'));
-        
-        // Pagina de seguimiento
-        document.getElementById('btnFollowUpPlan').addEventListener('click', () => 
-            this.cambiarVista('seguimiento'));
-        
-        // Pagina de manual de usuario
-        document.getElementById('btnCheckUserManual').addEventListener('click', () => 
-            this.cambiarVista('ayuda'));
+        // Agregar eventos a todos los botones estáticos
+        Object.entries(botones).forEach(([id, vista]) => {
+            const elemento = document.getElementById(id);
+            if (elemento) {
+                elemento.addEventListener('click', () => this.cambiarVista(vista));
+            }
+        });
+    }
 
-        // Pagina de marcar asistencia fichas
-        document.getElementById('btnMakeAssistance').addEventListener('click', () =>
-            this.cambiarVista('marcarAsistenciaFicha'));
+    inicializarEventosDinamicos() {
+        document.getElementById('dynamicContentContainer').addEventListener('click', (e) => {
+            // Manejar el botón de seleccionar ficha para asistencia
+            if (e.target.closest('#btnSelectAttendance')) {
+                const fichaContainer = e.target.closest('#contentCardCourse');
+                const fichaNumero = fichaContainer ?
+                    fichaContainer.querySelector('strong').textContent.split(' ')[1] :
+                    null;
 
-        // Pagina de ver asistencia fichas
-        document.getElementById('btnCheckHistory').addEventListener('click', () => 
-            this.cambiarVista('historialFicha'));
+                this.cambiarVistaConDatos('marcarAsistenciaEstudiante', {
+                    fichaSeleccionada: fichaNumero
+                });
+            }
 
-        // Pagina de ver asistencia estudiantes
-        document.getElementById('btnSelectHistory').addEventListener('click', () => 
-            this.cambiarVista('historialAprendiz'));
+            // Manejar el botón de seleccionar ficha para historial
+            if (e.target.closest('#btnSelectHistory')) {
+                const fichaContainer = e.target.closest('#contentCardCourseHistory');
+                if (fichaContainer) {
+                    const fichaNumero = fichaContainer.querySelector('strong').textContent.split(' ')[1];
 
-        // Pagina de hacer reporte
-        document.getElementById('btnMakeReport').addEventListener('click', () => 
-            this.cambiarVista('reporte'));
-        
+                    // Cambiar a la vista de historial de aprendiz
+                    this.cambiarVistaConDatos('historialAprendiz', {
+                        fichaSeleccionada: fichaNumero
+                    });
+                }
+            }
+
+            // Manejador para el botón de reporte
+            if (e.target.closest('#btnSelectReport')) {
+                const fichaContainer = e.target.closest('#contentCardGenerateReport');
+                if (fichaContainer) {
+                    const fichaNumero = fichaContainer.querySelector('strong').textContent.split(' ')[1];
+                    console.log('Ficha seleccionada para reporte:', fichaNumero); // Debug
+                    this.cambiarVistaConDatos('generareporteestudiante', {
+                        fichaSeleccionada: fichaNumero
+                    });
+                }
+            }
+
+            // Manejador para el botón de seguimiento
+            if (e.target.closest('#btnSeguimiento')) {
+                const estudianteContainer = e.target.closest('#contentCardCourseTracking');
+                if (estudianteContainer) {
+                    const nombreEstudiante = estudianteContainer.querySelector('strong').textContent;
+                    console.log(`Botón de seguimiento presionado para: ${nombreEstudiante}`); // Log adicional
+                    this.cambiarVistaConDatos('seguimientoestudiante', {
+                        nombreEstudiante: nombreEstudiante
+                    });
+                }
+            }
+
+            // Manejador para el botón de seguimiento de ficha
+            if (e.target.closest('#btnSeguimientoFicha')) {
+                const fichaContainer = e.target.closest('#contentCardCourseTracking');
+                if (fichaContainer) {
+                    const fichaNumero = fichaContainer.querySelector('strong').textContent.split(' ')[1];
+                    this.cambiarVistaConDatos('seguimientoestudiante', {
+                        fichaSeleccionada: fichaNumero
+                    });
+                }
+            }
+
+            // Manejador para el botón de seguimiento de estudiante
+            if (e.target.closest('#btnSeguimientoEstudiante')) {
+                const estudianteContainer = e.target.closest('#contentCardStudentTracking');
+                if (estudianteContainer) {
+                    const nombreEstudiante = estudianteContainer.querySelector('strong').textContent;
+                    // Aquí puedes agregar lógica adicional si es necesario
+                    console.log('Estudiante seleccionado:', nombreEstudiante);
+                }
+            }
+        });
+
+        // Evento para manejar notificaciones
+        document.getElementById('dynamicContentContainer').addEventListener('click', (e) => {
+            const btnNotificacion = e.target.closest('#btnNotification');
+            if (btnNotificacion) {
+                const titulo = btnNotificacion.getAttribute('data-titulo');
+                const fecha = btnNotificacion.getAttribute('data-fecha');
+                const contenido = btnNotificacion.getAttribute('data-contenido');
+
+                // Actualizar el modal
+                document.querySelector('#notificationModal .modal-header .card-title').innerHTML =
+                    `<strong>Estudiante en <span style="color: #39A900;">riesgo</span>: ${titulo}</strong>`;
+
+                document.querySelector('#notificationModal .modal-body small').textContent =
+                    `Enviada ${fecha}`;
+
+                document.querySelector('#notificationModal .modal-body p:last-child').textContent =
+                    contenido;
+            }
+        });
+
+        // Evento que abre el pdf de reporte estudiante
+        document.getElementById('dynamicContentContainer').addEventListener('click', (e) => {
+            // Manejar el botón de generar reporte de estudiante
+            if (e.target.closest('#btnGenerateReport')) {
+                // Abre el PDF
+                window.open('../Resources/Documents/StudentReport.pdf', '_blank');
+            }
+        });
+
+        // Evento que abre manual de usuario
+        document.getElementById('dynamicContentContainer').addEventListener('click', (e) => {
+            // Manejar el botón de generar manual de usuario
+            if (e.target.closest('#btnManualDownload')) {
+                // Abre el PDF
+                window.open('../Resources/Documents/UserManual.pdf', '_blank');
+            }
+        });
+
+        // Añadir evento de búsqueda
+        const searchBar = document.getElementById('searchBarSpaceWork');
+        if (searchBar) {
+            searchBar.addEventListener('input', () => this.filtrarContenido(searchBar.value));
+        }
+    }
+
+    // Añadir este nuevo método a la clase Controlador
+    filtrarContenido(terminoBusqueda) {
+        // Convertir a minúsculas para hacer la búsqueda insensible a mayúsculas/minúsculas
+        const busqueda = terminoBusqueda.toLowerCase().trim();
+
+        // Obtener la vista actual desde el último template usado
+        const configuracionActual = Object.values(this.modelo.vistasDisponibles).find(
+            config => config.template === this.vista.ultimoTemplateUsado
+        );
+
+        if (configuracionActual) {
+            // Filtrar los datos según el término de búsqueda
+            const datosFiltrados = configuracionActual.datos.filter(dato => {
+                // Buscar en diferentes propiedades dependiendo del tipo de dato
+                if (dato.numero) {
+                    return dato.numero.toLowerCase().includes(busqueda);
+                }
+                if (dato.nombre) {
+                    return dato.nombre.toLowerCase().includes(busqueda);
+                }
+                if (dato.titulo) {
+                    return dato.titulo.toLowerCase().includes(busqueda);
+                }
+                return false;
+            });
+
+            // Recargar la vista con los datos filtrados
+            this.vista.cargarTemplate(configuracionActual.template, datosFiltrados);
+        }
+    }
+
+    cambiarVistaConDatos(tipoVista, datosAdicionales) {
+        const configuracion = this.modelo.obtenerConfiguracionVista(tipoVista);
+
+        if (configuracion) {
+            let datosFiltrados = [...configuracion.datos];
+
+            // Filtrar estudiantes por ficha seleccionada
+            if (datosAdicionales?.fichaSeleccionada && tipoVista === 'historialAprendiz') {
+                datosFiltrados = configuracion.datos.filter(estudiante =>
+                    estudiante.ficha === datosAdicionales.fichaSeleccionada
+                );
+            }
+
+            // Actualizar la vista
+            this.vista.actualizarTitulo(configuracion.titulo);
+            this.vista.actualizarSubtitulo(configuracion.subtitulo);
+            this.vista.cargarTemplate(configuracion.template, datosFiltrados);
+        }
     }
 
     cambiarVista(tipoVista) {
-        const configuracion = this.modelo.obtenerConfiguracionVista(tipoVista);
-        
-        if (configuracion) {
-            this.vista.actualizarTitulo(configuracion.titulo);
-            this.vista.actualizarSubtitulo(configuracion.subtitulo);
-            this.vista.cargarTemplate(configuracion.template, configuracion.datos);
-        }
+        this.cambiarVistaConDatos(tipoVista, null);
     }
+
+}
+
+// funcion de filtrado de opciones de menu de navegacion
+document.getElementById('searchBar').addEventListener('input', filterOptionMenu);
+
+function filterOptionMenu() {
+    const searchText = document.getElementById('searchBar').value.toLowerCase();
+    const btnNavegation = document.querySelectorAll('#btnNavegation .btnNavegation');
+
+    btnNavegation.forEach(btn => {
+        const btnText = btn.textContent.toLowerCase();
+        if (btnText.includes(searchText)) {
+            btn.style.display = 'block';
+        } else {
+            btn.style.display = 'none';
+        }
+    });
 }

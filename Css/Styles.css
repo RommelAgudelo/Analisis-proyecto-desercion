@@ -36,7 +36,8 @@ body {
 #passwordInput,
 #selectRol,
 #selectMes,
-#selectSemana {
+#selectSemana,
+#selectBloque {
     margin: 1vh 0;
     border-radius: 20px;
     font-family: "Work Sans", sans-serif;
@@ -81,8 +82,19 @@ body {
 #btnMakeAssistance,
 #btnCheckHistory,
 #btnMakeReport,
-#btnReport, #btnSelectHistory {
-    width: 90%;
+#btnReport,
+#btnSelect,
+#btnSelectAttendance,
+#btnSelectHistory,
+#btnSelectReport,
+#btnSelectReportEstudent,
+#btnGenerateReport,
+#btnMakeAttendance,
+#btnSeguimientoFicha,
+#btnSeguimientoEstudiante,
+#btnNotification,
+#btnManualDownload {
+    width: 100%;
     color: #ffffff;
     margin: 0.5vh;
     font-family: "Work Sans", sans-serif;
@@ -106,7 +118,8 @@ body {
 #btnreplyMessage:hover,
 #btnSendMessage:hover,
 #btnCheckNotifications:hover,
-#btnCheckUserManual:hover,#btnCheckCourse:hover,
+#btnCheckUserManual:hover,
+#btnCheckCourse:hover,
 #moreOptionBtn:hover,
 #btnFollowUpPlan:hover,
 #btnCheckUserManual:hover,
@@ -116,12 +129,23 @@ body {
 #btnDownload:hover,
 #btnMakeAssistance:hover,
 #btnCheckHistory:hover,
-#btnMakeReport:hover, #btnSelectHistory:hover {
+#btnMakeReport:hover,
+#btnSelect:hover,
+#btnSelectAttendance:hover,
+#btnSelectHistory:hover,
+#btnSelectReport:hover,
+#btnSelectReport:hover #btnSelectReportEstudent:hover,
+#btnGenerateReport:hover,
+#btnMakeAttendance:hover,
+#btnSeguimientoFicha:hover,
+#btnSeguimientoEstudiante:hover,
+#btnNotification:hover,
+#btnManualDownload:hover {
     background-color: #39A900;
 }
 
 #btnReport {
-    display: none; 
+    display: none;
 }
 
 /* Estilos de la pantalla de principal */
@@ -147,11 +171,13 @@ body {
     color: #CCCCCC;
 }
 
-#searchBar::placeholder {
+#searchBar::placeholder,
+#searchBarSpaceWork::placeholder {
     color: #CCCCCC;
 }
 
-#searchBar {
+#searchBar,
+#searchBarSpaceWork {
     padding: 10px 40px;
     font-size: 15px;
     border: 1px solid #ccc;
@@ -207,7 +233,8 @@ svg {
     height: 100%;
     padding: 5px;
     display: flex;
-    flex-direction: column; /* Asegura que los elementos se apilen verticalmente */
+    flex-direction: column;
+    /* Asegura que los elementos se apilen verticalmente */
     overflow-y: auto;
     border-radius: 20px;
     justify-content: flex-start;
@@ -244,7 +271,17 @@ svg {
 }
 
 /* Estilos de la card interactiva */
-#contentCard, #contentCardCourse, #contentCardNotificatión, #contentCardStudent, #contentCardManual, #contentCardCourseHistory{
+#contentCard,
+#contentCardCourse,
+#contentCardNotificatión,
+#contentCardStudent,
+#contentCardManual,
+#contentCardCourseHistory,
+#contentCardGenerateReport,
+#contentCardStudentHistory,
+#contentCardGenerateReportStudent,
+#contentCardCourseTracking,
+#contentCardStudentTracking {
     width: 150vh;
     border-radius: 50px;
     border: 1px solid #c7c7c7;
@@ -289,8 +326,24 @@ svg {
 
 #moreOptionBtn,
 #btnDownload,
-#btnSelectHistory {
+#btnSelect,
+#btnSelectAttendance,
+#btnSelectHistory,
+#btnSelectReport,
+#btnSelectReportEstudent {
     width: 20%;
+}
+
+#btnGenerateReport,
+#btnMakeAttendance,
+#btnNotification,
+#btnManualDownload {
+    width: 30%;
+}
+
+#btnSeguimientoFicha,
+#btnSeguimientoEstudiante {
+    width: 40%;
 }
 
 /* Estilos del modal de notificaciones */
@@ -300,7 +353,17 @@ svg {
     font-family: "Work Sans", sans-serif;
 }
 
-/* Estilos de contenedor de filtrado y */
+/* Estilos del modal de marcar asistencia*/
+#asistModal .modal-dialog {
+    max-width: 90%;
+    width: 1200px;
+}
+
+#asistModal .modal-content {
+    width: 100%;
+}
+
+/* Estilos de contenedor de filtrado */
 #filtrerContainer,
 #asistContainer {
     width: 90%;
