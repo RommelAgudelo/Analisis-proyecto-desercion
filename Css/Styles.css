@@ -37,6 +37,7 @@ body {
 #selectRol,
 #selectMes,
 #selectSemana,
+#selectAsistencia,
 #selectBloque {
     margin: 1vh 0;
     border-radius: 20px;
@@ -53,8 +54,9 @@ body {
 /* Estilos de botones*/
 #btnLogin,
 #btnCloseModal,
+#btnSaveData,
 #btnreplyMessage,
-#btnSendMessage,
+#btnSendMessage, #btnSendFillUpPlan,
 #btnDownload {
     width: 100%;
     color: #ffffff;
@@ -93,7 +95,8 @@ body {
 #btnSeguimientoFicha,
 #btnSeguimientoEstudiante,
 #btnNotification,
-#btnManualDownload {
+#btnManualDownload,
+#btnFiltrerDay,#btnFiltrerDayHistory {
     width: 100%;
     color: #ffffff;
     margin: 0.5vh;
@@ -105,7 +108,7 @@ body {
 }
 
 #btnUploadFile {
-    width: 30vh;
+    width: 100%;
     font-family: "Work Sans", sans-serif;
     font-size: 20px;
     background-color: #00304D;
@@ -115,14 +118,18 @@ body {
 
 #btnLogin:hover,
 #btnCloseModal:hover,
+#btnSaveData:hover,
 #btnreplyMessage:hover,
 #btnSendMessage:hover,
+#btnSendFillUpPlan:hover,
 #btnCheckNotifications:hover,
 #btnCheckUserManual:hover,
 #btnCheckCourse:hover,
 #moreOptionBtn:hover,
 #btnFollowUpPlan:hover,
 #btnCheckUserManual:hover,
+#btnFiltrerDayHistory:hover,
+#btnFiltrerDay:hover,
 #btnFiltrerCourse:hover,
 #btnReport:hover,
 #btnUploadFile:hover,
@@ -289,7 +296,7 @@ svg {
     margin-top: 1vh;
 }
 
-#asistContainer {
+#asistContainer, #historyContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -299,7 +306,7 @@ svg {
 }
 
 
-#dayContentCard {
+#dayContentCard, #dayContentCardHistory {
     width: 100%;
     max-width: 1100px;
     border-radius: 20px;
@@ -355,7 +362,7 @@ svg {
 
 /* Estilos del modal de marcar asistencia*/
 #asistModal .modal-dialog {
-    max-width: 90%;
+    max-width: 50%;
     width: 1200px;
 }
 
@@ -363,10 +370,39 @@ svg {
     width: 100%;
 }
 
+/* Estilos del modal de ver el historial de asistencia*/
+#historyAsistModal .modal-dialog {
+    max-width: 50%;
+    width: 1200px;
+}
+
+#historyAsistModal .modal-content {
+    width: 100%;
+}
+
+
 /* Estilos de contenedor de filtrado */
-#filtrerContainer,
-#asistContainer {
-    width: 90%;
+#filtrerContainerAsist, #filtrerContainerAsistHistory{
+    width: 100%;
+    padding: 10px;
+    height: 8vh;
+    min-height: 5vh;
+    margin-bottom: 0;
+    border-radius: 20px;
+    background-color: transparent;
+    gap: 10px;
+}
+
+#filtrerContainerAsist, #filtrerContainerAsistHistory {
+    margin-top: 1vh;
+}
+
+#filtrerContainerAsist {
+    margin-top: 0vh;
+}
+
+#asistContainer, #historyContainer{
+    width: 100%;
     padding: 10px;
     height: 8vh;
     min-height: 5vh;
@@ -377,11 +413,11 @@ svg {
     gap: 10px;
 }
 
-#asistContainer {
+#asistContaine, #historyContainer {
     margin-top: 1vh;
 }
 
-#btnFiltrerCourse {
+#btnFiltrerCourse, #btnFiltrerDay, #btnFiltrerDayHistory {
     width: 20%;
     font-family: "Work Sans", sans-serif;
     font-size: 20px;

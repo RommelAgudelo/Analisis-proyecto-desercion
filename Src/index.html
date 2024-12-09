@@ -316,13 +316,14 @@
                 <div class="modal-content align-items-center">
                     <div class="modal-header">
                         <h1 class="card-title" style="color: #00304D; ">
-                            <strong>Estas vizualizando el <span style="color: #39A900;">historial
+                            <strong>Estas vizualizando el <span style="color: #39A900;">marcar
                                     asistencia</span>:</strong>
                         </h1>
                     </div>
 
                     <div class="modal-body">
-                        <div class="container d-flex align-items-center justify-content-center" id="filtrerContainer">
+                        <div class="container d-flex align-items-center justify-content-center"
+                            id="filtrerContainerAsist">
                             <div class="d-flex align-items-center gap-3" style="width: 100%;">
                                 <div class="form-floating" style="width: 200px;">
                                     <select class="form-select" id="selectMes">
@@ -340,7 +341,8 @@
                                         <option value="11">Noviembre</option>
                                         <option value="12">Diciembre</option>
                                     </select>
-                                    <label for="selectMes" style="margin-top: 1vh;"><strong>Seleccionar mes</strong></label>
+                                    <label for="selectMes" style="margin-top: 1vh;"><strong>Seleccionar
+                                            mes</strong></label>
                                 </div>
                                 <div class="form-floating" style="width: 200px;">
                                     <select class="form-select" id="selectSemana">
@@ -350,25 +352,28 @@
                                         <option value="3">Semana 3</option>
                                         <option value="4">Semana 4</option>
                                     </select>
-                                    <label for="selectSemana" style="margin-top: 1vh;"><strong>Seleccionar semana</strong></label>
+                                    <label for="selectSemana" style="margin-top: 1vh;"><strong>Seleccionar
+                                            semana</strong></label>
                                 </div>
                                 <div class="form-floating" style="width: 200px;">
                                     <select class="form-select" id="selectBloque">
                                         <option disabled selected hidden></option>
-                                        <option value="1">06:00-10:00</option>
-                                        <option value="2">10:00-14:00</option>
-                                        <option value="3">14:00-18:00</option>
+                                        <option value="1">06:00-10:00 "Mañana"</option>
+                                        <option value="2">10:00-14:00 "Mediodia"</option>
+                                        <option value="3">14:00-18:00 "Tarde"</option>
                                     </select>
-                                    <label for="selectBloque" style="margin-top: 1vh;"><strong>Seleccionar bloque</strong></label>
+                                    <label for="selectBloque" style="margin-top: 1vh;"><strong>Seleccionar
+                                            bloque</strong></label>
                                 </div>
-                                <button class="btn btn-primary" type="button" id="btnFiltrerCourse"><strong>Filtrar</strong></button>
+                                <button class="btn btn-primary" type="button"
+                                    id="btnFiltrerCourse"><strong>Filtrar</strong></button>
                             </div>
                         </div>
 
                         <div class="container d-flex flex-column mb-3 align-items-center justify-content-center"
                             id="asistContainer" style="height: auto;">
 
-                            <div class="d-flex align-items-center mb-2" id="dayContentCard"
+                            <!-- <div class="d-flex align-items-center mb-2" id="dayContentCard"
                                 style="width: 100%; max-width: 1100px;">
                                 <img src="../Resources/Img/CalendarIcon.png" alt="Imagen 1" class="imagen-sub-div"
                                     id="iconImg" style="width: 50px;">
@@ -470,7 +475,7 @@
                                             Marcar asistencia</strong>
                                     </label>
                                 </div>
-                            </div>
+                            </div> -->
 
                         </div>
 
@@ -478,10 +483,7 @@
 
                     <div class="modal-footer justify-content-center" style="width: 100%;">
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
-                            id="btnCloseModal"><strong>Guardar cambios</strong></button>
-                    </div>
-
-                    <div class="modal-footer justify-content-center" style="width: 100%;">
+                            id="btnSaveData"><strong>Guardar cambios</strong></button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                             id="btnCloseModal"><strong>Cerrar</strong></button>
                     </div>
@@ -490,7 +492,7 @@
         </div>
 
         <!-- Modal de historial de asistencia  -->
-        <div class="modal fade" style="width: 10vh;" id="historyAsistModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+        <div class="modal fade" id="historyAsistModal" tabindex="-1" aria-labelledby="exampleModalLabel"
             aria-hidden="true">
             <div class="modal-dialog">
                 <div class="modal-content align-items-center">
@@ -502,55 +504,57 @@
                     </div>
 
                     <div class="modal-body">
-                        <div class="container d-flex align-items-center justify-content-center" id="filtrerContainer">
-                            <div class="container d-flex align-items-center justify-content-center" id="filtrerContainer">
-                                <div class="d-flex align-items-center gap-3" style="width: 100%;">
-                                    <div class="form-floating" style="width: 200px;">
-                                        <select class="form-select" id="selectMes">
-                                            <option disabled selected hidden></option>
-                                            <option value="1">Enero</option>
-                                            <option value="2">Febrero</option>
-                                            <option value="3">Marzo</option>
-                                            <option value="4">Abril</option>
-                                            <option value="5">Mayo</option>
-                                            <option value="6">Junio</option>
-                                            <option value="7">Julio</option>
-                                            <option value="8">Agosto</option>
-                                            <option value="9">Septiembre</option>
-                                            <option value="10">Octubre</option>
-                                            <option value="11">Noviembre</option>
-                                            <option value="12">Diciembre</option>
-                                        </select>
-                                        <label for="selectMes" style="margin-top: 1vh;"><strong>Seleccionar mes</strong></label>
-                                    </div>
-                                    <div class="form-floating" style="width: 200px;">
-                                        <select class="form-select" id="selectSemana">
-                                            <option disabled selected hidden></option>
-                                            <option value="1">Semana 1</option>
-                                            <option value="2">Semana 2</option>
-                                            <option value="3">Semana 3</option>
-                                            <option value="4">Semana 4</option>
-                                        </select>
-                                        <label for="selectSemana" style="margin-top: 1vh;"><strong>Seleccionar semana</strong></label>
-                                    </div>
-                                    <div class="form-floating" style="width: 200px;">
-                                        <select class="form-select" id="selectBloque">
-                                            <option disabled selected hidden></option>
-                                            <option value="1">06:00-10:00</option>
-                                            <option value="2">10:00-14:00</option>
-                                            <option value="3">14:00-18:00</option>
-                                        </select>
-                                        <label for="selectBloque" style="margin-top: 1vh;"><strong>Seleccionar bloque</strong></label>
-                                    </div>
-                                    <button class="btn btn-primary" type="button" id="btnFiltrerCourse"><strong>Filtrar</strong></button>
+                        <div class="container d-flex align-items-center justify-content-center"
+                            id="filtrerContainerAsistHistory">
+                            <div class="d-flex align-items-center gap-3" style="width: 100%;">
+                                <div class="form-floating" style="width: 200px;">
+                                    <select class="form-select" id="selectMes">
+                                        <option disabled selected hidden></option>
+                                        <option value="1">Enero</option>
+                                        <option value="2">Febrero</option>
+                                        <option value="3">Marzo</option>
+                                        <option value="4">Abril</option>
+                                        <option value="5">Mayo</option>
+                                        <option value="6">Junio</option>
+                                        <option value="7">Julio</option>
+                                        <option value="8">Agosto</option>
+                                        <option value="9">Septiembre</option>
+                                        <option value="10">Octubre</option>
+                                        <option value="11">Noviembre</option>
+                                        <option value="12">Diciembre</option>
+                                    </select>
+                                    <label for="selectMes" style="margin-top: 1vh;"><strong>Seleccionar
+                                            mes</strong></label>
                                 </div>
+                                <div class="form-floating" style="width: 200px;">
+                                    <select class="form-select" id="selectSemana">
+                                        <option disabled selected hidden></option>
+                                        <option value="1">Semana 1</option>
+                                        <option value="2">Semana 2</option>
+                                        <option value="3">Semana 3</option>
+                                        <option value="4">Semana 4</option>
+                                    </select>
+                                    <label for="selectSemana" style="margin-top: 1vh;"><strong>Seleccionar
+                                            semana</strong></label>
+                                </div>
+                                <div class="form-floating" style="width: 200px;">
+                                    <select class="form-select" id="selectBloque">
+                                        <option disabled selected hidden></option>
+                                        <option value="1">06:00-10:00 "Mañana"</option>
+                                        <option value="2">10:00-14:00 "Mediodia"</option>
+                                        <option value="3">14:00-18:00 "Tarde"</option>
+                                    </select>
+                                    <label for="selectBloque" style="margin-top: 1vh;"><strong>Seleccionar
+                                            bloque</strong></label>
+                                </div>
+                                <button class="btn btn-primary" type="button"
+                                    id="btnFiltrerDayHistory"><strong>Filtrar</strong></button>
                             </div>
                         </div>
 
                         <div class="container d-flex flex-column mb-3 align-items-center justify-content-center"
-                            id="asistContainer" style="height: auto;">
-
-                            <div class="d-flex align-items-center mb-2" id="dayContentCard"
+                            id="historyContainer" style="height: auto;">
+                            <div class="d-flex align-items-center mb-2" id="dayContentCardHistory"
                                 style="width: 100%; max-width: 1100px;">
                                 <img src="../Resources/Img/CalendarIcon.png" alt="Imagen 1" class="imagen-sub-div"
                                     id="iconImg" style="width: 50px;">
@@ -561,7 +565,7 @@
                                     id="btnAsist"><strong>Asistido</strong></button>
                             </div>
 
-                            <div class="d-flex align-items-center mb-2" id="dayContentCard"
+                            <div class="d-flex align-items-center mb-2" id="dayContentCardHistory"
                                 style="width: 100%; max-width: 1100px;">
                                 <img src="../Resources/Img/CalendarIcon.png" alt="Imagen 1" class="imagen-sub-div"
                                     id="iconImg" style="width: 50px;">
@@ -573,7 +577,7 @@
                                     id="btnAsist"><strong>Asistido</strong></button>
                             </div>
 
-                            <div class="d-flex align-items-center mb-2" id="dayContentCard"
+                            <div class="d-flex align-items-center mb-2" id="dayContentCardHistory"
                                 style="width: 100%; max-width: 1100px;">
                                 <img src="../Resources/Img/CalendarIcon.png" alt="Imagen 1" class="imagen-sub-div"
                                     id="iconImg" style="width: 50px;">
@@ -585,7 +589,7 @@
                                     style="background-color: #fc0505;"><strong>Inasistido</strong></button>
                             </div>
 
-                            <div class="d-flex align-items-center mb-2" id="dayContentCard"
+                            <div class="d-flex align-items-center mb-2" id="dayContentCardHistory"
                                 style="width: 100%; max-width: 1100px;">
                                 <img src="../Resources/Img/CalendarIcon.png" alt="Imagen 1" class="imagen-sub-div"
                                     id="iconImg" style="width: 50px;">
@@ -597,7 +601,7 @@
                                     id="btnAsist"><strong>Asistido</strong></button>
                             </div>
 
-                            <div class="d-flex align-items-center mb-2" id="dayContentCard"
+                            <div class="d-flex align-items-center mb-2" id="dayContentCardHistory"
                                 style="width: 100%; max-width: 1100px;">
                                 <img src="../Resources/Img/CalendarIcon.png" alt="Imagen 1" class="imagen-sub-div"
                                     id="iconImg" style="width: 50px;">
@@ -613,15 +617,222 @@
 
                         </div>
 
-                        <div class="container d-flex flex-column mb-3 align-items-center justify-content-center"
-                            id="asistContainer" style="height: auto;">
-                            <button class="btn btn-primary" type="button" id="btnReport"><strong>Generar
-                                    reporte</strong></button>
+                    </div>
+
+                    <div class="modal-footer justify-content-center" style="width: 100%;">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="btnSaveData"><strong>Guardar cambios</strong></button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="btnSaveData"><strong>Generar reporte</strong></button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="btnCloseModal"><strong>Cerrar</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de ver notificación -->
+        <div class="modal fade" id="notificationModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="card-title" style="color: #00304D;">
+                            <strong>Estudiante en <span style="color: #39A900;">riesgo</span>:</strong>
+                        </h1>
+                    </div>
+                    <div class="modal-body">
+
+                        <div style="text-align: start; margin: 1vh; font-size: 20px;">
+                            <strong style="color: #00304D;">Bienestar al aprendiz:</strong>
+                            <p class="card-text">
+                                <small class="text-body-secondary" style="font-size: 15px;"><strong>Enviada 7 de
+                                        octubre
+                                        del 2024, 13:00</strong></small>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#sendMessageModal" id="btnreplyMessage">
+                            <strong>Responder notificación</strong>
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCloseModal">
+                            <strong>Cerrar</strong>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de advertencia de plan de mejoramiento -->
+        <div class="modal fade" id="warningFillUpModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content align-items-center">
+
+                    <div class="modal-body">
+
+                        <div class="container d-flex flex-column align-items-center justify-content-center mb-3"
+                            id="uploadContainer" style="height: auto; width: 60vh; text-align: center;">
+                            <div class="modal-body text-center">
+                                <img src="../Resources/Img/infoIcon.png" alt="" class="mb-3">
+                                <h1 id="modalMessageError">Este estudiante no cuenta con plan de seguimiento
+                                    actualmente. ¿<strong style="color: #39A900;">Deseas agendar uno nuevo</strong>?
+                                </h1>
+                            </div>
                         </div>
 
                     </div>
 
                     <div class="modal-footer justify-content-center" style="width: 100%;">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#uploadFillUpModal" id="btnSendFillUpPlan">
+                            <strong>Aceptar</strong>
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="btnCloseModal"><strong>Cancelar</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de subir plan de mejoramiento -->
+        <div class="modal fade" id="uploadFillUpModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content align-items-center">
+                    <div class="modal-header">
+                        <h1 class="card-title" style="color: #00304D;">
+                            <strong>Estas subiendo un <span style="color: #39A900;">plan de seguimiento</span>:</strong>
+                        </h1>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="container d-flex flex-column align-items-center justify-content-center mb-3"
+                            id="uploadContainer" style="height: auto; width: 60vh; text-align: center;">
+                            <!-- Aquí aseguramos que el contenedor esté centrado -->
+                            <form id="responseForm" style="width: 100%; max-width: 500px;">
+                                <!-- Campo para el título de la respuesta -->
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="titleInput"
+                                        placeholder="Escribe el título de tu plan de seguimiento" required>
+                                </div>
+
+                                <!-- Campo para la respuesta -->
+                                <div class="mb-3">
+                                    <textarea class="form-control" id="answerInput" rows="3"
+                                        placeholder="Escribe la argumentación del plan de seguimiento"
+                                        required></textarea>
+                                </div>
+
+                                <!-- Botón para subir documento -->
+                                <label for="fileUpload"
+                                    class="btn btn-primary align-items-center justify-content-center"
+                                    id="btnUploadFile">
+                                    <strong>Subir documento</strong>
+                                </label>
+                                <input type="file" id="fileUpload" style="display: none;">
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer justify-content-center" style="width: 100%;">
+                        <button type="button" class="btn btn-primary" id="btnSendFillUpPlan"><strong>Subir plan de
+                                seguimiento</strong></button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                            id="btnCloseModal"><strong>Cerrar</strong></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de ver plan de mejoramiento -->
+        <div class="modal fade" id="MoreDetaillFillUpModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="card-title" style="color: #00304D;">
+                            <strong>Estudiante en <span style="color: #39A900;">plan de mejoramiento</span>:</strong>
+                        </h1>
+                    </div>
+                    <div class="modal-body">
+
+                        <div style="text-align: start; margin: 1vh; font-size: 20px;">
+                            <strong style="color: #00304D;">Juan Pérez</strong>
+                            <p class="card-text">
+                                <small class="text-body-secondary" style="font-size: 15px;"><strong>Creado el 7 de
+                                        octubre
+                                        del 2024, 13:00</strong></small>
+                            </p>
+                        </div>
+
+                    </div>
+                    <div class="modal-footer justify-content-center">
+                        <button type="button" class="btn btn-primary" data-bs-toggle="modal"
+                            data-bs-target="#updateFillUpModal" id="btnreplyMessage">
+                            <strong>Actualizar plan de seguimiento</strong>
+                        </button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" id="btnCloseModal">
+                            <strong>Cerrar</strong>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Modal de actualizar plan de mejoramiento -->
+        <div class="modal fade" id="updateFillUpModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+            aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content align-items-center">
+                    <div class="modal-header">
+                        <h1 class="card-title" style="color: #00304D;">
+                            <strong>Estas actualizando un <span style="color: #39A900;">plan de
+                                    seguimiento</span>:</strong>
+                        </h1>
+                    </div>
+                    <div class="modal-body">
+
+                        <div class="container d-flex flex-column align-items-center justify-content-center mb-3"
+                            id="uploadContainer" style="height: auto; width: 60vh; text-align: center;">
+                            <!-- Aquí aseguramos que el contenedor esté centrado -->
+                            <form id="responseForm" style="width: 100%; max-width: 500px;">
+                                <!-- Campo para el título de la respuesta -->
+                                <div class="mb-3">
+                                    <input type="text" class="form-control" id="titleInput"
+                                        placeholder="Actualice el título de tu plan de seguimiento" required>
+                                </div>
+
+                                <!-- Campo para la respuesta -->
+                                <div class="mb-3">
+                                    <textarea class="form-control" id="answerInput" rows="3"
+                                        placeholder="Actualice la argumentación del plan de seguimiento"
+                                        required></textarea>
+                                </div>
+
+                                <!-- Botón para subir documento -->
+                                <label for="fileUpload"
+                                    class="btn btn-primary align-items-center justify-content-center"
+                                    id="btnUploadFile">
+                                    <strong>Subir documento</strong>
+                                </label>
+                                <input type="file" id="fileUpload" style="display: none;">
+                            </form>
+
+                        </div>
+
+                    </div>
+
+                    <div class="modal-footer justify-content-center" style="width: 100%;">
+                        <button type="button" class="btn btn-primary" id="btnSendFillUpPlan"><strong>Subir plan de
+                                seguimiento</strong></button>
+                        <button type="button" class="btn btn-primary" id="btnSendFillUpPlan"><strong>Actualizar plan de
+                                seguimiento</strong></button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                             id="btnCloseModal"><strong>Cerrar</strong></button>
                     </div>
@@ -639,6 +850,7 @@
                                     asistencia</span>:</strong>
                         </h1>
                     </div>
+
                     <div class="modal-body">
 
                         <div class="container d-flex flex-column mb-3 align-items-center justify-content-center"
@@ -672,11 +884,9 @@
     </template>
 
     <!-- Scripts -->
-    <script src="./View/Vista.js"></script>
+    <script src="./View/Vista.js">  </script>
     <script src="./Model/Modelo.js"></script>
     <script src="./Controller/Controlador.js"></script>
-
-
 
     <script>
         document.addEventListener('DOMContentLoaded', function () {

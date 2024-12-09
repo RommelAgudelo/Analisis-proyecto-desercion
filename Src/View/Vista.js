@@ -84,7 +84,7 @@ class Vista {
             <img src="../Resources/Img/FolderIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
             <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">Ficha ${dato.numero}</strong>
             <div class="flex-grow-1"></div>
-            <button type="button" class="btn btn-primary" id="btnSelectReport">
+            <button type="button" class="btn btn-primary" id="btnGenerateReport">
                 <strong>Seleccionar</strong>
             </button>
         </div>`;
@@ -116,14 +116,14 @@ class Vista {
 
     renderizarseguimientoEstudiante(dato) {
         return `
-        <div class="d-flex align-items-center mb-2" id="contentCardStudentTracking" style="width: 100%; max-width: 1100px;">
-            <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">${dato.nombre}</strong>
-            <div class="flex-grow-1"></div>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#seguimientoModal" id="btnSeguimientoEstudiante">
-                <strong>Ver plan de seguimiento</strong>
-            </button>
-        </div>`;
+            <div class="d-flex align-items-center mb-2" id="contentCardStudentTracking" style="width: 100%; max-width: 1100px;">
+                <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
+                <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">${dato.nombre}</strong>
+                <div class="flex-grow-1"></div>
+                <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#warningFillUpModal" id="btnSeguimientoEstudiante">
+                    <strong>Ver plan de seguimiento</strong>
+                </button>
+            </div>`;
     }
 
     renderizarNotificacion(dato) {
@@ -180,6 +180,30 @@ class Vista {
         </div>`;
     }
 
+    renderizarDiaAsistencia(dato) {
+        return `
+        <div class="d-flex align-items-center mb-2" id="dayContentCard" 
+            data-mes="${dato.mes}" 
+            data-semana="${dato.semana}" 
+            data-bloque="${dato.bloque}"
+            style="width: 100%; max-width: 1100px;">
+            <img src="../Resources/Img/CalendarIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg" style="width: 50px;">
+            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">${dato.dia} ${dato.numero}</strong>
+            <div class="flex-grow-1"></div>
+            <div class="form-floating" style="width: 200px;">
+                <select class="form-select" id="selectAsistencia">
+                    <option disabled selected hidden></option>
+                    <option value="1">Asistido</option>
+                    <option value="2">No asistido</option>
+                    <option value="3">Justificado</option>
+                </select>
+                <label for="selectAsistencia" style="margin-top: 1vh;">
+                    <strong>Marcar asistencia</strong>
+                </label>
+            </div>
+        </div>`;
+    }
+
     cargarTemplate(templateId, datos) {
 
         // Guardar el último template usado
@@ -197,6 +221,35 @@ class Vista {
                 </div>`;
             return;
         }
+
+        // Condición para renderizar días de asistencia
+        if (templateId === 'dinamicCardDaysAttendance') {
+            this.dynamicContentContainer.innerHTML = '';
+
+            datos.forEach(dia => {
+                this.dynamicContentContainer.innerHTML += this.renderizarDiaAsistencia(dia);
+            });
+            return;
+        }
+
+        if (templateId === 'dinamicCardHistoryAttendance') {
+            this.dynamicContentContainer.innerHTML = '';
+
+            datos.forEach(dato => {
+                const tarjetaEstudiante = `
+                <div class="d-flex align-items-center mb-2" style="width: 100%; max-width: 1100px;">
+                    <strong style="color: #00304D; font-size: 20px;">${dato.nombre}</strong>
+                    <div class="flex-grow-1"></div>
+                    <button class="btn btn-primary ver-detalle-asistencia" data-nombre="${dato.nombre}">
+                        Ver Detalles
+                    </button>
+                </div>`;
+                this.dynamicContentContainer.innerHTML += tarjetaEstudiante;
+            });
+
+            this.agregarEventosVerDetalles();
+        }
+
 
         let contenidoHTML = '';
 
@@ -246,6 +299,22 @@ class Vista {
         this.dynamicContentContainer.innerHTML = contenidoHTML;
     }
 
+    agregarEventosVerDetalles() {
+        const botonesDetalle = document.querySelectorAll('.ver-detalle-asistencia');
+        botonesDetalle.forEach(boton => {
+            boton.addEventListener('click', (e) => {
+                const nombreEstudiante = e.target.getAttribute('data-nombre');
+
+                const historyModal = new bootstrap.Modal(document.getElementById('historyAsistModal'));
+                historyModal.show();
+
+                const evento = new CustomEvent('mostrarAsistenciaEstudiante', {
+                    detail: { nombre: nombreEstudiante }
+                });
+                document.dispatchEvent(evento);
+            });
+        });
+    }
 }
 
 // Hacer DOM esté completamente cargado
