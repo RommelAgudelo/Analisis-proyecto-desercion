@@ -90,18 +90,6 @@ class Vista {
         </div>`;
     }
 
-    renderizargenerareporteestudiante(dato) {
-        return `
-        <div class="d-flex align-items-center mb-2" id="contentCardGenerateReportStudent" style="width: 100%; max-width: 1100px;">
-            <img src="../Resources/Img/UserIcon.png" alt="Imagen 1" class="imagen-sub-div" id="iconImg">
-            <strong style="color: #00304D; font-size: 30px; margin-left: 2vh;">${dato.nombre}</strong>
-            <div class="flex-grow-1"></div>
-            <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#reportModal" id="btnGenerateReport">
-                <strong>Generar reporte</strong>
-            </button>
-        </div>`;
-    }
-
     renderizarseguimientoficha(dato) {
         return `
         <div class="d-flex align-items-center mb-2" id="contentCardCourseTracking" style="width: 100%; max-width: 1100px;">

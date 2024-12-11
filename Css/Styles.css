@@ -55,6 +55,7 @@ body {
 #btnLogin,
 #btnCloseModal,
 #btnSaveData,
+#btnSaveIndividualReport,
 #btnreplyMessage,
 #btnSendMessage, #btnSendFillUpPlan,
 #btnDownload {
@@ -119,6 +120,7 @@ body {
 #btnLogin:hover,
 #btnCloseModal:hover,
 #btnSaveData:hover,
+#btnSaveIndividualReport:hover,
 #btnreplyMessage:hover,
 #btnSendMessage:hover,
 #btnSendFillUpPlan:hover,
@@ -296,7 +298,7 @@ svg {
     margin-top: 1vh;
 }
 
-#asistContainer, #historyContainer {
+#asistContainer, #historyDayContainer {
     width: 100%;
     display: flex;
     flex-direction: column;
@@ -306,7 +308,7 @@ svg {
 }
 
 
-#dayContentCard, #dayContentCardHistory {
+#dayContentCard, #HistoryDayContentCard {
     width: 100%;
     max-width: 1100px;
     border-radius: 20px;
@@ -316,13 +318,12 @@ svg {
     height: auto;
 }
 
-#btnAsist {
+#btnHistoryAsist{
     width: 35%;
     margin-right: 0.5vh;
     font-family: "Work Sans", sans-serif;
     font-size: 20px;
     align-items: center;
-    background-color: #39a900;
     border-color: #ff583300;
     border-radius: 20px;
 }
@@ -401,7 +402,7 @@ svg {
     margin-top: 0vh;
 }
 
-#asistContainer, #historyContainer{
+#asistContainer, #historyDayContainer{
     width: 100%;
     padding: 10px;
     height: 8vh;
@@ -413,7 +414,7 @@ svg {
     gap: 10px;
 }
 
-#asistContaine, #historyContainer {
+#asistContaine, #historyDayContainer {
     margin-top: 1vh;
 }
 

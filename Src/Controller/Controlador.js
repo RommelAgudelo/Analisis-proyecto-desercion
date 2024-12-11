@@ -134,10 +134,19 @@ class Controlador {
             }
         });
 
-        // Evento que abre el pdf de reporte estudiante
+        // Evento que abre el pdf de reporte de ficha
         document.getElementById('dynamicContentContainer').addEventListener('click', (e) => {
             // Manejar el botón de generar reporte de estudiante
             if (e.target.closest('#btnGenerateReport')) {
+                // Abre el PDF
+                window.open('../Resources/Documents/StudentReport.pdf', '_blank');
+            }
+        });
+
+        //Evento que abre el pdf de reporte individual de estudiante
+        document.getElementById('historyAsistModal').addEventListener('click', (e) => {
+            // Manejar el botón de generar reporte de estudiante   
+            if (e.target.closest('#btnSaveIndividualReport')) {
                 // Abre el PDF
                 window.open('../Resources/Documents/StudentReport.pdf', '_blank');
             }
