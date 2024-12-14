@@ -192,6 +192,62 @@ class Vista {
         </div>`;
     }
 
+    renderizarHistorialDiaAsistencia(dia) {
+        // Crear el contenedor principal de la tarjeta
+        const tarjetaDia = document.createElement('div');
+        tarjetaDia.className = 'd-flex align-items-center mb-2';
+        tarjetaDia.style.width = '100%';
+        tarjetaDia.style.maxWidth = '1100px';
+        tarjetaDia.id = 'HistoryDayContentCard'; // Asegúrate de que tenga este ID
+    
+        // Crear ícono de calendario
+        const iconoCalendario = document.createElement('img');
+        iconoCalendario.src = '../Resources/Img/CalendarIcon.png';
+        iconoCalendario.alt = 'Imagen de calendario';
+        iconoCalendario.className = 'imagen-sub-div';
+        iconoCalendario.style.width = '50px';
+        iconoCalendario.id = 'iconImg';
+    
+        // Crear texto del día
+        const textoDia = document.createElement('strong');
+        textoDia.textContent = `${dia.dia} ${dia.numero}`;
+        textoDia.style.color = '#00304D';
+        textoDia.style.fontSize = '30px';
+        textoDia.style.marginLeft = '2vh';
+    
+        // Crear espacio flexible
+        const espacioFlexible = document.createElement('div');
+        espacioFlexible.className = 'flex-grow-1';
+    
+        // Crear botón de estado
+        const botonEstado = document.createElement('button');
+        botonEstado.className = 'btn btn-primary';
+        botonEstado.type = 'button';
+        botonEstado.id = 'btnHistoryAsist';
+        botonEstado.innerHTML = `<strong>${dia.estado}</strong>`;
+    
+        // Establecer color según el estado
+        switch(dia.estado) {
+            case 'Asistido':
+                botonEstado.style.backgroundColor = ''; // Color predeterminado de Bootstrap
+                break;
+            case 'No asistido':
+                botonEstado.style.backgroundColor = '#fc0505';
+                break;
+            case 'Justificado':
+                botonEstado.style.backgroundColor = '#f6c307';
+                break;
+        }
+    
+        // Ensamblar la tarjeta
+        tarjetaDia.appendChild(iconoCalendario);
+        tarjetaDia.appendChild(textoDia);
+        tarjetaDia.appendChild(espacioFlexible);
+        tarjetaDia.appendChild(botonEstado);
+    
+        return tarjetaDia;
+    }    
+
     cargarTemplate(templateId, datos) {
 
         // Guardar el último template usado

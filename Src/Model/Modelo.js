@@ -72,6 +72,7 @@ class Modelo {
                     { nombre: "Pedro Rodríguez", ficha: "2823218" }
                 ]
             },
+
             generareporte: {
                 titulo: 'Centro de <span style="color: #39A900;">Generar reporte</span>',
                 subtitulo: '<style= font-size:14.5px;>Seleccione una ficha para generar reporte:</strong>',
@@ -244,7 +245,6 @@ class Modelo {
         this.historialAsistencia = [
             { 
                 nombre: "Juan Pérez", 
-                documento: "1234567",
                 diasAsistencia: [
                     { dia: "Lunes", numero: 1, mes: 1, semana: 1, bloque: 1, estado: "Asistido" },
                     { dia: "Martes", numero: 2, mes: 1, semana: 1, bloque: 2, estado: "No asistido" },
@@ -267,7 +267,6 @@ class Modelo {
             },
             { 
                 nombre: "María González", 
-                documento: "7654321",
                 diasAsistencia: [
                     { dia: "Lunes", numero: 4, mes: 1, semana: 2, bloque: 1, estado: "Asistido" },
                     { dia: "Martes", numero: 5, mes: 1, semana: 2, bloque: 2, estado: "Asistido" },
@@ -287,7 +286,6 @@ class Modelo {
             },
             { 
                 nombre: "Carlos Rodríguez", 
-                documento: "9876543",
                 diasAsistencia: [
                     { dia: "Lunes", numero: 1, mes: 1, semana: 1, bloque: 1, estado: "Asistido" },
                     { dia: "Martes", numero: 2, mes: 1, semana: 1, bloque: 2, estado: "Asistido" },
@@ -308,9 +306,8 @@ class Modelo {
     
     }
 
-    obtenerDiasAsistenciaPorEstudiante(nombreEstudiante) {
+    obtenerHistorialAsistenciaEstudiante(nombreEstudiante) {
         const estudiante = this.historialAsistencia.find(est => est.nombre === nombreEstudiante);
-        console.log("Datos estudiante:", estudiante); // Añade este log
         return estudiante ? estudiante.diasAsistencia : [];
     }
 
@@ -323,7 +320,3 @@ class Modelo {
         return estudiante ? estudiante.diasAsistencia : [];
     }
 }
-
-const modelo = new Modelo();
-const vista = new Vista();
-const controlador = new Controlador(modelo, vista);

@@ -6,6 +6,7 @@ class Controlador {
         this.modelo = modelo;
         this.vista = vista;
         this.vistaActual = null;
+        this.estudianteActualModal = null;
         this.inicializarEventos();
         this.inicializarEventosDinamicos();
         this.inicializarFiltroAsistencia();
@@ -40,6 +41,7 @@ class Controlador {
             const nombreEstudiante = event.detail.nombre;
             this.prepararModalAsistencia(nombreEstudiante);
         });
+
     }
 
     inicializarEventosDinamicos() {
@@ -109,7 +111,24 @@ class Controlador {
                 const estudianteContainer = e.target.closest('#contentCardStudentTracking');
                 if (estudianteContainer) {
                     const nombreEstudiante = estudianteContainer.querySelector('strong').textContent;
-                    this.manejarModalDeSeguimiento(nombreEstudiante);
+
+                    // Imprimir en consola para depuración
+                    console.log('Estudiante seleccionado:', nombreEstudiante);
+
+                    // Verificar si el estudiante tiene plan de seguimiento
+                    const estudiante = this.modelo.seguimientoestudiante.datos.find(
+                        est => est.nombre.trim() === nombreEstudiante.trim()
+                    );
+
+                    console.log('Datos del estudiante:', estudiante);
+
+                    if (estudiante && estudiante.tienePlan) {
+                        // Mostrar modal de detalles del plan
+                        this.mostrarModalPlanSeguimiento(nombreEstudiante);
+                    } else {
+                        // Mostrar modal de advertencia
+                        this.mostrarModalAdvertenciaPlan(nombreEstudiante);
+                    }
                 }
             }
         });
@@ -168,63 +187,131 @@ class Controlador {
         }
     }
 
-    // Función para manejar la lógica de apertura de los modales
-    manejarModalDeSeguimiento(nombreEstudiante) {
-        // Cerrar cualquier modal abierto previamente
-        this.cerrarTodosLosModales();
+    // Método para preparar el modal de asistencia
+    prepararModalAsistencia(nombreEstudiante) {
+        // Guardar el nombre del estudiante actual
+        this.estudianteActualModal = nombreEstudiante;
 
-        // Buscar el estudiante en los datos del modelo
-        const estudiante = this.modelo.seguimientoestudiante.datos.find(est => est.nombre === nombreEstudiante);
+        // Limpiar selecciones previas
+        document.getElementById('selectMes').selectedIndex = 0;
+        document.getElementById('selectSemana').selectedIndex = 0;
+        document.getElementById('selectBloque').selectedIndex = 0;
 
-        if (estudiante) {
-            if (estudiante.tienePlan) {
-                // Si tiene un plan, mostrar el modal con los detalles
-                this.mostrarModalDeDetalles(estudiante);
-            } else {
-                // Si no tiene un plan, mostrar el modal de advertencia
-                this.mostrarModalDeAdvertencia();
-            }
-        } else {
-            console.error("Estudiante no encontrado:", nombreEstudiante);
-        }
+        // Obtener historial de asistencia del estudiante
+        const historialAsistencia = this.modelo.obtenerHistorialAsistenciaEstudiante(nombreEstudiante);
+
+        // Renderizar todos los días de asistencia inicialmente
+        this.renderizarDiasAsistenciaHistorial(historialAsistencia);
     }
 
-    // Cerrar todos los modales abiertos
-    cerrarTodosLosModales() {
-        const modalesAbiertos = document.querySelectorAll('.modal.show');
-        modalesAbiertos.forEach(modal => {
-            const bsModal = bootstrap.Modal.getInstance(modal);
-            bsModal.hide();  // Cerrar el modal usando Bootstrap Modal API
+    // Método para filtrar el historial de asistencia en el modal
+    filtrarHistorialAsistenciaModal() {
+        // Verificar que haya un estudiante seleccionado
+        if (!this.estudianteActualModal) {
+            console.error('No se ha seleccionado un estudiante');
+            return;
+        }
+
+        // Obtener valores de filtros
+        const mesSel = document.getElementById('selectMes').value;
+        const semanaSel = document.getElementById('selectSemana').value;
+        const bloqueSel = document.getElementById('selectBloque').value;
+
+        // Obtener el historial de asistencia del estudiante
+        const historialEstudiante = this.modelo.obtenerHistorialAsistenciaEstudiante(this.estudianteActualModal);
+
+        // Filtrar días de asistencia
+        const diasFiltrados = historialEstudiante.filter(dia => {
+            const mesCoincide = !mesSel || dia.mes === parseInt(mesSel);
+            const semanaCoincide = !semanaSel || dia.semana === parseInt(semanaSel);
+            const bloqueCoincide = !bloqueSel || dia.bloque === parseInt(bloqueSel);
+
+            return mesCoincide && semanaCoincide && bloqueCoincide;
+        });
+
+        // Renderizar días filtrados en el historial
+        this.renderizarDiasAsistenciaHistorial(diasFiltrados);
+    }
+
+    // Método para renderizar los días de asistencia en el historial
+    renderizarDiasAsistenciaHistorial(diasAsistencia) {
+        const historyContainer = document.getElementById('historyContainer');
+        historyContainer.innerHTML = ''; // Limpiar contenedor
+
+        diasAsistencia.forEach(dia => {
+            // Utilizar el método de la vista para crear la tarjeta
+            const tarjetaDia = this.vista.renderizarHistorialDiaAsistencia(dia);
+            historyContainer.appendChild(tarjetaDia);
         });
     }
 
-    // Mostrar el modal de detalles de seguimiento
-    mostrarModalDeDetalles(estudiante) {
-        const modal = new bootstrap.Modal(document.getElementById('MoreDetaillFillUpModal'));
+    prepararModalAsistencia(nombreEstudiante) {
+        // Guardar el nombre del estudiante actual
+        this.estudianteActualModal = nombreEstudiante;
 
-        // Personalizar el contenido del modal con los detalles del estudiante
-        document.querySelector('#MoreDetaillFillUpModal .modal-body').innerHTML = `
-        <div style="text-align: start; margin: 1vh; font-size: 20px;">
-            <strong style="color: #00304D;">${estudiante.nombre}</strong>
-            <p class="card-text">
-                <small class="text-body-secondary" style="font-size: 15px;">
-                    <strong>Creado el 7 de octubre del 2024, 13:00</strong>
-                </small>
-            </p>
-            <p>
-                <small>El estudiante ${estudiante.nombre} ha sido identificado con un bajo rendimiento en cuanto a asistencias académicas. Se propone un plan de seguimiento para mejorar su rendimiento en asistencias.</small>
-            </p>
-        </div>
-    `;
-        modal.show();
+        // Limpiar selecciones previas
+        document.getElementById('selectMes').selectedIndex = 0;
+        document.getElementById('selectSemana').selectedIndex = 0;
+        document.getElementById('selectBloque').selectedIndex = 0;
+
+        // Obtener historial de asistencia del estudiante
+        const historialAsistencia = this.modelo.obtenerHistorialAsistenciaEstudiante(nombreEstudiante);
+
+        // Renderizar todos los días de asistencia inicialmente
+        this.renderizarDiasAsistenciaHistorial(historialAsistencia);
     }
 
-    // Mostrar el modal de advertencia
-    mostrarModalDeAdvertencia() {
-        const modal = new bootstrap.Modal(document.getElementById('warningFillUpModal'));
-        modal.show();
-    }
+    mostrarModalPlanSeguimiento(nombreEstudiante) {
+        const modalDetalles = document.getElementById('MoreDetaillFillUpModal');
+        const modalAdvertencia = document.getElementById('warningFillUpModal');
 
+        if (!modalDetalles || !modalAdvertencia) {
+            console.error('Uno de los modales no fue encontrado');
+            return;
+        }
+
+        // Buscar el estudiante en el modelo
+        const estudiante = this.modelo.seguimientoestudiante.datos.find(
+            est => est.nombre.trim() === nombreEstudiante.trim()
+        );
+
+        if (estudiante && estudiante.tienePlan) {
+            // Actualizar elementos del modal
+            document.getElementById('nombreEstudiantePlan').textContent = nombreEstudiante;
+            document.getElementById('fechaPlan').textContent = 'Creado el 7 de octubre del 2024, 13:00';
+            document.getElementById('descripcionPlan').innerHTML = `
+            Se ha iniciado un plan de mejoramiento para abordar las dificultades académicas del estudiante 
+            ${nombreEstudiante}. Este plan tiene como objetivo proporcionar apoyo adicional y estrategias 
+            para superar los desafíos actuales en su proceso de aprendizaje y desarrollo académico.
+        `;
+
+            if (window.bootstrap && window.bootstrap.Modal) {
+                const modalAdv = bootstrap.Modal.getInstance(modalAdvertencia);
+                if (modalAdv) modalAdv.hide();
+
+                const modal = new bootstrap.Modal(modalDetalles);
+                modal.show();
+            } else {
+                console.error('Bootstrap Modal no está definido');
+            }
+        } else {
+            // Lógica para mostrar modal de advertencia
+            const mensajeElemento = modalAdvertencia.querySelector('#modalMessageError');
+            if (mensajeElemento) {
+                mensajeElemento.innerHTML = `Este estudiante <strong style="color: #39A900;">${nombreEstudiante}</strong> no cuenta con plan de seguimiento actualmente. ¿<strong style="color: #39A900;">Deseas agendar uno nuevo</strong>?`;
+            }
+
+            if (window.bootstrap && window.bootstrap.Modal) {
+                const modalDet = bootstrap.Modal.getInstance(modalDetalles);
+                if (modalDet) modalDet.hide();
+
+                const modal = new bootstrap.Modal(modalAdvertencia);
+                modal.show();
+            } else {
+                console.error('Bootstrap Modal no está definido');
+            }
+        }
+    }
 
     inicializarFiltroAsistencia() {
         const btnFiltrar = document.getElementById('btnFiltrerCourse');
@@ -270,16 +357,6 @@ class Controlador {
         diasAsistencia.forEach(dia => {
             const tarjetaDia = this.vista.renderizarDiaAsistencia(dia);
             asistContainer.innerHTML += tarjetaDia;
-        });
-    }
-
-    renderizarDiasAsistencia(diasAsistencia) {
-        const historyContainer = document.getElementById('historyContainer');
-        historyContainer.innerHTML = '';
-
-        diasAsistencia.forEach(dia => {
-            const tarjetaDia = this.vista.renderizarHistorialDiaAsistencia(dia);
-            historyContainer.innerHTML += tarjetaDia;
         });
     }
 
